@@ -1,61 +1,51 @@
 <?php
 
 require_once '../config/database.php';
+require_once '../models/Simulado.php';
+require_once '../middlewares/AuthMiddleware.php';
 
-class Simulado {
+$simulado = new Simulado($pdo);
 
-    private $pdo;
+// Pega o ID da URL ex: /simulados/1
+$partes = explode('/', $uri);
+$id = isset($partes[2]) ? $partes[2] : null;
 
-    public function __construct($pdo) {
-        $this->pdo = $pdo;
+// ==========================================
+// GET /simulados → listar todos os simulados
+// ==========================================
+if ($method === 'GET' && $id === null) {
+    $simulados = $simulado->listarTodos();
+    echo json_encode($simulados);
+
+// ==========================================
+// GET /simulados/:id → abrir um simulado
+// ==========================================
+} elseif ($method === 'GET' && $id !== null) {
+    $resultado = $simulado->buscarPorId($id);
+
+    if (!$resultado) {
+        http_response_code(404);
+        echo json_encode(["erro" => "Simulado não encontrado"]);
+        exit;
     }
 
-    // Listar todos os simulados
-    public function listarTodos() {
-        $stmt = $this->pdo->query("SELECT * FROM simulado ORDER BY dt_cria DESC");
-        return $stmt->fetchAll();
-    }
+    // Busca as questões do simulado também
+    $questoes = $simulado->buscarQuestoes($id);
+    $resultado['questoes'] = $questoes;
 
-    // Buscar um simulado pelo ID
-    public function buscarPorId($id) {
-        $stmt = $this->pdo->prepare("SELECT * FROM simulado WHERE id_simulado = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch();
-    }
+    echo json_encode($resultado);
 
-    // Buscar questões do simulado
-    public function buscarQuestoes($id_simulado) {
-        $stmt = $this->pdo->prepare("
-            SELECT q.* FROM questao q
-            INNER JOIN sim_quest sq ON sq.id_quest = q.id_quest
-            WHERE sq.id_simulado = ?
-        ");
-        $stmt->execute([$id_simulado]);
-        return $stmt->fetchAll();
-    }
+// ==========================================
+// POST /simulados/:id/entregar → entregar simulado
+// ==========================================
+} elseif ($method === 'POST' && isset($partes[3]) && $partes[3] === 'entregar') {
+    $body = json_decode(file_get_contents('php://input'), true);
+    echo json_encode(["mensagem" => "Simulado entregue com sucesso!"]);
 
-    // Criar um novo simulado
-    public function criar($titulo, $tempo_limite) {
-        $stmt = $this->pdo->prepare("
-            INSERT INTO simulado (titulo_sim, tempo_limite)
-            VALUES (?, ?)
-        ");
-        $stmt->execute([$titulo, $tempo_limite]);
-        return $this->pdo->lastInsertId();
-    }
-
-    // Atualizar um simulado
-    public function atualizar($id, $titulo, $tempo_limite) {
-        $stmt = $this->pdo->prepare("
-            UPDATE simulado SET titulo_sim = ?, tempo_limite = ?
-            WHERE id_simulado = ?
-        ");
-        return $stmt->execute([$titulo, $tempo_limite, $id]);
-    }
-
-    // Deletar um simulado
-    public function deletar($id) {
-        $stmt = $this->pdo->prepare("DELETE FROM simulado WHERE id_simulado = ?");
-        return $stmt->execute([$id]);
-    }
+// ==========================================
+// Método não permitido
+// ==========================================
+} else {
+    http_response_code(405);
+    echo json_encode(["erro" => "Método não permitido"]);
 }

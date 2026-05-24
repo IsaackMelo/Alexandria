@@ -1,27 +1,21 @@
+# Arquivo com senha do banco de dados
+config/database.php
 
-database.php
-.env
-*.env
+# Dependências do PHP (instaladas pelo Composer)
+vendor/
 
-/vendor/
+# Arquivos de sistema do Mac
+.DS_Store
 
+# Arquivos de sistema do Windows
+Thumbs.db
 
-.DS_Store        # Mac
-Thumbs.db        # Windows
-desktop.ini      # Windows
-
-
+# Logs de erro
 *.log
+
+# Arquivos de cache
 *.cache
-/tmp/
-/cache/
-/logs/
 
-
+# Editores de código (configurações locais)
 .vscode/
-.idea/
-*.suo
-*.user
-
-
-/uploads/
+.idea/X
