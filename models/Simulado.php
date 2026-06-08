@@ -1,7 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-
 class Simulado {
 
     private $pdo;
@@ -23,10 +21,23 @@ class Simulado {
         return $stmt->fetch();
     }
 
-    // Buscar questões do simulado
+    // Buscar questões do simulado sem o gabarito (para exibir ao usuário)
     public function buscarQuestoes($id_simulado) {
         $stmt = $this->pdo->prepare("
-            SELECT q.* FROM questao q
+            SELECT q.id_quest, q.enunciado, q.origem_quest, q.nivel_dificuldade
+            FROM questao q
+            INNER JOIN sim_quest sq ON sq.id_quest = q.id_quest
+            WHERE sq.id_simulado = ?
+        ");
+        $stmt->execute([$id_simulado]);
+        return $stmt->fetchAll();
+    }
+
+    // Buscar questões com gabarito (para corrigir o simulado)
+    public function buscarQuestoesComGabarito($id_simulado) {
+        $stmt = $this->pdo->prepare("
+            SELECT q.id_quest, q.alt_correta
+            FROM questao q
             INNER JOIN sim_quest sq ON sq.id_quest = q.id_quest
             WHERE sq.id_simulado = ?
         ");
