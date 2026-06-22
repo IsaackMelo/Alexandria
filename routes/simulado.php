@@ -16,7 +16,7 @@ if ($method === 'GET' && $id === null) {
 } elseif ($method === 'GET' && $id !== null) {
     $controller->buscar($id);
 
-// entrega o simulado
+// entrega simulado
 } elseif ($method === 'POST' && isset($partes[3]) && $partes[3] === 'entregar') {
     $controller->entregar($id);
 
