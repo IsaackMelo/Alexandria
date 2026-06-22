@@ -38,7 +38,6 @@ class SimuladoController {
             return;
         }
 
-        // Busca as questões sem o gabarito
         $simulado['questoes'] = $this->simulado->buscarQuestoes($id);
 
         echo json_encode($simulado);
@@ -63,17 +62,14 @@ class SimuladoController {
             return;
         }
 
-        // Busca o gabarito
         $gabarito = $this->simulado->buscarQuestoesComGabarito($id);
 
-        // Verifica se o simulado tem questões
         if (empty($gabarito)) {
             http_response_code(400);
             echo json_encode(["erro" => "Este simulado não possui questões"]);
             return;
         }
 
-        // Verifica se o usuário já entregou esse simulado
         $jaEntregou = $this->resultado->buscarPorUsuarioESimulado($usuario['id'], $id);
         if ($jaEntregou) {
             http_response_code(400);
@@ -81,26 +77,47 @@ class SimuladoController {
             return;
         }
 
-        // Calcula o número de acertos
+        // Monta o gabarito em array indexado por id_quest para otimizar
+        $gabaritoIndexado = [];
+        foreach ($gabarito as $questao) {
+            $gabaritoIndexado[$questao['id_quest']] = $questao['alt_correta'];
+        }
+
+        // Calcula acertos e prepara respostas
         $acertos = 0;
         foreach ($body['respostas'] as $resposta) {
-            foreach ($gabarito as $questao) {
-                if (
-                    $questao['id_quest'] == $resposta['id_quest'] &&
-                    strtoupper($questao['alt_correta']) === strtoupper($resposta['alt_escolhida'])
-                ) {
+            $id_quest     = $resposta['id_quest'];
+            $alt_escolhida = strtoupper($resposta['alt_escolhida']);
+
+            if (isset($gabaritoIndexado[$id_quest])) {
+                if (strtoupper($gabaritoIndexado[$id_quest]) === $alt_escolhida) {
                     $acertos++;
                 }
             }
         }
 
         // Salva o resultado no banco
-        $this->resultado->salvar($acertos, $usuario['id'], $id);
+        $id_resultado = (int) $this->resultado->salvar($acertos, $usuario['id'], $id);
+
+        // Salva cada resposta individual
+        foreach ($body['respostas'] as $resposta) {
+            $id_quest      = $resposta['id_quest'];
+            $alt_escolhida = strtoupper($resposta['alt_escolhida']);
+            $acertou       = isset($gabaritoIndexado[$id_quest]) && strtoupper($gabaritoIndexado[$id_quest]) === $alt_escolhida ? 1 : 0;
+
+            $this->resultado->salvarResposta(
+                $id_resultado,
+                $id_quest,
+                $alt_escolhida,
+                $acertou
+            );
+        }
 
         echo json_encode([
-            "mensagem" => "Simulado entregue com sucesso!",
-            "acertos"  => $acertos,
-            "total"    => count($gabarito)
+            "mensagem"     => "Simulado entregue com sucesso!",
+            "id_resultado" => $id_resultado,
+            "acertos"      => $acertos,
+            "total"        => count($gabarito)
         ]);
     }
 }

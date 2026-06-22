@@ -1,40 +1,24 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Simulado.php';
-require_once '../middlewares/AuthMiddleware.php';
+require_once '../controllers/SimuladoController.php';
 
-$simulado = new Simulado($pdo);
+$controller = new SimuladoController($pdo);
 
 // Pega o ID da URL ex: /simulados/1
 $partes = explode('/', $uri);
 $id = isset($partes[2]) ? $partes[2] : null;
 
-// listar todos os simulados
+// lista todos os simulados
 if ($method === 'GET' && $id === null) {
-    $simulados = $simulado->listarTodos();
-    echo json_encode($simulados);
+    $controller->listar();
 
-// abrir um simulado
+// abre um simulado
 } elseif ($method === 'GET' && $id !== null) {
-    $resultado = $simulado->buscarPorId($id);
+    $controller->buscar($id);
 
-    if (!$resultado) {
-        http_response_code(404);
-        echo json_encode(["erro" => "Simulado não encontrado"]);
-        exit;
-    }
-
-    // Busca as questões do simulado também
-    $questoes = $simulado->buscarQuestoes($id);
-    $resultado['questoes'] = $questoes;
-
-    echo json_encode($resultado);
-
-// entregar simulado
+// entrega simulado
 } elseif ($method === 'POST' && isset($partes[3]) && $partes[3] === 'entregar') {
-    $body = json_decode(file_get_contents('php://input'), true);
-    echo json_encode(["mensagem" => "Simulado entregue com sucesso!"]);
+    $controller->entregar($id);
 
 // Método não permitido
 } else {
