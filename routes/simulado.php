@@ -10,16 +10,12 @@ $simulado = new Simulado($pdo);
 $partes = explode('/', $uri);
 $id = isset($partes[2]) ? $partes[2] : null;
 
-// ==========================================
-// GET /simulados → listar todos os simulados
-// ==========================================
+// listar todos os simulados
 if ($method === 'GET' && $id === null) {
     $simulados = $simulado->listarTodos();
     echo json_encode($simulados);
 
-// ==========================================
-// GET /simulados/:id → abrir um simulado
-// ==========================================
+// abrir um simulado
 } elseif ($method === 'GET' && $id !== null) {
     $resultado = $simulado->buscarPorId($id);
 
@@ -35,16 +31,12 @@ if ($method === 'GET' && $id === null) {
 
     echo json_encode($resultado);
 
-// ==========================================
-// POST /simulados/:id/entregar → entregar simulado
-// ==========================================
+// entregar simulado
 } elseif ($method === 'POST' && isset($partes[3]) && $partes[3] === 'entregar') {
     $body = json_decode(file_get_contents('php://input'), true);
     echo json_encode(["mensagem" => "Simulado entregue com sucesso!"]);
 
-// ==========================================
 // Método não permitido
-// ==========================================
 } else {
     http_response_code(405);
     echo json_encode(["erro" => "Método não permitido"]);
