@@ -1,72 +1,33 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Questao.php';
-require_once '../middlewares/AdminMiddleware.php';
+require_once '../controllers/QuestaoController.php';
 
-$questao = new Questao ($pdo);
-// id da url
-$partes = explode('/', uri);
+$controller = new QuestaoController($pdo);
+
+// Pega o ID da URL ex: /questoes/1
+$partes = explode('/', $uri);
 $id = isset($partes[2]) ? $partes[2] : null;
 
+// Pega os dados enviados em JSON
+$body = json_decode(file_get_contents('php://input'), true);
+
+// admin lista todas as questões
+if ($method === 'GET' && $id === null) {
+    $controller->listar();
+
 // admin cria nova questão
+} elseif ($method === 'POST' && $id === null) {
+    $controller->criar($body);
 
-if ($method === 'POST' && $id === null){
-    $body = json_decode(file_get_contents('php://input'), true);
+// admin edita uma questão
+} elseif ($method === 'PUT' && $id !== null) {
+    $controller->atualizar($id, $body);
 
-    // verificação dos campos obrigatórios
-    if(empty($body['enunciado'])) {
-        http_response_code(400);
-        echo json_encode(["erro" => "Enunciado é obrigatório"]);
-        exit;
-    }
+// admin deleta uma questão
+} elseif ($method === 'DELETE' && $id !== null) {
+    $controller->deletar($id);
 
-    $id_criada = $questao->criar(
-        $body ['enunciado'],
-        $body ['origem_quest'] ?? null,
-        $body ['nivel_dificuldade'] ?? null,
-        $body ['alt_correta'] ?? null,
-        $body ['id_materia'] ?? null,
-    );
-
-    http_response_code(201);
-    echo json_encode([
-        "mensagem" => "Questão criada com sucesso!",
-        "id_quest" => $id_criada
-    ]);
-
-    //admin edita uma questão
-} elseif ($method === 'PUT' && $id !== null){
-    $body = json_decode(file_get_contents('php://input'), true);
-
-    $atualizado = $questao->atualizar(
-        $id,
-        $body['enunciado'] ?? null,
-        $body['origem_quest'] ?? null,
-        $body['nivel_dificuldade'] ?? null,
-        $body['alt_correta'] ?? null,
-        $body['id_materia'] ?? null
-    );
-
-    if(!$atualizado){
-        http_response_code(404);
-        echo json_encode(["erro" => "Questão não encontrada"]);
-        exit;
-    }
-
-    echo json_encode(["mensagem" => "Questão atualizada com sucesso!"]);
-
-} elseif ($method === 'DELETE' && id !== null) {
-    $deletado = $questao->deletar($id);
-
-    if (!$deletado) {
-        http_response_code(404);
-        echo json_encode(["erro" => "Questão não encontrada"]);
-        exit;
-    }
-
-    echo json_encode(["mensagem" => "Questão deletada com sucesso"]);
-
+// Método não permitido
 } else {
     http_response_code(405);
     echo json_encode(["erro" => "Método não permitido"]);
