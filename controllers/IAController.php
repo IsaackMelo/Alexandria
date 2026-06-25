@@ -3,7 +3,7 @@
 require_once '../config/database.php';
 require_once '../models/Resultado.php';
 require_once '../models/Simulado.php';
-require_once '../middlewares/AuthMiddleware.php';
+require_once '../middlewares/PlanoMiddleware.php';
 
 class IAController {
 
@@ -19,9 +19,8 @@ class IAController {
         $this->simulado  = new Simulado($pdo);
     }
 
-    // Gera feedback personalizado do simulado
     public function feedback($body) {
-        $usuario = AuthMiddleware::verificar($this->pdo);
+        $usuario = PlanoMiddleware::verificar($this->pdo, ['premium']);
 
         if (empty($body['id_resultado'])) {
             http_response_code(400);
@@ -37,7 +36,6 @@ class IAController {
             return;
         }
 
-        // Verifica se o resultado pertence ao usuário logado
         if ((int)$resultado['id_usuario'] !== (int)$usuario['id']) {
             http_response_code(403);
             echo json_encode(["erro" => "Acesso negado"]);
@@ -54,7 +52,6 @@ class IAController {
 
         $questoes = $this->simulado->buscarQuestoesComGabarito($resultado['id_simulado']);
 
-        // Verifica se curl está disponível
         if (!function_exists('curl_init')) {
             http_response_code(500);
             echo json_encode(["erro" => "curl não está habilitado no servidor"]);
@@ -83,7 +80,6 @@ class IAController {
         ]);
     }
 
-    // Faz a requisição para a API Python
     private function chamarIa($dados) {
         $ch = curl_init($this->iaApiUrl);
 

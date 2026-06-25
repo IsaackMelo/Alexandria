@@ -2,8 +2,8 @@
 
 require_once '../config/database.php';
 require_once '../models/Conteudo.php';
-require_once '../middlewares/AuthMiddleware.php';
 require_once '../middlewares/AdminMiddleware.php';
+require_once '../middlewares/PlanoMiddleware.php';
 
 class ConteudoController {
 
@@ -15,18 +15,16 @@ class ConteudoController {
         $this->conteudo = new Conteudo($pdo);
     }
 
-    // Lista todos os conteúdos
     public function listar() {
-        AuthMiddleware::verificar($this->pdo);
+        PlanoMiddleware::verificar($this->pdo, ['basico', 'avancado', 'premium']);
 
         $conteudos = $this->conteudo->listar();
 
         echo json_encode($conteudos);
     }
 
-    // Busca um conteúdo pelo ID
     public function buscar($id) {
-        AuthMiddleware::verificar($this->pdo);
+        PlanoMiddleware::verificar($this->pdo, ['basico', 'avancado', 'premium']);
 
         $conteudo = $this->conteudo->buscarPorId($id);
 
@@ -39,9 +37,8 @@ class ConteudoController {
         echo json_encode($conteudo);
     }
 
-    // Pesquisa conteúdos pelo título
     public function pesquisar($titulo) {
-        AuthMiddleware::verificar($this->pdo);
+        PlanoMiddleware::verificar($this->pdo, ['basico', 'avancado', 'premium']);
 
         $conteudos = $this->conteudo->pesquisar($titulo);
 
@@ -54,9 +51,8 @@ class ConteudoController {
         echo json_encode($conteudos);
     }
 
-    // Busca conteúdos por matéria
     public function buscarPorMateria($id_materia) {
-        AuthMiddleware::verificar($this->pdo);
+        PlanoMiddleware::verificar($this->pdo, ['basico', 'avancado', 'premium']);
 
         $conteudos = $this->conteudo->buscarPorMateria($id_materia);
 
@@ -69,7 +65,6 @@ class ConteudoController {
         echo json_encode($conteudos);
     }
 
-    // Admin cria um novo conteúdo
     public function criar($body) {
         AdminMiddleware::verificar($this->pdo);
 
@@ -92,7 +87,6 @@ class ConteudoController {
         ]);
     }
 
-    // Admin atualiza um conteúdo
     public function atualizar($id, $body) {
         AdminMiddleware::verificar($this->pdo);
 
@@ -103,31 +97,5 @@ class ConteudoController {
             echo json_encode(["erro" => "Conteúdo não encontrado"]);
             return;
         }
-
-        $this->conteudo->atualizar(
-            $id,
-            $body['titulo'] ?? $conteudo['titulo'],
-            $body['texto']  ?? $conteudo['texto'],
-            $body['fontes'] ?? $conteudo['fontes']
-        );
-
-        echo json_encode(["mensagem" => "Conteúdo atualizado com sucesso!"]);
-    }
-
-    // Admin deleta um conteúdo
-    public function deletar($id) {
-        AdminMiddleware::verificar($this->pdo);
-
-        $conteudo = $this->conteudo->buscarPorId($id);
-
-        if (!$conteudo) {
-            http_response_code(404);
-            echo json_encode(["erro" => "Conteúdo não encontrado"]);
-            return;
-        }
-
-        $this->conteudo->deletar($id);
-
-        echo json_encode(["mensagem" => "Conteúdo deletado com sucesso!"]);
     }
 }
