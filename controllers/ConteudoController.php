@@ -97,3 +97,5 @@ class ConteudoController {
             echo json_encode(["erro" => "Conteúdo não encontrado"]);
             return;
         }
+    }
+}
