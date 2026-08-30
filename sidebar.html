@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="imagens/alex.png">
+    <title>Alexandria – Sidebar</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --vinho-alexandria:   #8b1e2d;
+            --dourado-alexandria: #d4af37;
+            --dourado-claro:      #f0d060;
+            --branco:             #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5efe6;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 156px;
+            z-index: 1000;
+            background: var(--vinho-alexandria );
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 5px 0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar-header {
+            padding: 15px 10px 20px 10px;
+            text-align: center;
+        }
+
+        .sidebar-header img {
+            width: 90%;
+            max-width: 130px;
+            height: auto;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .sidebar-menu li {
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: var(--dourado-alexandria);
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-menu li a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--dourado-claro);
+        }
+
+        .sidebar-menu li a .icon-img {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        .sidebar-menu li a .icon-fa {
+            width: 18px;
+            font-size: 14px;
+            margin-right: 10px;
+            text-align: center;
+            color: var(--dourado-alexandria);
+        }
+
+        .sidebar-menu li a .text {
+            font-size: 11px;
+            font-weight: 500;
+
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 5px;
+
+        }
+
+        .sidebar-footer li a {
+            padding: 10px 12px;
+            padding-top: 290px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <a href="#"><img src="imagens/logo.png" alt="Alexandria Logo"/></a>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#">
+                    <img src="imagens/cursos.png" class="icon-img" alt="">
+                    <span class="text">Cursos disponíveis</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imagens/meus-cursos.png" class="icon-img" alt="">
+                    <span class="text">Meus cursos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imagens/prancheta.png" class="icon-img" alt="">
+                    <span class="text">Artigos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imagens/ia.png" class="icon-img" alt="">
+                    <span class="text">Chat AI</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imagens/banco_questao.png" class="icon-img" alt="">
+                    <span class="text">Banco de questões</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="imagens/notificacao.png" class="icon-img" alt="">
+                    <span class="text">Notificação</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="sidebar-menu sidebar-footer">
+            <li>
+                <a href="#" class="logout">
+                    <span class="icon-fa"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
