@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -28,48 +33,52 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--branco); /* Fundo branco conforme imagem do chat */
+            background: var(--branco);
         }
 
-        .sidebar {
+        .barra-lateral {
             position: fixed;
             top: 0;
             left: 0;
-            height: 100%;
+            height: 100vh;
             width: 156px;
             z-index: 1000;
-            background: var(--vinho-alexandria );
-            overflow: hidden;
+            background: var(--vinho-alexandria);
             display: flex;
             flex-direction: column;
-            padding: 5px 0;
+            justify-content: space-between; 
+            padding: 5px 0 10px 0;
             box-shadow: 2px 0 10px rgba(0,0,0,0.3);
         }
 
-        .sidebar-header {
+        .grupo-superior-barra-lateral {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cabecalho-barra-lateral {
             padding: 15px 10px 20px 10px;
             text-align: center;
         }
 
-        .sidebar-header img {
+        .cabecalho-barra-lateral img {
             width: 90%;
             max-width: 130px;
             height: auto;
         }
 
-        .sidebar-menu {
+        .menu-barra-lateral {
             list-style: none;
             padding: 0;
             margin: 0;
-            flex-grow: 1;
         }
 
-        .sidebar-menu li {
+        .menu-barra-lateral li {
             width: 100%;
             margin-bottom: 2px;
         }
 
-        .sidebar-menu li a {
+        .menu-barra-lateral li a, .footer-barra-lateral li a{
             display: flex;
             align-items: center;
             padding: 8px 12px;
@@ -78,19 +87,19 @@
             transition: all 0.2s ease;
         }
 
-        .sidebar-menu li a:hover {
+        .menu-barra-lateral li a:hover {
             background: rgba(255, 255, 255, 0.05);
             color: var(--dourado-claro);
         }
 
-        .sidebar-menu li a .icon-img {
+        .menu-barra-lateral li a .imagem-icone {
             width: 18px;
             height: 18px;
             margin-right: 10px;
             object-fit: contain;
         }
 
-        .sidebar-menu li a .icon-fa {
+        .menu-barra-lateral li a .icone-fonte, .footer-barra-lateral li a .icone-fonte{
             width: 18px;
             font-size: 14px;
             margin-right: 10px;
@@ -98,33 +107,26 @@
             color: var(--dourado-alexandria);
         }
 
-        .sidebar-menu li a .text {
+        .menu-barra-lateral li a .text, .footer-barra-lateral li a .text{
             font-size: 11px;
             font-weight: 500;
-
         }
 
-        .sidebar-footer {
-            margin-top: auto;
-            padding-top: 5px;
-
+        .footer-barra-lateral {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            
         }
-
-        .sidebar-footer li a {
-            padding: 10px 12px;
-            padding-top: 290px;
-        }
-
-        .main-container {
-            margin-left: 140px;
-            width: calc(100% - 118px);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        
+        .footer-barra-lateral li a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--dourado-claro);
         }
 
         /* ========== TOP BAR ========== */
-        .top-bar {
+        .barra-superior {
             background: var(--branco);
             padding: 15px 30px;
             display: flex;
@@ -134,20 +136,20 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
-        .top-bar-title {
+        .titulo-barra-superior {
             font-family: 'Inter', sans-serif;
             font-size: 18px;
             font-weight: 600;
             color: var(--texto-escuro);
         }
 
-        .top-bar-center {
+        .centro-barra-superior {
             display: flex;
             gap: 15px;
             align-items: center;
         }
 
-        .role-badge {
+        .distintivo-funcao {
             background: var(--vinho-alexandria);
             color: var(--branco);
             padding: 6px 12px;
@@ -160,23 +162,23 @@
             gap: 6px;
         }
 
-        .role-badge i {
+        .distintivo-funcao i {
             font-size: 10px;
         }
 
-        .top-bar-right {
+        .direita-barra-superior {
             display: flex;
             align-items: center;
             gap: 20px;
         }
 
-        .user-name {
+        .nome-usuario {
             font-size: 14px;
             font-weight: 500;
             color: var(--texto-escuro);
         }
 
-        .user-avatar {
+        .avatar-usuario {
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -189,7 +191,7 @@
         }
 
         /* ========== CHAT CONTENT STYLES ========== */
-        .chat-content {
+        .conteudo-chat {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -201,27 +203,27 @@
             margin: 0 auto;
         }
 
-        .greeting-main {
+        .saudacao-principal {
             font-size: 36px;
             font-weight: 700;
             color: var(--texto-escuro);
             margin-bottom: 5px;
         }
 
-        .greeting-sub {
+        .subtitulo-saudacao {
             font-size: 32px;
             font-weight: 600;
             color: var(--vinho-alexandria);
             margin-bottom: 25px;
         }
 
-        .greeting-desc {
+        .descricao-saudacao {
             font-size: 14px;
             color: #777;
             margin-bottom: 50px;
         }
 
-        .cards-grid {
+        .grade-cartoes {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
@@ -229,7 +231,7 @@
             margin-bottom: 60px;
         }
 
-        .topic-card {
+        .cartao-tema {
             background: var(--branco);
             border: 1px solid #eee;
             border-radius: 12px;
@@ -242,47 +244,47 @@
             cursor: pointer;
         }
 
-        .topic-card:hover {
+        .cartao-tema:hover {
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transform: translateY(-2px);
             border-color: var(--vinho-alexandria);
         }
 
-        .topic-icon {
+        .icone-tema {
             font-size: 24px;
             color: var(--vinho-alexandria);
             margin-bottom: 15px;
         }
 
-        .topic-title {
+        .titulo-tema {
             font-size: 14px;
             font-weight: 600;
             color: var(--vinho-alexandria);
             margin-bottom: 10px;
         }
 
-        .topic-text {
+        .texto-tema {
             font-size: 12px;
             color: #666;
             line-height: 1.5;
             margin-bottom: 15px;
         }
 
-        .topic-arrow {
+        .seta-tema {
             color: var(--vinho-alexandria);
             font-size: 14px;
             margin-top: auto;
             align-self: flex-end;
         }
 
-        .input-wrapper {
+        .envoltorio-entrada {
             width: 100%;
             max-width: 800px;
             position: relative;
             margin-bottom: 40px;
         }
 
-        .input-container {
+        .container-entrada {
             display: flex;
             align-items: center;
             background: var(--branco);
@@ -292,7 +294,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
-        .btn-plus {
+        .botao-adicionar {
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -307,7 +309,7 @@
             margin-right: 15px;
         }
 
-        .chat-input {
+        .entrada-chat {
             flex: 1;
             border: none;
             padding: 10px;
@@ -316,7 +318,7 @@
             color: var(--texto-escuro);
         }
 
-        .pro-badge {
+        .distintivo-pro {
             background: #f8f4f0;
             color: #333;
             padding: 6px 15px;
@@ -330,7 +332,7 @@
             cursor: pointer;
         }
 
-        .btn-send {
+        .botao-enviar {
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -344,14 +346,14 @@
             cursor: pointer;
         }
 
-        .footer-info {
+        .informacoes-footer {
             display: flex;
             justify-content: center;
             gap: 40px;
             width: 100%;
         }
 
-        .info-item {
+        .item-informacao {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -359,7 +361,7 @@
             color: #999;
         }
 
-        .dot-separator {
+        .separador-ponto {
             width: 4px;
             height: 4px;
             background: #ccc;
@@ -370,132 +372,134 @@
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-header">
+    <div class="barra-lateral">
+        <div class="grupo-superior-barra-lateral">
+        <div class="cabecalho-barra-lateral">
             <a href="#"><img src="imagens/logo.png" alt="Alexandria Logo"/></a>
         </div>
         
-        <ul class="sidebar-menu">
+        <ul class="menu-barra-lateral">
             <li>
                 <a href="#">
-                    <img src="imagens/cursos.png" class="icon-img" alt="">
+                    <img src="imagens/cursos.png" class="imagem-icone" alt="">
                     <span class="text">Cursos disponíveis</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="imagens/meus-cursos.png" class="icon-img" alt="">
+                    <img src="imagens/meus-cursos.png" class="imagem-icone" alt="">
                     <span class="text">Meus cursos</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="imagens/prancheta.png" class="icon-img" alt="">
+                    <img src="imagens/prancheta.png" class="imagem-icone" alt="">
                     <span class="text">Artigos</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="active">
-                    <img src="imagens/ia.png" class="icon-img" alt="">
+                    <img src="imagens/ia.png" class="imagem-icone" alt="">
                     <span class="text">Chat AI</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="imagens/banco_questao.png" class="icon-img" alt="">
+                    <img src="imagens/banco_questao.png" class="imagem-icone" alt="">
                     <span class="text">Banco de questões</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="imagens/notificacao.png" class="icon-img" alt="">
+                    <img src="imagens/notificacao.png" class="imagem-icone" alt="">
                     <span class="text">Notificação</span>
                 </a>
             </li>
         </ul>
+        </div>
 
-        <ul class="sidebar-menu sidebar-footer">
+        <ul class="menu-barra-lateral footer-barra-lateral">
             <li>
                 <a href="#" class="logout">
-                    <span class="icon-fa"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="icone-fonte"><i class="fa-solid fa-right-from-bracket"></i></span>
                     <span class="text">Logout</span>
                 </a>
             </li>
         </ul>
     </div>
 
-    <div class="main-container">
-        <div class="top-bar">
-            <div class="top-bar-title">Chat AI</div>
-            <div class="top-bar-right">
-                <div class="role-badge">
+    <div class="container-principal">
+        <div class="barra-superior">
+            <div class="titulo-barra-superior">Chat AI</div>
+            <div class="direita-barra-superior">
+                <div class="distintivo-funcao">
                     <span>Estudante</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
-                <div class="user-name">Igor Bueno</div>
-                <div class="user-avatar">
+                <div class="nome-usuario">Igor Bueno</div>
+                <div class="avatar-usuario">
                     <i class="fas fa-user"></i>
                 </div>
             </div>
         </div>
 
-        <div class="chat-content">
-            <h1 class="greeting-main">Olá, Igor.</h1>
-            <h2 class="greeting-sub">Por onde começamos?</h2>
-            <p class="greeting-desc">Sou seu assistente de estudos. Pergunte sobre qualquer assunto e vamos aprender juntos!</p>
+        <div class="conteudo-chat">
+            <h1 class="saudacao-principal">Olá, Igor.</h1>
+            <h2 class="subtitulo-saudacao">Por onde começamos?</h2>
+            <p class="descricao-saudacao">Sou seu assistente de estudos. Pergunte sobre qualquer assunto e vamos aprender juntos!</p>
 
-            <div class="cards-grid">
-                <div class="topic-card">
-                    <div class="topic-icon"><img src="imagens/partenon 2.png"></div>
-                    <div class="topic-title">Grécia Antiga</div>
-                    <div class="topic-text">Democracia ateniense, filosofia e principais acontecimentos.</div>
-                    <div class="topic-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="grade-cartoes">
+                <div class="cartao-tema">
+                    <div class="icone-tema"><img src="imagens/partenon 2.png"></div>
+                    <div class="titulo-tema">Grécia Antiga</div>
+                    <div class="texto-tema">Democracia ateniense, filosofia e principais acontecimentos.</div>
+                    <div class="seta-tema"><i class="fas fa-arrow-right"></i></div>
                 </div>
-                <div class="topic-card">
-                    <div class="topic-icon"><img src="imagens/coliseu 2.png"></div>
-                    <div class="topic-title">Roma Antiga</div>
-                    <div class="topic-text">República, império, direito romano e expansão territorial.</div>
-                    <div class="topic-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="cartao-tema">
+                    <div class="icone-tema"><img src="imagens/coliseu 2.png"></div>
+                    <div class="titulo-tema">Roma Antiga</div>
+                    <div class="texto-tema">República, império, direito romano e expansão territorial.</div>
+                    <div class="seta-tema"><i class="fas fa-arrow-right"></i></div>
                 </div>
-                <div class="topic-card">
-                    <div class="topic-icon"><img src="imagens/naufragio 2.png"></div>
-                    <div class="topic-title">Grandes Navegações</div>
-                    <div class="topic-text">Descobrimentos, rotas marítimas e impactos históricos.</div>
-                    <div class="topic-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="cartao-tema">
+                    <div class="icone-tema"><img src="imagens/naufragio 2.png"></div>
+                    <div class="titulo-tema">Grandes Navegações</div>
+                    <div class="texto-tema">Descobrimentos, rotas marítimas e impactos históricos.</div>
+                    <div class="seta-tema"><i class="fas fa-arrow-right"></i></div>
                 </div>
-                <div class="topic-card">
-                    <div class="topic-icon"><img src="imagens/guilhotina 1.png"></div>
-                    <div class="topic-title">Revoluções</div>
-                    <div class="topic-text">Revolução Francesa, Independência dos EUA e seus efeitos.</div>
-                    <div class="topic-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="cartao-tema">
+                    <div class="icone-tema"><img src="imagens/guilhotina 1.png"></div>
+                    <div class="titulo-tema">Revoluções</div>
+                    <div class="texto-tema">Revolução Francesa, Independência dos EUA e seus efeitos.</div>
+                    <div class="seta-tema"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
 
-            <div class="input-wrapper">
-                <div class="input-container">
-                    <button class="btn-plus">+</button>
-                    <input type="text" class="chat-input" placeholder="Pergunte o que quiser">
-                    <div class="pro-badge">
+            <div class="envoltorio-entrada">
+                <div class="container-entrada">
+                    <button class="botao-adicionar">+</button>
+                    <input type="text" class="entrada-chat" placeholder="Pergunte o que quiser">
+                    <div class="distintivo-pro">
                         Pro <i class="fas fa-chevron-down"></i>
                     </div>
-                    <button class="btn-send">
+                    <button class="botao-enviar">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="footer-info">
-                <div class="info-item">
+            <div class="informacoes-footer">
+                <div class="item-informacao">
                     <i class="fas fa-check-circle"></i>
                     <span>Respostas confiáveis</span>
                 </div>
-                <div class="dot-separator"></div>
-                <div class="info-item">
+                <div class="separador-ponto"></div>
+                <div class="item-informacao">
                     <i class="fas fa-clock"></i>
                     <span>Atualizado constantemente</span>
                 </div>
-                <div class="dot-separator"></div>
-                <div class="info-item">
+                <div class="separador-ponto"></div>
+                <div class="item-informacao">
                     <i class="fas fa-lock"></i>
                     <span>Dados protegidos</span>
                 </div>
