@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> <!-- Define acentos e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade para mobile -->
+    <title>Alexandria - Planos</title> <!-- Título da aba do navegador -->
+
+    <!-- ============================================
+         🖌️ GOOGLE FONTS - ONDE TROCAR A FONTE
+         ============================================ -->
+    <!-- 
+         🔧 COMO TROCAR A FONTE:
+         1. Acesse https://fonts.google.com
+         2. Escolha uma fonte (ex: "Roboto", "Poppins", "Montserrat")
+         3. Copie o link <href> e cole abaixo
+         4. Depois, no CSS, altere o "font-family" 
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ============================================
+         🎨 FONT AWESOME - ÍCONES DAS REDES SOCIAIS
+         ============================================ -->
+    <!-- 
+         🔧 ISSO AQUI CARREGA OS ÍCONES (Instagram, X, YouTube etc.)
+         Se quiser trocar por outro pacote de ícones, troque este link.
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ============================================
+           🎨 CORES - PALETA PRINCIPAL
+           ============================================ */
+        /* 
+           🔧 COMO MUDAR AS CORES:
+           Altere os valores HEX (#8b1e2d, #d4af37, etc)
+           Use sites como: https://coolors.co ou https://color.adobe.com
+        */
+        :root {
+            /* ===== CORES VINHO (vermelho-escuro) ===== */
+            --vinho-alexandria:   #8b1e2d;   /* 🔧 Cor principal da navbar */
+            --vinho-escuro:       #5e1220;   /* 🔧 Cor mais escura para fundos */
+            
+            /* ===== CORES DOURADAS ===== */
+            --dourado-alexandria: #d4af37;   /* 🔧 Cor do botão e detalhes */
+            --dourado-claro:      #f0d060;   /* 🔧 Cor do hover (passar o mouse) */
+            
+            /* ===== CORES NEUTRAS ===== */
+            --branco-fundo:       #ffffff;   /* 🔧 Cor de fundo da página */
+            --preto-contraste:    #1a1a1a;   /* 🔧 Cor preta para textos */
+            --cinza-destaque:     #dee0e3;   /* 🔧 Cinza claro para detalhes */
+            --cinza-texto:        #555;      /* 🔧 Cinza médio para parágrafos */
+            --branco:             #ffffff;   /* 🔧 Branco para textos da navbar */
+        }
+
+        /* ============================================
+           🧹 RESET - ZERA PADRÕES DO NAVEGADOR
+           ============================================ */
+        * {
+            margin: 0;        /* Remove margens padrão */
+            padding: 0;       /* Remove preenchimentos padrão */
+            box-sizing: border-box; /* Faz com que padding/borda não aumentem o tamanho */
+        }
+
+        /* ============================================
+           📄 ESTILO GERAL DO BODY
+           ============================================ */
+        html {
+            height: 100%; /* 🔧 Necessário para o rodapé conseguir "grudar" no final da tela */
+        }
+
+        body {
+            /* 
+               🔧 TROCAR A FONTE AQUI:
+               Altere o valor de "font-family"
+               Opções: 'Inter', 'Arial', 'Helvetica', 'Roboto', 'Poppins'
+            */
+            font-family: 'Inter', sans-serif; /* Fonte principal */
+            
+            background-color: var(--bege-fundo); /* Fundo da página */
+            color: var(--preto-contraste);       /* Cor do texto */
+            min-height: 100vh;                   /* Altura mínima da tela inteira */
+
+            /* 
+               🔧 RODAPÉ SEMPRE NO FINAL DA TELA:
+               Com "display: flex" + "flex-direction: column" aqui no body,
+               e "margin-top: auto" lá no footer (mais abaixo),
+               o rodapé é empurrado pro final da tela mesmo quando o
+               conteúdo da página é curto (não fica mais espaço branco embaixo dele).
+            */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================
+           🧭 NAVBAR - ONDE TUDO ACONTECE
+           ============================================ */
+        .navbar {
+            display: flex;                /* Layout flexível em linha */
+            justify-content: space-between; /* Espaça logo e links nas pontas */
+            align-items: center;           /* Centraliza verticalmente */
+            
+            /* 🔧 COR DE FUNDO DA NAVBAR */
+            background-color: var(--vinho-alexandria); /* Vinho */
+            
+            /* 🔧 ALTURA DA NAVBAR */
+            height: 65px;                 /* Aumente/diminua aqui */
+            
+            /* 🔧 ESPAÇAMENTO INTERNO (PADDING) */
+            padding: 0 60px;              /* 0 em cima/baixo, 60px nas laterais */
+            
+            position: sticky;             /* Fixa no topo ao rolar */
+            top: 0;                       /* Gruda no topo */
+            z-index: 1000;                /* Fica acima de tudo */
+            
+            /* 🔧 SOMBRA DA NAVBAR */
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); /* Sombra suave */
+        }
+
+        /* ============================================
+           🖼️ LOGO
+           ============================================ */
+        .navbar .logo {
+            display: flex;
+            align-items: center; /* Centraliza a imagem verticalmente */
+        }
+
+        .navbar .logo img {
+            /* 🔧 ALTURA DA LOGO */
+            height: 45px;        /* Aumente/diminua aqui */
+            
+            /* 🔧 LARGURA MÁXIMA (opcional) */
+            max-width: 180px;    /* Evita que fique muito grande */
+        }
+
+        /* ============================================
+           📋 LINKS DA NAVBAR
+           ============================================ */
+        .nav-links {
+            display: flex;        /* Links em linha */
+            gap: 32px;           /* 🔧 ESPAÇAMENTO ENTRE LINKS (aumente/diminua) */
+            list-style: none;    /* Remove as bolinhas da lista */
+            margin: 0;
+            padding: 0;
+            align-items: center; /* Alinha verticalmente */
+        }
+
+        /* ===== CADA LINK ===== */
+        .nav-links li a {
+            /* 
+               🔧 TROCAR A FONTE DOS LINKS AQUI:
+               Altere "font-family" para outra fonte
+            */
+            font-family: 'Inter', sans-serif;
+            
+            /* 🔧 TAMANHO DA FONTE DOS LINKS */
+            font-size: 12px;      /* Aumente/diminua aqui */
+            
+            /* 🔧 PESO DA FONTE (negrito) */
+            font-weight: 400;     /* 400=normal, 500=médio, 600=semi-bold, 700=bold */
+            
+            /* 🔧 COR DOS LINKS */
+            color: var(--branco); /* Branco */
+            
+            text-decoration: none;          /* Remove o sublinhado */
+            text-transform: uppercase;      /* 🔧 Deixa tudo maiúsculo */
+            letter-spacing: 0.06em;         /* 🔧 ESPAÇAMENTO ENTRE LETRAS */
+            
+            padding: 6px 0;                 /* Espaçamento interno */
+            border-bottom: 2px solid transparent; /* Linha invisível embaixo */
+            transition: color 0.3s;         /* Suaviza a mudança de cor */
+        }
+
+        /* ===== HOVER (quando passa o mouse) ===== */
+        .nav-links li a:hover {
+            /* 🔧 COR AO PASSAR O MOUSE */
+            color: var(--dourado-alexandria); /* Fica dourado */
+            
+            /* 🔧 COR DA LINHA EMBaIXO AO PASSAR O MOUSE */
+            border-bottom-color: var(--dourado-alexandria); /* Linha dourada */
+        }
+
+        /* ============================================
+           🟡 BOTÃO "ACESSE A PLATAFORMA"
+           ============================================ */
+        .nav-cta a {
+            /* 🔧 COR DE FUNDO DO BOTÃO (AMARELO/DOURADO) */
+            background-color: var(--dourado-alexandria) !important;
+            
+            /* 🔧 COR DO TEXTO DO BOTÃO (PRETO) */
+            color: var(--preto-contraste) !important;
+            
+            /* 🔧 TAMANHO DA FONTE DO BOTÃO */
+            font-size: 12px;
+            
+            /* 🔧 PESO DA FONTE (NEGRITO) */
+            font-weight: 700 !important;
+            
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            
+            /* 🔧 ESPAÇAMENTO INTERNO DO BOTÃO */
+            padding: 10px 24px;    /* 10px em cima/baixo, 24px nas laterais */
+            
+            /* 🔧 ARREDONDAMENTO DAS BORDAS */
+               /* 30px = bem arredondado */
+
+            border: none;
+            transition: all 0.3s;  /* Suaviza as animações */
+            border-bottom: none !important; /* Remove a linha inferior */
+        }
+
+        /* ===== HOVER DO BOTÃO ===== */
+        .nav-cta a:hover {
+            /* 🔧 COR AO PASSAR O MOUSE (DOURADO MAIS CLARO) */
+            background-color: var(--dourado-claro) !important;
+            
+            /* 🔧 LEVE AUMENTO AO PASSAR O MOUSE */
+            transform: scale(1.04);
+            
+            border-bottom: none !important;
+            color: var(--preto-contraste) !important;
+        }
+
+        /* ============================================
+           📱 RESPONSIVIDADE - TABLET (até 992px)
+           ============================================ */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 0 30px; /* 🔧 MENOS ESPAÇO NAS LATERAIS */
+            }
+            .nav-links {
+                gap: 20px; /* 🔧 MENOS ESPAÇO ENTRE LINKS */
+            }
+            .nav-links li a {
+                font-size: 12px; /* 🔧 FONTE MENOR */
+            }
+        }
+
+        /* ============================================
+           📱 RESPONSIVIDADE - MOBILE (até 768px)
+           ============================================ */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column; /* 🔧 LOGO E LINKS FICAM EM COLUNA */
+                height: auto;           /* 🔧 ALTURA AUTOMÁTICA */
+                padding: 16px 20px;     /* 🔧 ESPAÇO INTERNO */
+                gap: 12px;              /* 🔧 ESPAÇO ENTRE LOGO E LINKS */
+            }
+
+            .nav-links {
+                flex-wrap: wrap;        /* 🔧 LINKS QUEBRAM EM VÁRIAS LINHAS */
+                justify-content: center; /* 🔧 CENTRALIZA OS LINKS */
+                gap: 12px 18px;         /* 🔧 ESPAÇO ENTRE LINKS */
+            }
+
+            .nav-links li a {
+                font-size: 11px;        /* 🔧 FONTE MENOR AINDA */
+            }
+
+            .nav-cta a {
+                padding: 8px 18px;      /* 🔧 BOTÃO MENOR */
+                font-size: 11px;        /* 🔧 FONTE MENOR */
+            }
+        }
+
+        /* ============================================
+           📱 RESPONSIVIDADE - MOBILE PEQUENO (até 480px)
+           ============================================ */
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 8px 14px;          /* 🔧 ESPAÇO MÍNIMO */
+            }
+            .nav-links li a {
+                font-size: 10px;        /* 🔧 FONTE MUITO PEQUENA */
+            }
+            .navbar .logo img {
+                height: 35px;           /* 🔧 LOGO MENOR */
+            }
+        }
+
+        /* ============================================================
+           ============================================================
+                          🖼️ DAQUI PRA BAIXO: SEÇÕES NOVAS
+              (banner de verificação + pergunta + rodapé)
+              Nada acima desta linha foi alterado.
+           ============================================================
+           ============================================================ */
+
+        /* ============================================
+           🎭 BANNER "VERIFICAÇÃO DE CONTA"
+           ============================================ */
+        .banner-verificacao {
+            position: relative;    /* Necessário para o overlay funcionar por cima da imagem */
+            
+            /* 
+               🔧 ONDE TROCAR A IMAGEM DE FUNDO DO BANNER:
+               Troque a URL abaixo pelo caminho/link da sua imagem
+            */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg'); /* Imagem de fundo */
+            background-size: cover;      /* Imagem preenche todo o espaço */
+            background-position: center; /* Centraliza a imagem */
+            
+            /* 🔧 ALTURA DO BANNER
+               Valor ajustado para bater com a proporção da tela de referência
+               (era 1700px — ficava gigante; 220px é a altura de uma faixa de banner) */
+            min-height: 220px;    /* Aumente/diminua aqui */
+            
+            display: flex;
+            align-items: center;  /* Centraliza o conteúdo verticalmente */
+            
+            /* 🔧 BORDA DOURADA EMBAIXO DO BANNER */
+            border-bottom: 4px solid var(--dourado-alexandria);
+        }
+
+        /* ===== CAMADA ESCURA (OVERLAY) POR CIMA DA IMAGEM ===== */
+        /* Isso deixa o texto branco mais legível em cima da foto */
+        .banner-verificacao::before {
+            content: "";              /* Obrigatório para o ::before aparecer */
+            position: absolute;       /* Fica por cima da imagem */
+            top: 0; left: 0; right: 0; bottom: 0; /* Cobre o banner inteiro */
+            
+            /* 
+               🔧 COR E TRANSPARÊNCIA DO OVERLAY:
+               Primeiro valor = cor vinho escura
+               Último número (0.55 a 0.95) = transparência (0 = transparente, 1 = sólido)
+            */
+            background: linear-gradient(
+                90deg,
+                rgba(94, 18, 32, 0.93) 0%,   /* 🔧 Vinho forte do lado esquerdo */
+                rgba(94, 18, 32, 0.55) 60%,  /* 🔧 Vai clareando pro meio */
+                rgba(94, 18, 32, 0.20) 100%  /* 🔧 Quase transparente do lado direito */
+            );
+        }
+
+        /* ===== CONTEÚDO DO BANNER (fica por cima do overlay) ===== */
+        .banner-verificacao .banner-conteudo {
+            position: relative;  /* Precisa ser "relative" pra ficar acima do ::before */
+            z-index: 2;          /* Garante que fica por cima da camada escura */
+            
+            /* 🔧 ESPAÇAMENTO INTERNO DO CONTEÚDO */
+            padding: 30px 60px;  /* Mesmo padding lateral da navbar (60px) */
+            
+            max-width: 620px;    /* 🔧 LARGURA MÁXIMA DO TEXTO */
+        }
+
+        /* ===== TÍTULO "VERIFICAÇÃO DE CONTA" ===== */
+        .banner-verificacao h1 {
+            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO TÍTULO */
+            color: var(--branco);                    /* 🔧 COR DO TÍTULO */
+            font-size: 1.7rem;                        /* 🔧 TAMANHO DO TÍTULO */
+            font-weight: 700;
+            margin-bottom: 8px;                       /* Espaço abaixo do título */
+        }
+
+        /* ===== PARÁGRAFO DE APOIO ===== */
+        .banner-verificacao p {
+            color: var(--cinza-destaque); /* 🔧 COR DO TEXTO */
+            font-size: 0.9rem;            /* 🔧 TAMANHO DO TEXTO */
+            line-height: 1.5;             /* Espaçamento entre linhas */
+            margin-bottom: 20px;          /* Espaço antes dos botões */
+        }
+
+        /* ===== CONTAINER DOS 2 BOTÕES DO BANNER ===== */
+        .banner-botoes {
+            display: flex;   /* Botões lado a lado */
+            gap: 14px;        /* 🔧 ESPAÇO ENTRE OS BOTÕES */
+            flex-wrap: wrap;  /* Quebra linha em telas pequenas */
+        }
+
+        /* ===== BOTÃO "GARANTIR MINHA VAGA" (dourado, sólido) ===== */
+        .btn-garantir-vaga {
+            background-color: var(--dourado-alexandria); /* 🔧 COR DE FUNDO */
+            color: var(--preto-contraste);                /* 🔧 COR DO TEXTO */
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;      /* 🔧 TAMANHO DA FONTE */
+            font-weight: 700;        /* 🔧 NEGRITO */
+            
+            padding: 10px 20px;      /* 🔧 ESPAÇAMENTO INTERNO */
+            border-radius: 4px;      /* 🔧 ARREDONDAMENTO DAS BORDAS */
+            border: none;
+            text-decoration: none;
+            
+            transition: background-color 0.3s; /* Suaviza o hover */
+        }
+
+        .btn-garantir-vaga:hover {
+            background-color: var(--dourado-claro); /* 🔧 COR NO HOVER */
+        }
+
+        /* ===== BOTÃO "CONHECER A PLATAFORMA" (outline, vazado) ===== */
+        .btn-conhecer-plataforma {
+            background-color: transparent; /* Sem preenchimento */
+            color: var(--branco);          /* 🔧 COR DO TEXTO */
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;       /* 🔧 TAMANHO DA FONTE */
+            font-weight: 600;
+            
+            padding: 10px 20px;       /* 🔧 ESPAÇAMENTO INTERNO */
+            border-radius: 4px;       /* 🔧 ARREDONDAMENTO DAS BORDAS */
+            border: 1px solid var(--branco); /* 🔧 COR DA BORDA */
+            text-decoration: none;
+            
+            transition: background-color 0.3s;
+        }
+
+        .btn-conhecer-plataforma:hover {
+            background-color: rgba(255, 255, 255, 0.15); /* 🔧 LEVE BRILHO NO HOVER */
+        }
+
+        /* ============================================
+           ❓ SEÇÃO "VOCÊ JÁ TEM CONTA NO SITE?"
+           ============================================ */
+        .secao-pergunta {
+            /* 🔧 ESPAÇAMENTO INTERNO (EM CIMA/EMBAIXO E LATERAIS) */
+            padding: 90px 20px;   /* Aumente para dar mais "respiro" */
+            
+            text-align: center;   /* Centraliza tudo */
+            background-color: var(--branco-fundo); /* Fundo branco da seção */
+        }
+
+        .secao-pergunta h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;     /* 🔧 TAMANHO DO TÍTULO */
+            font-weight: 700;      /* 🔧 NEGRITO */
+            color: var(--preto-contraste);
+            margin-bottom: 30px;   /* 🔧 ESPAÇO ATÉ OS BOTÕES */
+        }
+
+        /* ===== CONTAINER DOS BOTÕES SIM/NÃO ===== */
+        .pergunta-botoes {
+            display: flex;
+            justify-content: center; /* Centraliza os botões */
+            gap: 16px;                /* 🔧 ESPAÇO ENTRE OS BOTÕES */
+            flex-wrap: wrap;
+        }
+
+        /* ===== BOTÃO "SIM" (dourado, sólido) ===== */
+        .btn-sim {
+            background-color: var(--dourado-alexandria); /* 🔧 COR DE FUNDO */
+            color: var(--preto-contraste);                /* 🔧 COR DO TEXTO */
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            
+            padding: 11px 42px;    /* 🔧 ESPAÇAMENTO INTERNO (deixa o botão largo) */
+            border-radius: 4px;    /* 🔧 ARREDONDAMENTO */
+            border: none;
+            text-decoration: none;
+            
+            transition: background-color 0.3s;
+        }
+
+        .btn-sim:hover {
+            background-color: var(--dourado-claro); /* 🔧 COR NO HOVER */
+        }
+
+        /* ===== BOTÃO "NÃO" (outline vinho, vazado) ===== */
+        .btn-nao {
+            background-color: transparent;
+            color: var(--vinho-alexandria);          /* 🔧 COR DO TEXTO */
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            
+            padding: 11px 42px;                       /* 🔧 ESPAÇAMENTO INTERNO */
+            border-radius: 4px;                        /* 🔧 ARREDONDAMENTO */
+            border: 1.5px solid var(--vinho-alexandria); /* 🔧 COR DA BORDA */
+            text-decoration: none;
+            
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-nao:hover {
+            background-color: var(--vinho-alexandria); /* 🔧 PREENCHE DE VINHO NO HOVER */
+            color: var(--branco);                       /* 🔧 TEXTO FICA BRANCO NO HOVER */
+        }
+
+        /* ============================================
+           💳 SEÇÃO "PLANOS" (TELA - ESPECÍFICA DESTA PÁGINA)
+           ============================================ */
+        .secao-planos {
+            /* 🔧 ESPAÇAMENTO INTERNO (EM CIMA/EMBAIXO E LATERAIS) — igual ao padrão das outras seções */
+            padding: 70px 60px;
+            
+            background-color: var(--branco-fundo); /* Fundo branco da seção */
+
+            /* 🔧 CENTRALIZAR NA VERTICAL (igual às outras telas) */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ===== GRID QUE ORGANIZA OS 3 CARDS LADO A LADO ===== */
+        .planos-grid {
+            display: grid;
+            /* 🔧 NÚMERO DE COLUNAS: "repeat(3, 1fr)" = 3 colunas iguais */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;                 /* 🔧 ESPAÇO ENTRE OS CARDS */
+            max-width: 1260px;
+            margin: 0 auto;
+            align-items: stretch;      /* Deixa os 3 cards com a mesma altura */
+        }
+
+        /* ===== CADA CARD DE PLANO ===== */
+        .plano-card {
+            display: flex;
+            flex-direction: column;
+            
+            padding: 34px 26px;    /* 🔧 ESPAÇAMENTO INTERNO DO CARD */
+            
+            background-color: var(--branco-fundo);
+            border: 1.5px solid var(--cinza-destaque); /* 🔧 COR DA BORDA (planos normais) */
+            border-radius: 4px;
+            
+            text-align: center;
+        }
+
+        /* ===== CARD "DESTAQUE" (o plano do meio, com borda vinho) ===== */
+        .plano-card.plano-destaque {
+            border: 1.5px solid var(--vinho-alexandria); /* 🔧 COR DA BORDA (plano em destaque) */
+        }
+
+        /* ===== NOME DO PLANO (ex: "Básico", "Avançado", "Premium") ===== */
+        .plano-titulo {
+            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO NOME DO PLANO */
+            color: var(--vinho-alexandria);           /* 🔧 COR DO NOME DO PLANO */
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        /* ===== PREÇO (ex: "R$20,00") ===== */
+        .plano-preco {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.7rem;      /* 🔧 TAMANHO DO PREÇO */
+            font-weight: 700;
+            color: var(--preto-contraste);
+        }
+
+        /* ===== TEXTO "/Mês" ABAIXO DO PREÇO ===== */
+        .plano-periodo {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--cinza-texto);
+            margin-bottom: 18px;
+        }
+
+        /* ===== LINHA DIVISÓRIA ENTRE O PREÇO E A LISTA DE BENEFÍCIOS ===== */
+        .plano-divisor {
+            border: none;
+            border-top: 1.5px solid var(--preto-contraste); /* 🔧 COR DA LINHA (planos normais) */
+            margin-bottom: 24px;
+        }
+
+        /* 🔧 NO CARD DESTAQUE, A LINHA DIVISÓRIA FICA VINHO EM VEZ DE PRETA */
+        .plano-card.plano-destaque .plano-divisor {
+            border-top-color: var(--vinho-alexandria);
+        }
+
+        /* ===== LISTA DE BENEFÍCIOS DO PLANO ===== */
+        .plano-lista {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Empurra o botão pro final do card, mesmo com listas de tamanhos diferentes */
+        }
+
+        .plano-lista li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--preto-contraste);
+        }
+
+        /* ===== NUMERAÇÃO "01, 02, 03..." DE CADA BENEFÍCIO ===== */
+        .plano-numero {
+            flex-shrink: 0; /* Não deixa o número encolher se o texto for longo */
+            
+            width: 22px;
+            height: 22px;
+            
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--branco);
+            
+            border-radius: 3px; /* 🔧 ARREDONDAMENTO DO QUADRADINHO DO NÚMERO */
+        }
+
+        /* 🔧 COR DO QUADRADINHO NOS PLANOS "BÁSICO" E "PREMIUM" (vinho) */
+        .plano-numero.numero-vinho {
+            background-color: var(--vinho-alexandria);
+        }
+
+        /* 🔧 COR DO QUADRADINHO NO PLANO "AVANÇADO" (dourado) */
+        .plano-numero.numero-dourado {
+            background-color: var(--dourado-alexandria);
+        }
+
+        /* ===== BOTÃO "GARANTIR MINHA VAGA" — VERSÃO DOURADA (planos Básico e Premium) ===== */
+        .plano-btn-dourado {
+            background-color: var(--dourado-alexandria); /* 🔧 COR DE FUNDO */
+            color: var(--preto-contraste);                /* 🔧 COR DO TEXTO */
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            
+            padding: 10px 24px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+            align-self: center; /* Centraliza o botão dentro do card */
+            
+            transition: background-color 0.3s;
+        }
+
+        .plano-btn-dourado:hover {
+            background-color: var(--dourado-claro); /* 🔧 COR NO HOVER */
+        }
+
+        /* ===== BOTÃO "GARANTIR MINHA VAGA" — VERSÃO VINHO (plano Avançado, em destaque) ===== */
+        .plano-btn-vinho {
+            background-color: var(--vinho-alexandria); /* 🔧 COR DE FUNDO */
+            color: var(--branco);                        /* 🔧 COR DO TEXTO */
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            
+            padding: 10px 24px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+            align-self: center;
+            
+            transition: background-color 0.3s;
+        }
+
+        .plano-btn-vinho:hover {
+            background-color: var(--vinho-escuro); /* 🔧 COR NO HOVER */
+        }
+
+        /* ============================================
+           📱 RESPONSIVIDADE DOS PLANOS - MOBILE (até 900px)
+           ============================================ */
+        @media (max-width: 900px) {
+            .planos-grid {
+                grid-template-columns: 1fr; /* 🔧 EMPILHA OS 3 CARDS EM 1 COLUNA */
+            }
+            .secao-planos {
+                padding: 50px 20px;
+            }
+        }
+
+        /* ============================================
+           🦶 RODAPÉ (FOOTER)
+           ============================================ */
+        footer {
+            background-color: var(--preto-contraste); /* 🔧 COR DE FUNDO DO RODAPÉ */
+            color: var(--cinza-destaque);               /* 🔧 COR DO TEXTO */
+            
+            padding: 50px 60px 20px 60px; /* 🔧 ESPAÇAMENTO INTERNO (mesmo lateral da navbar) */
+            
+            border-top: 4px solid var(--dourado-alexandria); /* 🔧 LINHA DOURADA EM CIMA */
+
+            /* 🔧 EMPURRA O RODAPÉ PRO FINAL DA TELA (funciona junto com o "display:flex" do body) */
+            margin-top: auto;
+        }
+
+        /* ===== CONTAINER QUE ORGANIZA AS COLUNAS DO RODAPÉ ===== */
+        .footer-colunas {
+            display: flex;             /* Colunas lado a lado */
+            justify-content: space-between;
+            align-items: center;       /* 🔧 ALINHA TUDO NA MESMA ALTURA (igual ao modelo) */
+            flex-wrap: wrap;           /* Quebra linha em telas pequenas */
+            gap: 30px;                  /* 🔧 ESPAÇO ENTRE AS COLUNAS */
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-coluna {
+            min-width: 160px; /* 🔧 LARGURA MÍNIMA DE CADA COLUNA */
+        }
+
+        .footer-coluna h3 {
+            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO TÍTULO DA COLUNA */
+            color: var(--dourado-alexandria);         /* 🔧 COR DO TÍTULO */
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .footer-coluna p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--cinza-destaque);
+        }
+
+        .footer-coluna ul {
+            list-style: none; /* Remove bolinhas */
+        }
+
+        .footer-coluna ul li {
+            margin-bottom: 10px; /* 🔧 ESPAÇO ENTRE ITENS DA LISTA */
+        }
+
+        .footer-coluna ul li a {
+            color: var(--cinza-destaque);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-coluna ul li a:hover {
+            color: var(--dourado-alexandria); /* 🔧 COR NO HOVER */
+        }
+
+        /* ===== COLUNA "REDES SOCIAIS" (título + bolinhas vinho com ícone dourado) ===== */
+        .footer-coluna-redes h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dourado-alexandria); /* 🔧 COR DO TÍTULO "REDES SOCIAIS" */
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-redes {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-redes a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            
+            width: 34px;   /* 🔧 TAMANHO DO CÍRCULO */
+            height: 34px;  /* 🔧 TAMANHO DO CÍRCULO */
+            
+            border-radius: 50%;                       /* Deixa redondo */
+            background-color: var(--vinho-alexandria); /* 🔧 COR DE FUNDO DA BOLINHA (vinho) */
+            
+            text-decoration: none;
+            
+            transition: transform 0.3s;
+        }
+
+        .footer-redes a:hover {
+            transform: scale(1.15); /* 🔧 CRESCE UM POUCO NO HOVER */
+        }
+
+        /* ===== ÍCONE DENTRO DE CADA BOLINHA ===== */
+        .footer-redes a i {
+            /* 🔧 COR DO ÍCONE (o desenho do Instagram/X/YouTube) */
+            color: var(--dourado-alexandria); /* Dourado */
+            
+            /* 🔧 TAMANHO DO ÍCONE */
+            font-size: 15px;
+        }
+
+        /* ===== LINHA + TEXTO DE COPYRIGHT ===== */
+        .footer-linha {
+            border-top: 1px solid #333; /* 🔧 COR DA LINHA DIVISÓRIA */
+            margin-top: 40px;
+            padding-top: 18px;
+            text-align: center;
+        }
+
+        .footer-linha p {
+            font-size: 0.8rem;
+            color: var(--cinza-destaque);
+        }
+
+        /* ============================================
+           📱 RESPONSIVIDADE DAS NOVAS SEÇÕES - MOBILE (até 768px)
+           ============================================ */
+        @media (max-width: 768px) {
+            .banner-verificacao .banner-conteudo {
+                padding: 24px 20px; /* 🔧 MENOS ESPAÇO LATERAL NO CELULAR */
+            }
+            .secao-pergunta {
+                padding: 60px 20px; /* 🔧 MENOS ESPAÇO EM CIMA/EMBAIXO */
+            }
+            footer {
+                padding: 40px 20px 20px 20px; /* 🔧 MENOS ESPAÇO LATERAL */
+            }
+            .footer-colunas {
+                flex-direction: column; /* 🔧 COLUNAS EMPILHADAS */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         🧭 NAVBAR - ESTRUTURA HTML
+         ============================================ -->
+    <nav class="navbar">
+
+        <!-- ===== LOGO ===== -->
+        <div class="logo">
+            <a href="#">
+                <!-- 
+                   🔧 ONDE TROCAR A IMAGEM DA LOGO:
+                   Altere o "src" para o caminho da sua imagem
+                   Ex: "imagens/logo.png", "assets/logo.svg", etc
+                -->
+                <img src="imagens/logo.png" alt="Descrição">
+            </a>
+        </div>
+
+        <!-- ===== LINKS ===== -->
+        <ul class="nav-links">
+            <!-- 
+               🔧 ONDE ADICIONAR/REMOVER LINKS:
+               Copie e cole a linha abaixo para adicionar um novo link
+               <li><a href="#">NOVO LINK</a></li>
+            -->
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Curso</a></li>
+            <li><a href="#">Artigos</a></li>      <!-- NOVO -->
+            <li><a href="#">Missão</a></li>        <!-- NOVO -->
+            <li><a href="#">Contato</a></li>       <!-- NOVO -->
+            
+            <!-- ===== BOTÃO CTA ===== -->
+            <!-- 
+               🔧 ONDE TROCAR O TEXTO DO BOTÃO:
+               Altere o texto entre as tags <a> e </a>
+            -->
+            <li class="nav-cta"><a href="#">Acesse a Plataforma</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================
+         🎭 BANNER "VERIFICAÇÃO DE CONTA" - ESTRUTURA HTML
+         ============================================ -->
+    <header class="banner-verificacao">
+        <div class="banner-conteudo">
+
+            <!-- 🔧 ONDE TROCAR O TÍTULO DO BANNER -->
+            <h1>Planos</h1>
+
+            <!-- 🔧 ONDE TROCAR O TEXTO DE APOIO -->
+            <p>Quer ter acesso aos nossos contúdos? Acompanhe nossas tabelas de planos!</p>
+
+            <!-- ===== BOTÕES DO BANNER ===== -->
+            <div class="banner-botoes">
+                <!-- 🔧 ONDE TROCAR O TEXTO/LINK DO BOTÃO DOURADO -->
+                <a href="#" class="btn-garantir-vaga">Garantir Minha Vaga</a>
+
+                <!-- 🔧 ONDE TROCAR O TEXTO/LINK DO BOTÃO VAZADO -->
+                <a href="#" class="btn-conhecer-plataforma">Conhecer a Plataforma</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ============================================
+         💳 SEÇÃO "PLANOS" - ESTRUTURA HTML (específica desta página)
+         ============================================ -->
+    <section class="secao-planos">
+        <div class="planos-grid">
+
+            <!-- ===== CARD 1: BÁSICO ===== -->
+            <div class="plano-card">
+                <!-- 🔧 ONDE TROCAR O NOME DO PLANO -->
+                <h2 class="plano-titulo">Básico</h2>
+
+                <!-- 🔧 ONDE TROCAR O PREÇO -->
+                <p class="plano-preco">R$20,00</p>
+                <p class="plano-periodo">/Mês</p>
+
+                <hr class="plano-divisor">
+
+                <!-- 
+                   🔧 ONDE ADICIONAR/REMOVER BENEFÍCIOS:
+                   Copie e cole um <li> pra adicionar mais um item.
+                   Troque o texto entre <span class="plano-numero">...</span> e </li>
+                -->
+                <ul class="plano-lista">
+                    <li><span class="plano-numero numero-vinho">01</span> Conteúdos em texto otimizado para sua trilha;</li>
+                    <li><span class="plano-numero numero-vinho">02</span> Banco de questões;</li>
+                    <li><span class="plano-numero numero-vinho">03</span> Suporte exclusivo.</li>
+                </ul>
+
+                <!-- 🔧 ONDE TROCAR O TEXTO/LINK DO BOTÃO -->
+                <a href="#" class="plano-btn-dourado">Garantir Minha Vaga</a>
+            </div>
+
+            <!-- ===== CARD 2: AVANÇADO (destaque, borda vinho) ===== -->
+            <div class="plano-card plano-destaque">
+                <h2 class="plano-titulo">Avançado</h2>
+
+                <p class="plano-preco">R$30,00</p>
+                <p class="plano-periodo">/Mês</p>
+
+                <hr class="plano-divisor">
+
+                <ul class="plano-lista">
+                    <li><span class="plano-numero numero-dourado">01</span> Tudo da Anterior;</li>
+                    <li><span class="plano-numero numero-dourado">02</span> Simulados otimizados para os temas e trilha;</li>
+                    <li><span class="plano-numero numero-dourado">03</span> Artigos exclusivos.</li>
+                </ul>
+
+                <!-- 🔧 Este botão é vinho (em vez de dourado) por ser o plano em destaque -->
+                <a href="#" class="plano-btn-vinho">Garantir Minha Vaga</a>
+            </div>
+
+            <!-- ===== CARD 3: PREMIUM ===== -->
+            <div class="plano-card">
+                <h2 class="plano-titulo">Premium</h2>
+
+                <p class="plano-preco">R$40,00</p>
+                <p class="plano-periodo">/Mês</p>
+
+                <hr class="plano-divisor">
+
+                <ul class="plano-lista">
+                    <li><span class="plano-numero numero-vinho">01</span> Tudo das anteriores;</li>
+                    <li><span class="plano-numero numero-vinho">02</span> Alexandr.IA para tirar todas suas dúvidas depois dos simulados;</li>
+                    <li><span class="plano-numero numero-vinho">03</span> Acesso ilimitado a todas trilhas de concursos e vestibulares.</li>
+                </ul>
+
+                <a href="#" class="plano-btn-dourado">Garantir Minha Vaga</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         🦶 RODAPÉ (FOOTER) - ESTRUTURA HTML
+         ============================================ -->
+    <footer>
+        <div class="footer-colunas">
+
+            <!-- ===== COLUNA 1: LOGO ===== -->
+            <div class="footer-coluna">
+                <!-- 🔧 ONDE TROCAR A LOGO / O TAMANHO DELA -->
+                <img src="imagens/logo.png" alt="Logo" style="height: 70px;">
+            </div>
+
+            <!-- ===== COLUNA 2: SUPORTE ===== -->
+            <div class="footer-coluna">
+                <h3>Suporte de Aluno</h3>
+                <ul>
+                    <!-- 🔧 ONDE ADICIONAR/REMOVER LINKS DESTA COLUNA -->
+                    <li><a href="#">Termos de uso</a></li>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Políticas de Privacidade</a></li>
+                </ul>
+            </div>
+
+            <!-- ===== COLUNA 3: CONTATO ===== -->
+            <div class="footer-coluna">
+                <h3>Fale Conosco</h3>
+                <ul>
+                    <!-- 🔧 ONDE TROCAR TELEFONE / E-MAIL / ENDEREÇO -->
+                    <li>+55 11 4002-8922</li>
+                    <li>alexandriaofc@gmail.com</li>
+                    <li>Av. Avenida, 1000 - SP</li>
+                </ul>
+            </div>
+
+            <!-- ===== COLUNA 4: REDES SOCIAIS ===== -->
+            <div class="footer-coluna footer-coluna-redes">
+                <h3>Redes Sociais</h3>
+                <div class="footer-redes">
+                    <!-- 
+                       🔧 ONDE TROCAR CADA ÍCONE:
+                       Troque a classe do <i> por outra do Font Awesome
+                       (ex: fa-brands fa-tiktok, fa-brands fa-facebook-f).
+                       Veja mais em: https://fontawesome.com/icons
+                    -->
+                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== LINHA DE COPYRIGHT ===== -->
+        <div class="footer-linha">
+            <!-- 🔧 ONDE TROCAR O ANO/TEXTO DO COPYRIGHT -->
+            <p>&copy; 2026 Alexandria. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

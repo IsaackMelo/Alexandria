@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Alexandria - Confirmação de código</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ============================================
+           🎨 CORES - PALETA PRINCIPAL
+           ============================================ */
+
+        :root {
+            
+            --vinho-alexandria:   #8b1e2d;   
+            --vinho-escuro:       #5e1220;   
+           
+            --dourado-alexandria: #d4af37;   
+            --dourado-claro:      #f0d060;   
+    
+            --branco-fundo:       #ffffff;   
+            --preto-contraste:    #1a1a1a;   
+            --cinza-destaque:     #dee0e3;  
+            --cinza-texto:        #555;     
+            --branco:             #ffffff;   
+        }
+
+        /* ============================================
+            PADRÕES DO NAVEGADOR
+           ============================================ */
+        * {
+            margin: 0;        /* Remove margens padrão */
+            padding: 0;       /* Remove preenchimentos padrão */
+            box-sizing: border-box; /* Faz com que padding/borda não aumentem o tamanho */
+        }
+
+        /* ============================================
+           📄 ESTILO GERAL DO BODY
+           ============================================ */
+        html {
+            height: 100%; 
+        }
+
+        body {
+
+            font-family: 'Inter', sans-serif; 
+            
+            background-color: var(--bege-fundo); 
+            color: var(--preto-contraste);       
+            min-height: 100vh;                   /* Altura mínima da tela inteira */
+
+   
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================
+            NAVBAR 
+           ============================================ */
+        .navbar {
+            display: flex;               
+            justify-content: space-between; 
+            align-items: center;           
+            
+            
+            background-color: var(--vinho-alexandria); 
+            
+            
+            height: 65px;                 
+            
+            
+            padding: 0 60px;              
+            
+            position: sticky;             /* Fixa no topo ao rolar */
+            top: 0;                       /* Gruda no topo */
+            z-index: 1000;                /* Fica acima de tudo */
+            
+           
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); /* Sombra suave */
+        }
+
+        /* ============================================
+            LOGO
+           ============================================ */
+        .navbar .logo {
+            display: flex;
+            align-items: center; 
+        }
+
+        .navbar .logo img {
+            
+            height: 45px;      
+            
+            
+            max-width: 180px;    
+        }
+
+        /* ============================================
+            LINKS DA NAVBAR
+           ============================================ */
+        .nav-links {
+            display: flex;        
+            gap: 32px;           
+            list-style: none;   
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+       
+        .nav-links li a {
+      
+            font-family: 'Inter', sans-serif;
+            
+            
+            font-size: 12px;      
+            
+            
+            font-weight: 400;     
+            
+            
+            color: var(--branco); 
+            
+            text-decoration: none;          
+            text-transform: uppercase;     
+            letter-spacing: 0.06em;        
+            
+            padding: 6px 0;                 
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s;         
+        }
+
+        /* ===== HOVER ===== */
+        .nav-links li a:hover {
+    
+            color: var(--dourado-alexandria); 
+            
+            
+            border-bottom-color: var(--dourado-alexandria); 
+        }
+
+        .nav-cta a {
+        
+            background-color: var(--dourado-alexandria) !important;
+            
+            
+            color: var(--preto-contraste) !important;
+            
+            
+            font-size: 12px;
+            
+            
+            font-weight: 700 !important;
+            
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            
+            
+            padding: 10px 24px;    
+            
+            border: none;
+            transition: all 0.3s;  
+            border-bottom: none !important; 
+        }
+
+        
+        .nav-cta a:hover {
+            
+            background-color: var(--dourado-claro) !important;
+            
+            
+            transform: scale(1.04);
+            
+            border-bottom: none !important;
+            color: var(--preto-contraste) !important;
+        }
+
+        /* ============================================
+            RESPONSIVIDADE - TABLET (até 992px)
+           ============================================ */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 0 30px; 
+            }
+            .nav-links {
+                gap: 20px; 
+            }
+            .nav-links li a {
+                font-size: 12px; 
+            }
+        }
+
+        /* ============================================
+           📱 RESPONSIVIDADE - MOBILE (até 768px)
+           ============================================ */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;           
+                padding: 16px 20px;    
+                gap: 12px;              
+            }
+
+            .nav-links {
+                flex-wrap: wrap;        
+                justify-content: center; 
+                gap: 12px 18px;         
+            }
+
+            .nav-links li a {
+                font-size: 11px;        
+            }
+
+            .nav-cta a {
+                padding: 8px 18px;   
+                font-size: 11px;      
+            }
+        }
+
+        /* ============================================
+            RESPONSIVIDADE - MOBILE PEQUENO (até 480px)
+           ============================================ */
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 8px 14px;    
+            }
+            .nav-links li a {
+                font-size: 10px;        
+            }
+            .navbar .logo img {
+                height: 35px;           
+            }
+        }
+
+        .banner-verificacao {
+            position: relative;    /* Necessário para o overlay funcionar por cima da imagem */
+            
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg'); /* Imagem de fundo */
+            background-size: cover;      
+            background-position: center 20%; 
+
+            min-height: 220px;    
+            
+            display: flex;
+            align-items: center;  
+            
+            border-bottom: 4px solid var(--dourado-alexandria);
+        }
+
+        .banner-verificacao::before {
+            content: "";              /* Obrigatório para o ::before aparecer */
+            position: absolute;       /* Fica por cima da imagem */
+            top: 0; left: 0; right: 0; bottom: 0; /* Cobre o banner inteiro */
+            
+            
+            background: linear-gradient(
+                90deg,
+                rgba(94, 18, 32, 0.93) 0%, 
+                rgba(94, 18, 32, 0.55) 60%,  
+                rgba(94, 18, 32, 0.20) 100%  
+            );
+        }
+
+        /* ===== CONTEÚDO DO BANNER (fica por cima do overlay) ===== */
+        .banner-verificacao .banner-conteudo {
+            position: relative;  /* Precisa ser "relative" pra ficar acima do ::before */
+            z-index: 2;          /* Garante que fica por cima da camada escura */
+            
+            /* 🔧 ESPAÇAMENTO INTERNO DO CONTEÚDO */
+            padding: 30px 60px;  /* Mesmo padding lateral da navbar (60px) */
+            
+            max-width: 620px;   
+        }
+
+        .banner-verificacao h1 {
+            font-family: 'Playfair Display', serif; 
+            color: var(--branco);                    
+            font-size: 1.7rem;                        
+            font-weight: 700;
+            margin-bottom: 8px;                       
+        }
+
+        
+        .banner-verificacao p {
+            color: var(--cinza-destaque); 
+            font-size: 0.9rem;           
+            line-height: 1.5;            
+            margin-bottom: 20px;          
+        }
+
+       
+        .banner-botoes {
+            display: flex;   
+            gap: 14px;    
+            flex-wrap: wrap;  /* Quebra linha em telas pequenas */
+        }
+
+       
+        .btn-garantir-vaga {
+            background-color: var(--dourado-alexandria); 
+            color: var(--preto-contraste);                
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;      
+            font-weight: 700;        
+            
+            padding: 10px 20px;     
+            border-radius: 4px;      
+            border: none;
+            text-decoration: none;
+            
+            transition: background-color 0.3s; 
+        }
+
+        .btn-garantir-vaga:hover {
+            background-color: var(--dourado-claro); 
+        }
+
+        
+        .btn-conhecer-plataforma {
+            background-color: transparent; 
+            color: var(--branco);          
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;       
+            font-weight: 600;
+            
+            padding: 10px 20px;       
+            border-radius: 4px;       
+            border: 1px solid var(--branco); 
+            text-decoration: none;
+            
+            transition: background-color 0.3s;
+        }
+
+        .btn-conhecer-plataforma:hover {
+            background-color: rgba(255, 255, 255, 0.15); 
+        }
+
+        .secao-pergunta {
+            padding: 90px 20px;  
+            text-align: center;   
+            background-color: var(--branco-fundo); 
+        }
+
+        .secao-pergunta h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;     
+            font-weight: 700;     
+            color: var(--preto-contraste);
+            margin-bottom: 30px;   
+        }
+
+        
+        .pergunta-botoes {
+            display: flex;
+            justify-content: center; 
+            gap: 16px;                
+            flex-wrap: wrap;
+        }
+
+        
+        .btn-sim {
+            background-color: var(--dourado-alexandria);
+            color: var(--preto-contraste);               
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            
+            padding: 11px 42px;    
+            border-radius: 4px;   
+            border: none;
+            text-decoration: none;
+            
+            transition: background-color 0.3s;
+        }
+
+        .btn-sim:hover {
+            background-color: var(--dourado-claro); 
+        }
+
+        .btn-nao {
+            background-color: transparent;
+            color: var(--vinho-alexandria);         
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            
+            padding: 11px 42px;                 
+            border-radius: 4px;                        
+            border: 1.5px solid var(--vinho-alexandria); 
+            text-decoration: none;
+            
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-nao:hover {
+            background-color: var(--vinho-alexandria); 
+            color: var(--branco);                       
+        }
+
+        .secao-confirmacao {
+    padding: 90px 20px;
+    
+    text-align: center;
+    background-color: var(--branco-fundo);
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+        .secao-confirmacao h2 {
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.6rem;     
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 40px;
+        }
+
+        .secao-confirmacao h3 {
+            font-family: 'Playfair Display', serif; 
+            font-style: italic;      
+            font-size: 1.2rem;       
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 30px;  
+        }
+
+     
+        .codigo-caixinhas {
+            display: flex;
+            justify-content: center; 
+            gap: 12px;                 
+            margin-bottom: 34px;       
+        }
+
+      
+        .input-codigo {
+            width: 46px;
+            height: 46px;
+            
+            text-align: center;   
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--preto-contraste); 
+            
+            background-color: var(--dourado-alexandria); 
+            border: none;
+            border-radius: 6px;   
+            
+            outline: none;        
+            
+            transition: background-color 0.3s;
+        }
+
+       
+        .input-codigo:focus {
+            background-color: var(--dourado-claro);
+        }
+
+        
+        .btn-confirmar-email {
+            background-color: var(--vinho-alexandria); 
+            color: var(--branco);                        
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            
+            padding: 11px 30px;  
+            border-radius: 4px;   
+            border: none;
+            cursor: pointer;
+            
+            transition: background-color 0.3s;
+        }
+
+        .btn-confirmar-email:hover {
+            background-color: var(--vinho-escuro); 
+        }
+
+        /* ============================================
+            RODAPÉ (FOOTER)
+           ============================================ */
+        footer {
+            background-color: var(--preto-contraste); 
+            color: var(--cinza-destaque);            
+
+            padding: 50px 60px 20px 60px; 
+            
+            border-top: 4px solid var(--dourado-alexandria); 
+            margin-top: auto;
+        }
+
+        .footer-colunas {
+            display: flex;             
+            justify-content: space-between;
+            align-items: center;  
+            flex-wrap: wrap;           
+            gap: 30px;                  
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-coluna {
+            min-width: 160px; 
+        }
+
+        .footer-coluna h3 {
+            font-family: 'Playfair Display', serif; 
+            color: var(--dourado-alexandria);         
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .footer-coluna p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--cinza-destaque);
+        }
+
+        .footer-coluna ul {
+            list-style: none; /* Remove bolinhas */
+        }
+
+        .footer-coluna ul li {
+            margin-bottom: 10px; 
+        }
+
+        .footer-coluna ul li a {
+            color: var(--cinza-destaque);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-coluna ul li a:hover {
+            color: var(--dourado-alexandria); 
+        }
+
+        .footer-coluna-redes h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dourado-alexandria); 
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-redes {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-redes a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            
+            width: 34px;   
+            height: 34px;  
+            
+            border-radius: 50%;                       
+            background-color: var(--vinho-alexandria); 
+            
+            text-decoration: none;
+            
+            transition: transform 0.3s;
+        }
+
+        .footer-redes a:hover {
+            transform: scale(1.15); 
+        }
+
+        /* ===== ÍCONE DENTRO DE CADA BOLINHA ===== */
+        .footer-redes a i {
+            /* COR DO ÍCONE (o desenho do Instagram/X/YouTube) */
+            color: var(--dourado-alexandria); 
+            
+            font-size: 15px;
+        }
+
+        .footer-linha {
+            border-top: 1px solid #333; 
+            margin-top: 40px;
+            padding-top: 18px;
+            text-align: center;
+        }
+
+        .footer-linha p {
+            font-size: 0.8rem;
+            color: var(--cinza-destaque);
+        }
+
+        /* ============================================
+            RESPONSIVIDADE DAS NOVAS SEÇÕES - MOBILE (até 768px)
+           ============================================ */
+        @media (max-width: 768px) {
+            .banner-verificacao .banner-conteudo {
+                padding: 24px 20px; /*  MENOS ESPAÇO LATERAL NO CELULAR */
+            }
+            .secao-pergunta {
+                padding: 60px 20px; /*  MENOS ESPAÇO EM CIMA/EMBAIXO */
+            }
+            footer {
+                padding: 40px 20px 20px 20px; /*  MENOS ESPAÇO LATERAL */
+            }
+            .footer-colunas {
+                flex-direction: column; /*  COLUNAS EMPILHADAS */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+          NAVBAR - ESTRUTURA HTML
+         ============================================ -->
+    <nav class="navbar">
+
+        <!-- ===== LOGO ===== -->
+        <div class="logo">
+            <a href="#">
+                <img src="imagens/logo.png" alt="Descrição">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+
+               <li><a href="#">NOVO LINK</a></li>
+
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Curso</a></li>
+            <li><a href="#">Artigos</a></li>
+            <li><a href="#">Missão</a></li>        
+            <li><a href="#">Contato</a></li>      
+            
+            <li class="nav-cta"><a href="#">Acesse a Plataforma</a></li>
+        </ul>
+    </nav>
+
+    <header class="banner-verificacao">
+        <div class="banner-conteudo">
+
+            <h1>Troca de senha</h1>
+
+            <p>Para prosseguir com o seu acesso à conta, por favor, confirme seu e-mail.</p>
+
+            <div class="banner-botoes">
+                <a href="#" class="btn-garantir-vaga">Garantir Minha Vaga</a>
+
+                <a href="#" class="btn-conhecer-plataforma">Conhecer a Plataforma</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <section class="secao-confirmacao">
+
+
+        <h2>Confirmação de Email</h2>
+
+
+        <h3>Informe codigo de confirmação</h3>
+
+        <form>
+
+            <div class="codigo-caixinhas">
+                <input type="text" class="input-codigo" maxlength="1" inputmode="numeric">
+                <input type="text" class="input-codigo" maxlength="1" inputmode="numeric">
+                <input type="text" class="input-codigo" maxlength="1" inputmode="numeric">
+                <input type="text" class="input-codigo" maxlength="1" inputmode="numeric">
+                <input type="text" class="input-codigo" maxlength="1" inputmode="numeric">
+            </div>
+
+            <button type="submit" class="btn-confirmar-email">Confirmar Email</button>
+        </form>
+
+    </section>
+
+    <!-- ============================================
+          RODAPÉ (FOOTER) - ESTRUTURA HTML
+         ============================================ -->
+    <footer>
+        <div class="footer-colunas">
+
+         
+            <div class="footer-coluna">
+            
+                <img src="imagens/logo.png" alt="Logo" style="height: 70px;">
+            </div>
+
+           
+            <div class="footer-coluna">
+                <h3>Suporte de Aluno</h3>
+                <ul>
+                   
+                    <li><a href="#">Termos de uso</a></li>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Políticas de Privacidade</a></li>
+                </ul>
+            </div>
+
+          
+            <div class="footer-coluna">
+                <h3>Fale Conosco</h3>
+                <ul>
+        
+                    <li>+55 11 4002-8922</li>
+                    <li>alexandriaofc@gmail.com</li>
+                    <li>Av. Avenida, 1000 - SP</li>
+                </ul>
+            </div>
+
+            <div class="footer-coluna footer-coluna-redes">
+                <h3>Redes Sociais</h3>
+                <div class="footer-redes">
+
+                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-linha">
+          
+            <p>&copy; 2026 Alexandria. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const caixinhas = document.querySelectorAll('.input-codigo');
+
+        caixinhas.forEach((caixinha, indice) => {
+            caixinha.addEventListener('input', () => {
+                if (caixinha.value.length === 1 && indice < caixinhas.length - 1) {
+                    caixinhas[indice + 1].focus();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
