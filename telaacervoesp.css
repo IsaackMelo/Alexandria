@@ -76,11 +76,11 @@ body {
 }
 
 .sidebar-menu a:hover,
-.sidebar-menu .active {
+.sidebar-menu .active,
+.sidebar-footer a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--cor-dourado-claro);
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    text-decoration: none;
 }
 
 .icon-img {

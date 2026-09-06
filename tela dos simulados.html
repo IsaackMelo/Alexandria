@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alexandria - Banco de Questões</title>
+
+    <link rel="icon" type="image/png" href="imagens/alex.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+
+    <link rel="stylesheet" href="simulado.css">
+
+</head>
+
+        <body>
+    <aside class="sidebar">
+        <!-- Logo no topo -->
+        <div class="sidebar-header">
+            <a href="#"><img src="imagens/logo.png" alt="Alexandria"></a>
+        </div>
+
+        <!-- Links das paginas (cursos, simulados, etc) -->
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#"><img src="imagens/cursos.png" class="icon-img" alt="Cursos"><span class="text">Cursos disponíveis</span></a>
+            </li>
+            <li>
+                <a href="#"><img src="imagens/meus-cursos.png" class="icon-img" alt="Meus cursos"><span class="text">Meus cursos</span></a>
+            </li>
+            <li>
+                <a href="#"><img src="imagens/prancheta.png" class="icon-img" alt="Artigos"><span class="text">Artigos</span></a>
+            </li>
+            <li>
+                <a href="#"><img src="imagens/ia.png" class="icon-img" alt="IA"><span class="text">Chat AI</span></a>
+            </li>
+            <li>
+                <a href="tela dos simulados.html" class="active"><img src="imagens/banco_questao.png" class="icon-img" alt="Banco"><span class="text">Banco de questões</span></a>
+            </li>
+            <li>
+                <a href="#"><img src="imagens/notificacao.png" class="icon-img" alt="Notificação"><span class="text">Notificação</span></a>
+            </li>
+        </ul>
+
+        <!-- Botao de logout colado la embaixo -->
+        <ul class="sidebar-footer">
+            <li>
+                <a href="index.html">
+                    <span class="icon-fa"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    
+
+    <main class="conteudo">
+
+        <header class="topo">
+            <h4>BANCO DE QUESTÕES</h4>
+            <div class="usuario">
+                <span>Igor Bueno</span>
+                <i class="fa-solid fa-chevron-down icone-seta"></i>
+                <div class="avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <p class="subtitulo">Explore os acervos disponíveis para estudo e simulados.</p>
+
+        <!-- Barra de pesquisa refinada -->
+        <div class="area-pesquisa-simulados">
+            <div class="barra-pesquisa">
+                <i class="fa-solid fa-magnifying-glass icone-lupa"></i>
+                <input type="text" id="campoBuscaAcervo" placeholder="Buscar por banca, faculdade ou palavra-chave..." autocomplete="off">
+                <button type="button" id="btnLimparBusca" class="btn-limpar" title="Limpar busca" style="display: none;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <span class="contador-acervos" id="contadorResultados">6 acervos disponíveis</span>
+        </div>
+
+        <!-- cards -->
+        <div class="cardsvest" id="gridCardsAcervos">
+            <div class="card">
+                <img src="fgv.jpg" alt="FGV">
+                <div class="card-conteudo">
+                    <h3>FGV</h3>
+                    <p>Conhecida pelo rigor técnico. Ideal para quem busca carreiras em Direito, Economia e Administração Pública.</p>
+                    <button onclick="abrirModal('FGV')">ACESSAR ACERVO</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="cebraspe.jpg" alt="cebraspe">
+                <div class="card-conteudo">
+                    <h3>CEBRASPE</h3>
+                    <p>Conhecida pelo rigor técnico. Ideal para quem busca carreiras em Direito, Economia e Administração Pública.</p>
+                    <button onclick="abrirModal('CEBRASPE')">ACESSAR ACERVO</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="fuvest.jpg" alt="fuvest">
+                <div class="card-conteudo">
+                    <h3>FUVEST</h3>
+                    <p>Conhecida pelo rigor técnico. Ideal para quem busca carreiras em Direito, Economia e Administração Pública.</p>
+                    <button onclick="abrirModal('FUVEST')">ACESSAR ACERVO</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="enem.png" alt="enem">
+                <div class="card-conteudo">
+                    <h3>ENEM</h3>
+                    <p>Conhecida pelo rigor técnico. Ideal para quem busca carreiras em Direito, Economia e Administração Pública.</p>
+                    <button onclick="abrirModal('ENEM')">ACESSAR ACERVO</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="espcex.png" alt="EsPCEx">
+                <div class="card-conteudo">
+                    <h3>EsPCEx</h3>
+                    <p>Conhecida pelo rigor técnico. Ideal para quem busca carreiras em Direito, Economia e Administração Pública.</p>
+                    <button onclick="abrirModal('EsPCEx')">ACESSAR ACERVO</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="vunesp.png" alt="VUNESP">
+                <div class="card-conteudo">
+                    <h3>VUNESP</h3>
+                    <p>Conhecida pelo rigor técnico. Ideal para quem busca carreiras em Direito, Economia e Administração Pública.</p>
+                    <button onclick="abrirModal('VUNESP')">ACESSAR ACERVO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estado vazio caso a busca não retorne itens -->
+        <div id="semResultados" class="sem-resultados" style="display: none;">
+            <i class="fa-solid fa-folder-open"></i>
+            <p>Nenhum acervo encontrado para sua busca.</p>
+        </div>
+
+    </main>
+
+    <!-- mensagem que aparece na tela -->
+    <dialog id="modalAcervo">
+        <p>Quer acessar o acervo <strong id="nomeAcervo"></strong>?</p>
+        <div class="botoes">
+            <button class="btn-cancelar" onclick="document.getElementById('modalAcervo').close()">Cancelar</button>
+            <button class="btn-confirmar" onclick="confirmarAcesso()">Confirmar</button>
+        </div>
+    </dialog>
+
+    <script>
+        let acervoAtual = "";
+
+        // modal aparece
+        function abrirModal(nome) {
+            acervoAtual = nome;
+            // pega o id do card que a gnt clicar no acessar acervo
+            document.getElementById("nomeAcervo").textContent = nome;
+            // aparece o modal do acervo que a gnt escolher
+            document.getElementById("modalAcervo").showModal();
+        }
+
+        function confirmarAcesso() {
+            if (acervoAtual === "FUVEST") {
+                window.location.href = "telaacervoesp.html";
+            } else {
+                window.location.href = "telaacervoesp.html";
+            }
+        }
+
+        // Filtro de busca em tempo real nos cards de acervo
+        const campoBusca = document.getElementById("campoBuscaAcervo");
+        const btnLimpar = document.getElementById("btnLimparBusca");
+        const gridCards = document.getElementById("gridCardsAcervos");
+        const semResultados = document.getElementById("semResultados");
+        const contadorResultados = document.getElementById("contadorResultados");
+
+        if (campoBusca) {
+            campoBusca.addEventListener("input", function () {
+                const termo = this.value.trim().toLowerCase();
+                const cards = gridCards.getElementsByClassName("card");
+                let visiveis = 0;
+
+                btnLimpar.style.display = termo.length > 0 ? "inline-flex" : "none";
+
+                for (let i = 0; i < cards.length; i++) {
+                    const titulo = cards[i].querySelector("h3") ? cards[i].querySelector("h3").innerText.toLowerCase() : "";
+                    const descricao = cards[i].querySelector("p") ? cards[i].querySelector("p").innerText.toLowerCase() : "";
+
+                    if (titulo.includes(termo) || descricao.includes(termo)) {
+                        cards[i].style.display = "";
+                        visiveis++;
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+
+                if (contadorResultados) {
+                    if (termo === "") {
+                        contadorResultados.textContent = `${cards.length} acervos disponíveis`;
+                    } else {
+                        contadorResultados.textContent = visiveis === 1 ? "1 acervo encontrado" : `${visiveis} acervos encontrados`;
+                    }
+                }
+
+                if (semResultados) {
+                    semResultados.style.display = visiveis === 0 ? "block" : "none";
+                }
+            });
+
+            btnLimpar.addEventListener("click", function () {
+                campoBusca.value = "";
+                campoBusca.dispatchEvent(new Event("input"));
+                campoBusca.focus();
+            });
+        }
+    </script>
+</body>
+
+</html>
