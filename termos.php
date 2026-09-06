@@ -446,7 +446,7 @@
 <body>
 
 <?php
-include("../FRONT/includes/navbar.html")
+include __DIR__ . '/navbar.html';
 ?>
 
     <main class="terms-page">
@@ -938,7 +938,7 @@ include("../FRONT/includes/navbar.html")
     </main>
 
     <?php
-        include("../FRONT/includes/footer.html");
+        include __DIR__ . '/footer.html';
     ?>
 
     <script 
