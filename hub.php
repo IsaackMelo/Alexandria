@@ -45,7 +45,7 @@
         .hero {
             height: 205px;
 
-            background-image: url("../FRONT/imagens/era-vargas.jpg");
+            background: #8b1e2d;
             background-size: cover;
             background-position: center top;
 
@@ -265,7 +265,7 @@
 <body>
 
  <?php
-    include("../FRONT/includes/header.html")
+    include __DIR__ . '/header.html';
  ?>
 
     <header class="hero">
