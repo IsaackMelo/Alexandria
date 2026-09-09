@@ -53,166 +53,191 @@
             flex-direction: column;
         }
 
-        .navbar {
-            display: flex;                
-            justify-content: space-between; 
-            align-items: center;           
+      .navbar {
+            display: flex;                /* Layout flexível em linha */
+            justify-content: space-between; /* Espaça logo e links nas pontas */
+            align-items: center;           /* Centraliza verticalmente */
             
-            background-color: var(--vinho-alexandria); 
+            /* 🔧 COR DE FUNDO DA NAVBAR */
+            background-color: var(--vinho-alexandria); /* Vinho */
             
-           
-            height: 65px;                 
+            /* 🔧 ALTURA DA NAVBAR */
+            height: 65px;                 /* Aumente/diminua aqui */
             
+            /* 🔧 ESPAÇAMENTO INTERNO (PADDING) */
+            padding: 0 60px;              /* 0 em cima/baixo, 60px nas laterais */
             
-            padding: 0 60px;             
-            position: sticky;            
-            top: 0;                      
-            z-index: 1000;           
+            position: sticky;             /* Fixa no topo ao rolar */
+            top: 0;                       /* Gruda no topo */
+            z-index: 1000;                /* Fica acima de tudo */
             
-            
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); 
+            /* 🔧 SOMBRA DA NAVBAR */
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); /* Sombra suave */
         }
 
-
+        /* ============================================
+           🖼️ LOGO
+           ============================================ */
         .navbar .logo {
             display: flex;
-            align-items: center; 
+            align-items: center; /* Centraliza a imagem verticalmente */
         }
 
         .navbar .logo img {
+            /* 🔧 ALTURA DA LOGO */
+            height: 45px;        /* Aumente/diminua aqui */
             
-            height: 45px;      
-        
-            max-width: 180px;   
+            /* 🔧 LARGURA MÁXIMA (opcional) */
+            max-width: 180px;    /* Evita que fique muito grande */
         }
 
-
+        /* ============================================
+           📋 LINKS DA NAVBAR
+           ============================================ */
         .nav-links {
-            display: flex;       
-            gap: 32px;           
-            list-style: none;    
+            display: flex;        /* Links em linha */
+            gap: 32px;           /* 🔧 ESPAÇAMENTO ENTRE LINKS (aumente/diminua) */
+            list-style: none;    /* Remove as bolinhas da lista */
             margin: 0;
             padding: 0;
-            align-items: center;
+            align-items: center; /* Alinha verticalmente */
         }
 
-    
+        /* ===== CADA LINK ===== */
         .nav-links li a {
-
+            /* 
+               🔧 TROCAR A FONTE DOS LINKS AQUI:
+               Altere "font-family" para outra fonte
+            */
             font-family: 'Inter', sans-serif;
             
+            /* 🔧 TAMANHO DA FONTE DOS LINKS */
+            font-size: 12px;      /* Aumente/diminua aqui */
             
-            font-size: 12px;     
+            /* 🔧 PESO DA FONTE (negrito) */
+            font-weight: 400;     /* 400=normal, 500=médio, 600=semi-bold, 700=bold */
             
-        
-            font-weight: 400;    
+            /* 🔧 COR DOS LINKS */
+            color: var(--branco); /* Branco */
             
+            text-decoration: none;          /* Remove o sublinhado */
+            text-transform: uppercase;      /* 🔧 Deixa tudo maiúsculo */
+            letter-spacing: 0.06em;         /* 🔧 ESPAÇAMENTO ENTRE LETRAS */
             
-            color: var(--branco); 
-            
-            text-decoration: none;          
-            text-transform: uppercase;      
-            letter-spacing: 0.06em;         
-            
-            padding: 6px 0;               
-            border-bottom: 2px solid transparent;
-            transition: color 0.3s;         
+            padding: 6px 0;                 /* Espaçamento interno */
+            border-bottom: 2px solid transparent; /* Linha invisível embaixo */
+            transition: color 0.3s;         /* Suaviza a mudança de cor */
         }
 
-        
+        /* ===== HOVER (quando passa o mouse) ===== */
         .nav-links li a:hover {
+            /* 🔧 COR AO PASSAR O MOUSE */
+            color: var(--dourado-alexandria); /* Fica dourado */
             
-            color: var(--dourado-alexandria); 
-            
-            border-bottom-color: var(--dourado-alexandria);
+            /* 🔧 COR DA LINHA EMBaIXO AO PASSAR O MOUSE */
+            border-bottom-color: var(--dourado-alexandria); /* Linha dourada */
         }
 
+        /* ============================================
+           🟡 BOTÃO "ACESSE A PLATAFORMA"
+           ============================================ */
         .nav-cta a {
+            /* 🔧 COR DE FUNDO DO BOTÃO (AMARELO/DOURADO) */
             background-color: var(--dourado-alexandria) !important;
             
+            /* 🔧 COR DO TEXTO DO BOTÃO (PRETO) */
             color: var(--preto-contraste) !important;
             
+            /* 🔧 TAMANHO DA FONTE DO BOTÃO */
             font-size: 12px;
             
+            /* 🔧 PESO DA FONTE (NEGRITO) */
             font-weight: 700 !important;
             
             text-transform: uppercase;
             letter-spacing: 0.04em;
             
-    
-            padding: 10px 24px;    
+            /* 🔧 ESPAÇAMENTO INTERNO DO BOTÃO */
+            padding: 10px 24px;    /* 10px em cima/baixo, 24px nas laterais */
             
+            /* 🔧 ARREDONDAMENTO DAS BORDAS */
+               /* 30px = bem arredondado */
 
-            border: none;
-            transition: all 0.3s;  
-            border-bottom: none !important; 
+            border-radius: 10px;
+            transition: all 0.3s;  /* Suaviza as animações */
+            border-bottom: none !important; /* Remove a linha inferior */
         }
 
+        /* ===== HOVER DO BOTÃO ===== */
         .nav-cta a:hover {
+            /* 🔧 COR AO PASSAR O MOUSE (DOURADO MAIS CLARO) */
             background-color: var(--dourado-claro) !important;
             
+            /* 🔧 LEVE AUMENTO AO PASSAR O MOUSE */
             transform: scale(1.04);
+           
             
             border-bottom: none !important;
             color: var(--preto-contraste) !important;
         }
 
         /* ============================================
-            RESPONSIVIDADE - TABLET (até 992px)
+           📱 RESPONSIVIDADE - TABLET (até 992px)
            ============================================ */
         @media (max-width: 992px) {
             .navbar {
-                padding: 0 30px; /* MENOS ESPAÇO NAS LATERAIS */
+                padding: 0 30px; /* 🔧 MENOS ESPAÇO NAS LATERAIS */
             }
             .nav-links {
-                gap: 20px; /*  MENOS ESPAÇO ENTRE LINKS */
+                gap: 20px; /* 🔧 MENOS ESPAÇO ENTRE LINKS */
             }
             .nav-links li a {
-                font-size: 12px; /*  FONTE MENOR */
+                font-size: 12px; /* 🔧 FONTE MENOR */
             }
         }
 
         /* ============================================
-            RESPONSIVIDADE - MOBILE (até 768px)
+           📱 RESPONSIVIDADE - MOBILE (até 768px)
            ============================================ */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column; /*  LOGO E LINKS FICAM EM COLUNA */
-                height: auto;           /*  ALTURA AUTOMÁTICA */
-                padding: 16px 20px;     /*  ESPAÇO INTERNO */
-                gap: 12px;              /*  ESPAÇO ENTRE LOGO E LINKS */
+                flex-direction: column; /* 🔧 LOGO E LINKS FICAM EM COLUNA */
+                height: auto;           /* 🔧 ALTURA AUTOMÁTICA */
+                padding: 16px 20px;     /* 🔧 ESPAÇO INTERNO */
+                gap: 12px;              /* 🔧 ESPAÇO ENTRE LOGO E LINKS */
             }
 
             .nav-links {
-                flex-wrap: wrap;        /*  LINKS QUEBRAM EM VÁRIAS LINHAS */
-                justify-content: center; /*  CENTRALIZA OS LINKS */
-                gap: 12px 18px;         /*  ESPAÇO ENTRE LINKS */
+                flex-wrap: wrap;        /* 🔧 LINKS QUEBRAM EM VÁRIAS LINHAS */
+                justify-content: center; /* 🔧 CENTRALIZA OS LINKS */
+                gap: 12px 18px;         /* 🔧 ESPAÇO ENTRE LINKS */
             }
 
             .nav-links li a {
-                font-size: 11px;        /*  FONTE MENOR AINDA */
+                font-size: 11px;        /* 🔧 FONTE MENOR AINDA */
             }
 
             .nav-cta a {
-                padding: 8px 18px;      /*  BOTÃO MENOR */
-                font-size: 11px;        /*  FONTE MENOR */
+                padding: 8px 18px;      /* 🔧 BOTÃO MENOR */
+                font-size: 11px;        /* 🔧 FONTE MENOR */
             }
         }
 
         /* ============================================
-            RESPONSIVIDADE - MOBILE PEQUENO (até 480px)
+           📱 RESPONSIVIDADE - MOBILE PEQUENO (até 480px)
            ============================================ */
         @media (max-width: 480px) {
             .nav-links {
-                gap: 8px 14px;          /*  ESPAÇO MÍNIMO */
+                gap: 8px 14px;          /* 🔧 ESPAÇO MÍNIMO */
             }
             .nav-links li a {
-                font-size: 10px;        /*  FONTE MUITO PEQUENA */
+                font-size: 10px;        /* 🔧 FONTE MUITO PEQUENA */
             }
             .navbar .logo img {
-                height: 35px;           /*  LOGO MENOR */
+                height: 35px;           /* 🔧 LOGO MENOR */
             }
         }
+
 
 
         .banner-verificacao {
@@ -255,7 +280,7 @@
         }
 
         .banner-verificacao h1 {
-            font-family: 'Playfair Display', serif; 
+            font-family: 'inter', serif; 
             color: var(--branco);                    
             font-size: 1.7rem;                        
             font-weight: 700;
@@ -392,7 +417,7 @@
     align-items: center;
 }
         .secao-confirmacao h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'inter', serif;
             font-size: 1.6rem;   
             font-weight: 700;
             color: var(--preto-contraste);
@@ -401,7 +426,7 @@
 
 
         .secao-confirmacao h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'inter', serif;
             font-style: italic;   
             font-size: 1.2rem;       
             font-weight: 700;
@@ -462,36 +487,36 @@
             background-color: var(--dourado-claro); 
         }
 
-        footer {
-            background-color: var(--preto-contraste); 
-            color: var(--cinza-destaque);               
+         footer {
+            background-color: var(--preto-contraste); /* 🔧 COR DE FUNDO DO RODAPÉ */
+            color: var(--cinza-destaque);               /* 🔧 COR DO TEXTO */
             
-            padding: 50px 60px 20px 60px; 
+            padding: 50px 60px 20px 60px; /* 🔧 ESPAÇAMENTO INTERNO (mesmo lateral da navbar) */
             
-            border-top: 4px solid var(--dourado-alexandria); 
+            border-top: 4px solid var(--dourado-alexandria); /* 🔧 LINHA DOURADA EM CIMA */
 
-        
+            /* 🔧 EMPURRA O RODAPÉ PRO FINAL DA TELA (funciona junto com o "display:flex" do body) */
             margin-top: auto;
         }
 
-
+        /* ===== CONTAINER QUE ORGANIZA AS COLUNAS DO RODAPÉ ===== */
         .footer-colunas {
-            display: flex;            
+            display: flex;             /* Colunas lado a lado */
             justify-content: space-between;
-            align-items: center;       
-            flex-wrap: wrap;           
-            gap: 30px;               
+            align-items: center;       /* 🔧 ALINHA TUDO NA MESMA ALTURA (igual ao modelo) */
+            flex-wrap: wrap;           /* Quebra linha em telas pequenas */
+            gap: 30px;                  /* 🔧 ESPAÇO ENTRE AS COLUNAS */
             max-width: 1300px;
             margin: 0 auto;
         }
 
         .footer-coluna {
-            min-width: 160px;
+            min-width: 160px; /* 🔧 LARGURA MÍNIMA DE CADA COLUNA */
         }
 
         .footer-coluna h3 {
-            font-family: 'Playfair Display', serif; 
-            color: var(--dourado-alexandria);         
+            font-family: 'inter', serif; /* 🔧 FONTE DO TÍTULO DA COLUNA */
+            color: var(--dourado-alexandria);         /* 🔧 COR DO TÍTULO */
             font-size: 1rem;
             text-transform: uppercase;
             margin-bottom: 16px;
@@ -504,11 +529,11 @@
         }
 
         .footer-coluna ul {
-            list-style: none; 
+            list-style: none; /* Remove bolinhas */
         }
 
         .footer-coluna ul li {
-            margin-bottom: 10px; 
+            margin-bottom: 10px; /* 🔧 ESPAÇO ENTRE ITENS DA LISTA */
         }
 
         .footer-coluna ul li a {
@@ -519,13 +544,13 @@
         }
 
         .footer-coluna ul li a:hover {
-            color: var(--dourado-alexandria); 
+            color: var(--dourado-alexandria); /* 🔧 COR NO HOVER */
         }
 
-    
+        /* ===== COLUNA "REDES SOCIAIS" (título + bolinhas vinho com ícone dourado) ===== */
         .footer-coluna-redes h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dourado-alexandria); 
+            font-family: 'Inter', serif;
+            color: var(--dourado-alexandria); /* 🔧 COR DO TÍTULO "REDES SOCIAIS" */
             font-size: 1rem;
             margin-bottom: 16px;
         }
@@ -540,11 +565,11 @@
             align-items: center;
             justify-content: center;
             
-            width: 34px;
-            height: 34px;  
+            width: 34px;   /* 🔧 TAMANHO DO CÍRCULO */
+            height: 34px;  /* 🔧 TAMANHO DO CÍRCULO */
             
-            border-radius: 50%;                       
-            background-color: var(--vinho-alexandria); 
+            border-radius: 50%;                       /* Deixa redondo */
+            background-color: var(--vinho-alexandria); /* 🔧 COR DE FUNDO DA BOLINHA (vinho) */
             
             text-decoration: none;
             
@@ -552,20 +577,21 @@
         }
 
         .footer-redes a:hover {
-            transform: scale(1.15); 
+            transform: scale(1.15); /* 🔧 CRESCE UM POUCO NO HOVER */
         }
 
-        
+        /* ===== ÍCONE DENTRO DE CADA BOLINHA ===== */
         .footer-redes a i {
-           
-            color: var(--dourado-alexandria); 
+            /* 🔧 COR DO ÍCONE (o desenho do Instagram/X/YouTube) */
+            color: var(--dourado-alexandria); /* Dourado */
             
+            /* 🔧 TAMANHO DO ÍCONE */
             font-size: 15px;
         }
 
-
+        /* ===== LINHA + TEXTO DE COPYRIGHT ===== */
         .footer-linha {
-            border-top: 1px solid #333; 
+            border-top: 1px solid #333; /* 🔧 COR DA LINHA DIVISÓRIA */
             margin-top: 40px;
             padding-top: 18px;
             text-align: center;
@@ -577,20 +603,20 @@
         }
 
         /* ============================================
-            RESPONSIVIDADE DAS NOVAS SEÇÕES - MOBILE (até 768px)
+           📱 RESPONSIVIDADE DAS NOVAS SEÇÕES - MOBILE (até 768px)
            ============================================ */
         @media (max-width: 768px) {
             .banner-verificacao .banner-conteudo {
-                padding: 24px 20px; /*  MENOS ESPAÇO LATERAL NO CELULAR */
+                padding: 24px 20px; /* 🔧 MENOS ESPAÇO LATERAL NO CELULAR */
             }
             .secao-pergunta {
-                padding: 60px 20px; /*  MENOS ESPAÇO EM CIMA/EMBAIXO */
+                padding: 60px 20px; /* 🔧 MENOS ESPAÇO EM CIMA/EMBAIXO */
             }
             footer {
-                padding: 40px 20px 20px 20px; /*  MENOS ESPAÇO LATERAL */
+                padding: 40px 20px 20px 20px; /* 🔧 MENOS ESPAÇO LATERAL */
             }
             .footer-colunas {
-                flex-direction: column; /*  COLUNAS EMPILHADAS */
+                flex-direction: column; /* 🔧 COLUNAS EMPILHADAS */
             }
         }
     </style>

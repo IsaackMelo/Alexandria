@@ -55,121 +55,188 @@
         /* ============================================
            🧭 NAVBAR - PADRÃO FIXO (NÃO ALTERAR)
            ============================================ */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--vinho-alexandria);
-            height: 65px;
-            padding: 0 60px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-        }
-
-        .navbar .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar .logo img {
-            height: 45px;
-            max-width: 180px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-
-        .nav-links li a {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--branco);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 6px 0;
-            border-bottom: 2px solid transparent;
-            transition: color 0.3s;
-        }
-
-        .nav-links li a:hover {
-            color: var(--vinho-escuro);
-            border-bottom-color: var(--vinho-escuro);
-        }
-
-        .nav-cta a {
-            background-color: var(--dourado-alexandria) !important;
-            color: var(--preto-contraste) !important;
-            font-size: 12px;
-            font-weight: 700 !important;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 10px 24px;
-            border: none;
-            transition: all 0.3s;
-            border-bottom: none !important;
-        }
-
-        .nav-cta a:hover {
-            background-color: var(--vinho-escuro) !important;
-            color: var(--branco) !important;
-            transform: scale(1.04);
-            border-bottom: none !important;
+      .navbar {
+            display: flex;                /* Layout flexível em linha */
+            justify-content: space-between; /* Espaça logo e links nas pontas */
+            align-items: center;           /* Centraliza verticalmente */
+            
+            /* 🔧 COR DE FUNDO DA NAVBAR */
+            background-color: var(--vinho-alexandria); /* Vinho */
+            
+            /* 🔧 ALTURA DA NAVBAR */
+            height: 65px;                 /* Aumente/diminua aqui */
+            
+            /* 🔧 ESPAÇAMENTO INTERNO (PADDING) */
+            padding: 0 60px;              /* 0 em cima/baixo, 60px nas laterais */
+            
+            position: sticky;             /* Fixa no topo ao rolar */
+            top: 0;                       /* Gruda no topo */
+            z-index: 1000;                /* Fica acima de tudo */
+            
+            /* 🔧 SOMBRA DA NAVBAR */
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); /* Sombra suave */
         }
 
         /* ============================================
-           📱 RESPONSIVIDADE DA NAVBAR
+           🖼️ LOGO
+           ============================================ */
+        .navbar .logo {
+            display: flex;
+            align-items: center; /* Centraliza a imagem verticalmente */
+        }
+
+        .navbar .logo img {
+            /* 🔧 ALTURA DA LOGO */
+            height: 45px;        /* Aumente/diminua aqui */
+            
+            /* 🔧 LARGURA MÁXIMA (opcional) */
+            max-width: 180px;    /* Evita que fique muito grande */
+        }
+
+        /* ============================================
+           📋 LINKS DA NAVBAR
+           ============================================ */
+        .nav-links {
+            display: flex;        /* Links em linha */
+            gap: 32px;           /* 🔧 ESPAÇAMENTO ENTRE LINKS (aumente/diminua) */
+            list-style: none;    /* Remove as bolinhas da lista */
+            margin: 0;
+            padding: 0;
+            align-items: center; /* Alinha verticalmente */
+        }
+
+        /* ===== CADA LINK ===== */
+        .nav-links li a {
+            /* 
+               🔧 TROCAR A FONTE DOS LINKS AQUI:
+               Altere "font-family" para outra fonte
+            */
+            font-family: 'Inter', sans-serif;
+            
+            /* 🔧 TAMANHO DA FONTE DOS LINKS */
+            font-size: 12px;      /* Aumente/diminua aqui */
+            
+            /* 🔧 PESO DA FONTE (negrito) */
+            font-weight: 400;     /* 400=normal, 500=médio, 600=semi-bold, 700=bold */
+            
+            /* 🔧 COR DOS LINKS */
+            color: var(--branco); /* Branco */
+            
+            text-decoration: none;          /* Remove o sublinhado */
+            text-transform: uppercase;      /* 🔧 Deixa tudo maiúsculo */
+            letter-spacing: 0.06em;         /* 🔧 ESPAÇAMENTO ENTRE LETRAS */
+            
+            padding: 6px 0;                 /* Espaçamento interno */
+            border-bottom: 2px solid transparent; /* Linha invisível embaixo */
+            transition: color 0.3s;         /* Suaviza a mudança de cor */
+        }
+
+        /* ===== HOVER (quando passa o mouse) ===== */
+        .nav-links li a:hover {
+            /* 🔧 COR AO PASSAR O MOUSE */
+            color: var(--dourado-alexandria); /* Fica dourado */
+            
+            /* 🔧 COR DA LINHA EMBaIXO AO PASSAR O MOUSE */
+            border-bottom-color: var(--dourado-alexandria); /* Linha dourada */
+        }
+
+        /* ============================================
+           🟡 BOTÃO "ACESSE A PLATAFORMA"
+           ============================================ */
+        .nav-cta a {
+            /* 🔧 COR DE FUNDO DO BOTÃO (AMARELO/DOURADO) */
+            background-color: var(--dourado-alexandria) !important;
+            
+            /* 🔧 COR DO TEXTO DO BOTÃO (PRETO) */
+            color: var(--preto-contraste) !important;
+            
+            /* 🔧 TAMANHO DA FONTE DO BOTÃO */
+            font-size: 12px;
+            
+            /* 🔧 PESO DA FONTE (NEGRITO) */
+            font-weight: 700 !important;
+            
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            
+            /* 🔧 ESPAÇAMENTO INTERNO DO BOTÃO */
+            padding: 10px 24px;    /* 10px em cima/baixo, 24px nas laterais */
+            
+            /* 🔧 ARREDONDAMENTO DAS BORDAS */
+               /* 30px = bem arredondado */
+
+            border-radius: 10px;
+            transition: all 0.3s;  /* Suaviza as animações */
+            border-bottom: none !important; /* Remove a linha inferior */
+        }
+
+        /* ===== HOVER DO BOTÃO ===== */
+        .nav-cta a:hover {
+            /* 🔧 COR AO PASSAR O MOUSE (DOURADO MAIS CLARO) */
+            background-color: var(--dourado-claro) !important;
+            
+            /* 🔧 LEVE AUMENTO AO PASSAR O MOUSE */
+            transform: scale(1.04);
+           
+            
+            border-bottom: none !important;
+            color: var(--preto-contraste) !important;
+        }
+
+        /* ============================================
+           📱 RESPONSIVIDADE - TABLET (até 992px)
            ============================================ */
         @media (max-width: 992px) {
             .navbar {
-                padding: 0 30px;
+                padding: 0 30px; /* 🔧 MENOS ESPAÇO NAS LATERAIS */
             }
             .nav-links {
-                gap: 20px;
+                gap: 20px; /* 🔧 MENOS ESPAÇO ENTRE LINKS */
             }
             .nav-links li a {
-                font-size: 12px;
+                font-size: 12px; /* 🔧 FONTE MENOR */
             }
         }
 
+        /* ============================================
+           📱 RESPONSIVIDADE - MOBILE (até 768px)
+           ============================================ */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column;
-                height: auto;
-                padding: 16px 20px;
-                gap: 12px;
+                flex-direction: column; /* 🔧 LOGO E LINKS FICAM EM COLUNA */
+                height: auto;           /* 🔧 ALTURA AUTOMÁTICA */
+                padding: 16px 20px;     /* 🔧 ESPAÇO INTERNO */
+                gap: 12px;              /* 🔧 ESPAÇO ENTRE LOGO E LINKS */
             }
+
             .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px 18px;
+                flex-wrap: wrap;        /* 🔧 LINKS QUEBRAM EM VÁRIAS LINHAS */
+                justify-content: center; /* 🔧 CENTRALIZA OS LINKS */
+                gap: 12px 18px;         /* 🔧 ESPAÇO ENTRE LINKS */
             }
+
             .nav-links li a {
-                font-size: 11px;
+                font-size: 11px;        /* 🔧 FONTE MENOR AINDA */
             }
+
             .nav-cta a {
-                padding: 8px 18px;
-                font-size: 11px;
+                padding: 8px 18px;      /* 🔧 BOTÃO MENOR */
+                font-size: 11px;        /* 🔧 FONTE MENOR */
             }
         }
 
+        /* ============================================
+           📱 RESPONSIVIDADE - MOBILE PEQUENO (até 480px)
+           ============================================ */
         @media (max-width: 480px) {
             .nav-links {
-                gap: 8px 14px;
+                gap: 8px 14px;          /* 🔧 ESPAÇO MÍNIMO */
             }
             .nav-links li a {
-                font-size: 10px;
+                font-size: 10px;        /* 🔧 FONTE MUITO PEQUENA */
             }
             .navbar .logo img {
-                height: 35px;
+                height: 35px;           /* 🔧 LOGO MENOR */
             }
         }
 
@@ -210,7 +277,7 @@
         }
 
         .banner-verificacao h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'inter', serif;
             color: var(--branco);
             font-size: 1.7rem;
             font-weight: 700;
@@ -287,7 +354,7 @@
 
         /* ===== TÍTULO "Pagamento confirmado" ===== */
         .conteudo-principal h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'inter', serif;
             font-size: 2.2rem;
             font-weight: 700;
             color: var(--preto-contraste);
@@ -345,7 +412,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             padding: 10px 24px; /* 🔧 ESPAÇAMENTO REDUZIDO (antes era 16px 40px) */
-            border-radius: 6px;
+            border-radius: 10px;
             border: none;
             text-decoration: none;
             transition: background-color 0.3s, transform 0.2s;
@@ -392,7 +459,7 @@
         }
 
         .footer-coluna h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'inter', serif;
             color: var(--dourado-alexandria);
             font-size: 1rem;
             text-transform: uppercase;
@@ -425,7 +492,7 @@
         }
 
         .footer-coluna-redes h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'inter', serif;
             color: var(--dourado-alexandria);
             font-size: 1rem;
             margin-bottom: 16px;

@@ -94,7 +94,7 @@
         /* ============================================
            🧭 NAVBAR - ONDE TUDO ACONTECE
            ============================================ */
-        .navbar {
+       .navbar {
             display: flex;                /* Layout flexível em linha */
             justify-content: space-between; /* Espaça logo e links nas pontas */
             align-items: center;           /* Centraliza verticalmente */
@@ -173,10 +173,10 @@
         /* ===== HOVER (quando passa o mouse) ===== */
         .nav-links li a:hover {
             /* 🔧 COR AO PASSAR O MOUSE */
-            color: var(--vinho-escuro); /* Fica dourado */
+            color: var(--dourado-alexandria); /* Fica dourado */
             
             /* 🔧 COR DA LINHA EMBaIXO AO PASSAR O MOUSE */
-            border-bottom-color: var(--vinho-escuro); /* Linha dourada */
+            border-bottom-color: var(--dourado-alexandria); /* Linha dourada */
         }
 
         /* ============================================
@@ -204,7 +204,7 @@
             /* 🔧 ARREDONDAMENTO DAS BORDAS */
                /* 30px = bem arredondado */
 
-            border: none;
+            border-radius: 10px;
             transition: all 0.3s;  /* Suaviza as animações */
             border-bottom: none !important; /* Remove a linha inferior */
         }
@@ -212,10 +212,11 @@
         /* ===== HOVER DO BOTÃO ===== */
         .nav-cta a:hover {
             /* 🔧 COR AO PASSAR O MOUSE (DOURADO MAIS CLARO) */
-            background-color: var(--vinho-escuro) !important;
+            background-color: var(--dourado-claro) !important;
             
             /* 🔧 LEVE AUMENTO AO PASSAR O MOUSE */
             transform: scale(1.04);
+           
             
             border-bottom: none !important;
             color: var(--preto-contraste) !important;
@@ -277,6 +278,7 @@
                 height: 35px;           /* 🔧 LOGO MENOR */
             }
         }
+
 
         /* ============================================================
            ============================================================
@@ -345,7 +347,7 @@
 
         /* ===== TÍTULO "VERIFICAÇÃO DE CONTA" ===== */
         .banner-verificacao h1 {
-            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO TÍTULO */
+            font-family: 'inter', serif; /* 🔧 FONTE DO TÍTULO */
             color: var(--branco);                    /* 🔧 COR DO TÍTULO */
             font-size: 1.7rem;                        /* 🔧 TAMANHO DO TÍTULO */
             font-weight: 700;
@@ -497,7 +499,7 @@
 
         /* ===== TÍTULO "CONFIRMAÇÃO DE EMAIL" ===== */
         .secao-confirmacao h2 {
-            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO TÍTULO */
+            font-family: 'inter', serif; /* 🔧 FONTE DO TÍTULO */
             font-size: 1.6rem;      /* 🔧 TAMANHO DO TÍTULO */
             font-weight: 700;
             color: var(--preto-contraste);
@@ -506,7 +508,7 @@
 
         /* ===== SUBTÍTULO ITÁLICO (rótulo de cada campo) ===== */
         .secao-confirmacao h3 {
-            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO SUBTÍTULO */
+            font-family: 'inter', serif; /* 🔧 FONTE DO SUBTÍTULO */
             font-style: italic;      /* 🔧 DEIXA EM ITÁLICO (igual ao print) */
             font-size: 1.2rem;       /* 🔧 TAMANHO DO SUBTÍTULO */
             font-weight: 700;
@@ -599,7 +601,7 @@
         }
 
         .footer-coluna h3 {
-            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO TÍTULO DA COLUNA */
+            font-family: 'inter', serif; /* 🔧 FONTE DO TÍTULO DA COLUNA */
             color: var(--dourado-alexandria);         /* 🔧 COR DO TÍTULO */
             font-size: 1rem;
             text-transform: uppercase;
@@ -633,7 +635,7 @@
 
         /* ===== COLUNA "REDES SOCIAIS" (título + bolinhas vinho com ícone dourado) ===== */
         .footer-coluna-redes h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Inter', serif;
             color: var(--dourado-alexandria); /* 🔧 COR DO TÍTULO "REDES SOCIAIS" */
             font-size: 1rem;
             margin-bottom: 16px;

@@ -175,11 +175,11 @@
 
         /* ===== HOVER (quando passa o mouse) ===== */
         .nav-links li a:hover {
-            /* 🔧 COR AO PASSAR O MOUSE (padrão atualizado: vinho-escuro) */
-            color: var(--vinho-escuro);
+            /* 🔧 COR AO PASSAR O MOUSE */
+            color: var(--dourado-alexandria); /* Fica dourado */
             
-            /* 🔧 COR DA LINHA EMBAIXO AO PASSAR O MOUSE */
-            border-bottom-color: var(--vinho-escuro);
+            /* 🔧 COR DA LINHA EMBaIXO AO PASSAR O MOUSE */
+            border-bottom-color: var(--dourado-alexandria); /* Linha dourada */
         }
 
         /* ============================================
@@ -204,21 +204,25 @@
             /* 🔧 ESPAÇAMENTO INTERNO DO BOTÃO */
             padding: 10px 24px;    /* 10px em cima/baixo, 24px nas laterais */
             
-            border: none;
+            /* 🔧 ARREDONDAMENTO DAS BORDAS */
+               /* 30px = bem arredondado */
+
+            border-radius: 10px;
             transition: all 0.3s;  /* Suaviza as animações */
             border-bottom: none !important; /* Remove a linha inferior */
         }
 
-        /* ===== HOVER DO BOTÃO (padrão atualizado: vinho-escuro) ===== */
+        /* ===== HOVER DO BOTÃO ===== */
         .nav-cta a:hover {
-            /* 🔧 COR AO PASSAR O MOUSE */
-            background-color: var(--vinho-escuro) !important;
-            color: var(--branco) !important;
+            /* 🔧 COR AO PASSAR O MOUSE (DOURADO MAIS CLARO) */
+            background-color: var(--dourado-claro) !important;
             
             /* 🔧 LEVE AUMENTO AO PASSAR O MOUSE */
             transform: scale(1.04);
+           
             
             border-bottom: none !important;
+            color: var(--preto-contraste) !important;
         }
 
         /* ============================================
@@ -278,6 +282,7 @@
             }
         }
 
+
         /* ============================================================
            ============================================================
               🎭 BANNER (mesmo componente usado nas outras telas do site)
@@ -336,7 +341,7 @@
 
         /* ===== TÍTULO ("Planos") ===== */
         .banner-verificacao h1 {
-            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO TÍTULO */
+            font-family: 'inter', serif; /* 🔧 FONTE DO TÍTULO */
             color: var(--branco);                    /* 🔧 COR DO TÍTULO */
             font-size: 1.7rem;                        /* 🔧 TAMANHO DO TÍTULO */
             font-weight: 700;
@@ -750,7 +755,7 @@
         }
 
         .footer-coluna h3 {
-            font-family: 'Playfair Display', serif; /* 🔧 FONTE DO TÍTULO DA COLUNA */
+            font-family: 'inter', serif; /* 🔧 FONTE DO TÍTULO DA COLUNA */
             color: var(--dourado-alexandria);         /* 🔧 COR DO TÍTULO */
             font-size: 1rem;
             text-transform: uppercase;
@@ -784,7 +789,7 @@
 
         /* ===== COLUNA "REDES SOCIAIS" (título + bolinhas vinho com ícone dourado) ===== */
         .footer-coluna-redes h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'inter', serif;
             color: var(--dourado-alexandria); /* 🔧 COR DO TÍTULO "REDES SOCIAIS" */
             font-size: 1rem;
             margin-bottom: 16px;
