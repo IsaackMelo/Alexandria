@@ -1,0 +1,159 @@
+<style>
+
+    footer {
+            background-color: var(--preto-contraste); 
+            color: var(--cinza-destaque);               
+            
+            padding: 50px 60px 20px 60px; 
+            
+            border-top: 4px solid var(--dourado-alexandria); 
+
+            margin-top: auto;
+        }
+
+        .footer-colunas {
+            display: flex;             
+            justify-content: space-between;
+            align-items: center;       
+            flex-wrap: wrap;           
+            gap: 30px;                  
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-coluna {
+            min-width: 160px; 
+        }
+
+        .footer-coluna h3 {
+            font-family: 'Playfair Display', serif; 
+            color: var(--dourado-alexandria);         
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .footer-coluna p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--cinza-destaque);
+        }
+
+        .footer-coluna ul {
+            list-style: none; 
+        }
+
+        .footer-coluna ul li {
+            margin-bottom: 10px; 
+        }
+
+        .footer-coluna ul li a {
+            color: var(--cinza-destaque);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-coluna ul li a:hover {
+            color: var(--dourado-alexandria); 
+        }
+
+        .footer-coluna-redes h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dourado-alexandria); 
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-redes {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-redes a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            
+            width: 34px;   
+            height: 34px;  
+            
+            border-radius: 50%;                       
+            background-color: var(--vinho-alexandria); 
+            
+            text-decoration: none;
+            
+            transition: transform 0.3s;
+        }
+
+        .footer-redes a:hover {
+            transform: scale(1.15); 
+        }
+
+        .footer-redes a i {
+            
+            color: var(--dourado-alexandria); 
+
+            font-size: 15px;
+        }
+
+        .footer-linha {
+            border-top: 1px solid #333; 
+            margin-top: 40px;
+            padding-top: 18px;
+            text-align: center;
+        }
+
+        .footer-linha p {
+            font-size: 0.8rem;
+            color: var(--cinza-destaque);
+        }
+
+</style>
+
+
+<footer>
+        <div class="footer-colunas">
+
+            <div class="footer-coluna">
+                
+                <img src="imagens/logo.png" alt="Logo" style="height: 70px;">
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Suporte de Aluno</h3>
+                <ul>
+                    
+                    <li><a href="termos.php">Termos de uso</a></li>
+                    <li><a href="central.php">Central de Ajuda</a></li>
+                    <li><a href="politicas.php">Políticas de Privacidade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Fale Conosco</h3>
+                <ul>
+                    
+                    <li>+55 11 4002-8922</li>
+                    <li>alexandriaofc@gmail.com</li>
+                    <li>Av. Avenida, 1000 - SP</li>
+                </ul>
+            </div>
+
+            <div class="footer-coluna footer-coluna-redes">
+                <h3>Redes Sociais</h3>
+                <div class="footer-redes">
+                    
+                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-linha">
+            
+            <p>&copy; 2026 Alexandria. Todos os direitos reservados.</p>
+        </div>
+    </footer>

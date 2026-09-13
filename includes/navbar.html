@@ -1,0 +1,113 @@
+<style>
+
+    :root {
+        --vinho-alexandria: #8b1e2d;
+        --vinho-escuro: #5e1220;
+        --dourado-alexandria: #d4af37;
+        --dourado-claro: #f0d060;
+        --bege-fundo: #f5efe6;
+        --bege-card: #fdf8f2;
+        --preto-contraste: #1a1a1a;
+        --cinza-destaque: #dee0e3;
+        --cinza-texto: #555;
+        --branco: #ffffff;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .navbar {
+            display: flex;                
+            justify-content: space-between; 
+            align-items: center;          
+            background-color: var(--vinho-alexandria);
+            height: 65px;                 
+            padding: 0 60px;           
+            position: sticky;             
+            top: 0;                       
+            z-index: 1000;                
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center; 
+        }
+
+        .navbar .logo img {
+            height: 45px;       
+            max-width: 180px;    
+        }
+
+        .nav-links {
+            display: flex;        
+            gap: 32px;         
+            list-style: none;    
+            margin: 0;
+            padding: 0;
+            align-items: center; 
+        }
+
+        .nav-links li a {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;     
+            font-weight: 400;     
+            color: var(--branco); 
+            text-decoration: none;         
+            text-transform: uppercase;      
+            letter-spacing: 0.06em;        
+            padding: 6px 0;                 
+            border-bottom: 2px solid transparent; 
+            transition: color 0.3s;         
+        }
+
+    
+        .nav-links li a:hover {
+            color: var(--dourado-alexandria); 
+            border-bottom-color: var(--dourado-alexandria); 
+        }
+
+        .nav-cta a{
+            color: var(--preto-contraste) !important;
+            font-size: 12px;
+            font-weight: 700 !important;            
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: all 0.3s;  
+        }
+
+        .nav-cta {
+            background-color: var(--dourado-alexandria) !important;
+            padding: 7px;    
+            border: none;
+            border-radius: 5px;
+            border-bottom: none !important; 
+        }
+
+        .nav-cta a:hover {
+            background-color: var(--dourado-claro) !important;
+            transform: scale(1.04);
+            border-bottom: none !important;
+            color: var(--preto-contraste) !important;
+        }
+
+</style>
+
+
+<nav class="navbar">
+        <div class="logo">
+            <a href="index.php">
+                <img src="imagens/logo.png" alt="Descrição">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="plano.php">Planos</a></li>
+            <li><a href="catalogo-artigo.php">Artigos</a></li>     
+            <li><a href="missao.php">Missão</a></li>      
+            <li><a href="contato.php">Contato</a></li>      
+            <li class="nav-cta"><a href="login.php">Acesse a Plataforma</a></li>
+        </ul>
+    </nav>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alexandria - Questão 01</title>
+
+    <link rel="icon" type="image/png" href="imagens/alex.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo/quest.css">
+
+    <style>
+        :root {
+            --vinho-alexandria:   #8b1e2d;
+            --dourado-alexandria: #d4af37;
+            --dourado-claro:      #f0d060;
+            --branco:             #ffffff;
+            --bege-fundo:         #f5efe6;  
+            --bege-card:          #fdf8f2;
+            --bege-section:      #f9f5f1;
+            --preto-contraste:   #1a1a1a;
+            --cinza-texto:       #4a4a4a;
+            --cinza-medio:       #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <?php
+        include("../alexandria-frontend/includes/sidebar.html");
+    ?>
+
+    <?php include("../alexandria-frontend/includes/barra-superior.html");?>
+
+    <main class="conteudo">
+
+
+
+        <a href="telaacervocom.php" class="voltar">&lsaquo; Voltar para o Banco de questões</a>
+
+        <div class="card-questao">
+
+            <div class="d-flex gap-3 mb-3">
+
+                <div class="num-questao">01</div>
+
+                <div>
+                    <div class="fonte-questao">Fuvest 2023</div>
+
+                    <div class="enunciado">
+                        O governo de Getúlio Vargas (1930–1945) ficou marcado por medidas que
+                        transformaram as relações entre o Estado e a sociedade brasileira.
+                        Assinale a alternativa que melhor representa uma dessas medidas.
+                    </div>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <p class="fw-bold mb-3">Alternativas:</p>
+
+            <div id="lista-alternativas">
+
+                <div class="alternativa" data-letra="A">
+                    <div class="letra">A</div>
+                    <div>Criação da Constituição de 1891, que estabeleceu o federalismo brasileiro.</div>
+                </div>
+
+                <div class="alternativa" data-letra="B">
+                    <div class="letra">B</div>
+                    <div>Política de valorização do café por meio do Convênio de Taubaté.</div>
+                </div>
+
+                <div class="alternativa" data-letra="C">
+                    <div class="letra">C</div>
+                    <div>Criação da Consolidação das Leis do Trabalho (CLT).</div>
+                </div>
+
+                <div class="alternativa" data-letra="D">
+                    <div class="letra">D</div>
+                    <div>Adoção do parlamentarismo como forma de governo.</div>
+                </div>
+
+                <div class="alternativa" data-letra="E">
+                    <div class="letra">E</div>
+                    <div>Privatização de empresas estatais para reduzir a intervenção do Estado.</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+            <button class="btn btn-enviar" id="btnEnviar" disabled>Enviar resposta</button>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        // pega todas as alternativas e o botao de enviar
+        const alternativas = document.querySelectorAll(".alternativa");
+        const botao = document.getElementById("btnEnviar");
+
+        let resposta = ""; // guarda a letra escolhida
+
+        alternativas.forEach(function (alternativa) {
+
+            alternativa.addEventListener("click", function () {
+
+                // tira o "selecionada" de todo mundo antes de marcar a nova
+                alternativas.forEach(function (item) {
+                    item.classList.remove("selecionada");
+                });
+
+                alternativa.classList.add("selecionada");
+                resposta = alternativa.dataset.letra;
+
+                botao.disabled = false;
+
+            });
+
+        });
+
+        botao.addEventListener("click", function () {
+
+            if (resposta === "") {
+                return;
+            }
+
+            // Se marcou a letra C (resposta correta), vai para a tela de acerto
+            if (resposta === "C") {
+                window.location.href = "telaacerto.php";
+            } else {
+                // Se errou, passa a letra que a pessoa marcou na URL
+                window.location.href = "telaerro.php?letra=" + resposta;
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
