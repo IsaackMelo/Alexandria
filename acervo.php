@@ -16,21 +16,7 @@
     <link rel="stylesheet" href="https://cloudflare.com">
 
     <link rel="stylesheet" href="estilo/simulado.css">
-
-    <style>
-        :root {
-            --vinho-alexandria:   #8b1e2d;
-            --dourado-alexandria: #d4af37;
-            --dourado-claro:      #f0d060;
-            --branco:             #ffffff;
-            --bege-fundo:         #f5efe6;  
-            --bege-card:          #fdf8f2;
-            --bege-section:      #f9f5f1;
-            --preto-contraste:   #1a1a1a;
-            --cinza-texto:       #4a4a4a;
-            --cinza-medio:       #e0e0e0;
-        }
-    </style>
+    
 
 </head>
 

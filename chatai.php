@@ -186,15 +186,15 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--vinho-alexandria); /* Fundo vinho para combinar com o grande */
+            background: var(--vinho-alexandria); 
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            color: var(--dourado-alexandria); /* Ícone dourado conforme solicitado */
+            color: var(--dourado-alexandria); 
         }
 
-        /* ========== CHAT CONTENT STYLES ========== */
+        
         .conteudo-chat {
             flex: 1;
             display: flex;

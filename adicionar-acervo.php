@@ -25,6 +25,8 @@ $link_voltar = 'visualizar-acervo.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="estilo/adicionar-acervo.css">
+
     <style>
         :root {
             --vinho-alexandria:   #8b1e2d;
