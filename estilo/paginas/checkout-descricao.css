@@ -1,0 +1,449 @@
+        :root {
+            --vinho-escuro: #5e1220;
+            --cinza-texto: #555;
+            --verde-pix: #2BA894;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco-fundo);
+            color: var(--preto-contraste);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secao-checkout {
+            padding: 50px 60px 70px 60px;
+            background-color: var(--branco-fundo);
+            flex: 1;
+        }
+
+        .checkout-grid {
+            max-width: none;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .checkout-etapa-titulo {
+            font-family: 'Inter', sans-serif;
+            color: var(--vinho-alexandria);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            margin-top: 40px;
+        }
+
+        .checkout-etapa-titulo.primeira-etapa {
+            margin-top: 0;
+        }
+
+        .planos-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .plano-mini-card {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 16px;
+            background-color: var(--branco-fundo);
+            border: 1.5px solid var(--cinza-destaque);
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .plano-mini-card.selecionado {
+            border: 1.5px solid var(--vinho-alexandria);
+        }
+
+        .plano-mini-titulo {
+            font-family: 'Inter', sans-serif;
+            color: var(--vinho-alexandria);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .plano-mini-preco {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+        }
+
+        .plano-mini-periodo {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--cinza-texto);
+            margin-bottom: 14px;
+        }
+
+        .plano-mini-divisor {
+            border: none;
+            border-top: 1.5px solid var(--preto-contraste);
+            margin-bottom: 14px;
+        }
+
+        .plano-mini-card.selecionado .plano-mini-divisor {
+            border-top-color: var(--vinho-alexandria);
+        }
+
+        .plano-mini-lista {
+            list-style: none;
+            text-align: left;
+        }
+
+        .plano-mini-lista li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--preto-contraste);
+        }
+
+        .plano-mini-numero {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--branco);
+            border-radius: 3px;
+        }
+
+        .plano-mini-numero.numero-vinho {
+            background-color: var(--vinho-alexandria);
+        }
+
+        .plano-mini-numero.numero-dourado {
+            background-color: var(--dourado-alexandria);
+        }
+
+        .conta-opcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .conta-linha {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border: 1.5px solid var(--cinza-destaque);
+            border-radius: 4px;
+        }
+
+        .conta-linha p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--preto-contraste);
+        }
+
+        .btn-entrar {
+            background-color: transparent;
+            color: var(--vinho-alexandria);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 22px;
+            border: 1.5px solid var(--vinho-alexandria);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-entrar:hover {
+            background-color: var(--vinho-alexandria);
+            color: var(--branco);
+        }
+
+        .btn-criar-conta {
+            background-color: var(--dourado-alexandria);
+            color: var(--preto-contraste);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 22px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-criar-conta:hover {
+            background-color: var(--dourado-claro);
+        }
+
+        .pagamento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .pagamento-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 22px 12px;
+            background-color: var(--branco-fundo);
+            border: 1.5px solid var(--cinza-destaque);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .pagamento-card.selecionado {
+            border: 1.5px solid var(--vinho-alexandria);
+        }
+
+        .pagamento-card i {
+            font-size: 1.5rem;
+            color: var(--preto-contraste);
+        }
+
+        .pagamento-card .icone-pix {
+            color: var(--verde-pix);
+        }
+
+        .pagamento-card span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .resumo-wrapper {
+            position: sticky;
+            top: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .resumo-compra {
+            background-color: var(--branco-fundo);
+            border: 1px solid var(--cinza-destaque);
+            border-radius: 6px;
+            padding: 22px 24px;
+        }
+
+        .resumo-compra h2 {
+            font-family: 'Inter', sans-serif;
+            color: var(--preto-contraste);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .resumo-plano {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--preto-contraste);
+            margin-bottom: 10px;
+        }
+
+        .resumo-itens {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .resumo-itens li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--preto-contraste);
+            padding: 4px 0;
+        }
+
+        .resumo-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-top: 12px;
+            border-top: 1px solid var(--cinza-destaque);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+        }
+
+        .btn-confirmar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--vinho-alexandria);
+            color: var(--branco);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-confirmar:hover {
+            background-color: var(--vinho-escuro);
+        }
+
+        .btn-confirmar i {
+            font-size: 0.85rem;
+        }
+
+        .btn-descri {
+            text-decoration: none;
+            color: var(--branco);
+        }
+
+    
+
+        .plano-mini-card.bloqueado {
+            opacity: .55;
+            cursor: not-allowed;
+            filter: grayscale(.4);
+        }
+
+        .plano-mini-aviso {
+            margin: 6px 0 0;
+            color: var(--vinho-alexandria);
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .conta-logada {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 18px;
+            border: 1px solid var(--borda);
+            border-radius: 12px;
+            background: var(--bege-card);
+        }
+
+        .conta-avatar {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--vinho-alexandria);
+            color: var(--dourado-alexandria);
+            font-size: 18px;
+        }
+
+        .conta-dados {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+            min-width: 0;
+            font-size: 13px;
+        }
+
+        .conta-dados strong {
+            font-size: 14.5px;
+        }
+
+        .conta-dados .conta-plano {
+            color: var(--vinho-alexandria);
+            font-weight: 600;
+        }
+
+        .btn-trocar-conta {
+            padding: 8px 14px;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            color: var(--texto-escuro);
+            font-size: 12.5px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-trocar-conta:hover {
+            background: var(--bege-fundo);
+        }
+
+        .aviso-conta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0 0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: var(--vermelho-bg);
+            color: var(--vermelho);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .btn-descri {
+            display: block;
+            width: 100%;
+        }
+
+        .resumo-regra {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--bege-fundo);
+            color: var(--cinza-texto);
+            font-size: 12.5px;
+            line-height: 1.6;
+        }
+
+        .resumo-regra p {
+            margin: 0;
+        }
+
+        .resumo-regra i {
+            color: var(--vinho-alexandria);
+            margin-right: 6px;
+        }
+
+        .resumo-linha-desconto {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--cinza-escuro);
+        }

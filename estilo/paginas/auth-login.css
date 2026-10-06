@@ -1,0 +1,308 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --vinho-escuro:       #5e1220;
+            --cinza-texto:        #555;
+}
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--vinho-alexandria);
+        }
+
+        .layout {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .left,
+        .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .left {
+            background-image: url('../../imagens/imagem-login.png');
+        }
+
+        .right {
+            background-color: white;
+        }
+
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            color: var(--vinho-alexandria);
+            font-size: 32px;
+            cursor:pointer;
+            text-decoration: none;
+            z-index: 10;
+            background: transparent;
+            border: none;
+        }
+
+        .back-button:hover {
+            color: var(--vinho-escuro);
+        }
+
+        .hero-title {
+            font-size: clamp(1.2rem, 2.25vw, 2.1rem);
+            color: var(--preto-contraste);
+            line-height: 1;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .hero-title span {
+            color: var(--vinho-alexandria);
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 850px;
+            height: 100%;
+            padding: 40px 90px;
+            height: fit-content;
+        }
+
+        h1{
+
+            font-family:'Cormorant Garamond', serif;
+            font-size:32px;
+            color:#651B1B;
+            text-align:center;
+
+        }
+
+        .divider{
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:5px;
+
+            margin-bottom:20px;
+
+        }
+
+        .divider::before,
+        .divider::after{
+
+            content:"";
+            width:75px;
+            height:2px;
+            background:#D9A63A;
+
+        }
+
+        .diamond{
+
+            width:10px;
+            height:10px;
+            background:#D9A63A;
+            transform:rotate(45deg);
+
+        }
+
+        label {
+            color: #651B1B;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 6px;
+        }
+
+        .input-group-text {
+            height: 48px;
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid #ced4da;
+        }
+
+        .form-control {
+            height: 48px;
+            font-size: 16px;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #ced4da;
+        }
+
+        .form-control:focus{
+
+            box-shadow:none;
+            border-color:#ced4da;
+
+        }
+
+        .options{
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            margin-bottom:30px;
+
+        }
+
+        .options a{
+
+            text-decoration:none;
+            color:#D4A339;
+            font-weight:500;
+
+        }
+
+        .btn-login {
+            background-color: var(--dourado-alexandria);
+            color: var(--preto-contraste);
+            cursor:pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 14px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.25s, transform 0.2s;
+            border: none;
+        }
+
+        .btn-login:hover{
+
+            background:#c8921d;
+
+        }
+
+        .register{
+
+            text-align:center;
+
+        }
+
+        .register a{
+
+            color:#D4A339;
+            text-decoration:none;
+            font-weight:600;
+
+        }
+
+        .button{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .botao-olho {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .botao-olho:hover {
+            color: var(--vinho-alexandria);
+        }
+
+        @media (max-width: 992px) {
+            html,
+            body {
+                height: auto;
+            }
+
+            .layout {
+                height: auto;
+                min-height: 100vh;
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .left,
+            .right {
+                flex: none;
+                width: 100%;
+            }
+
+            .left {
+                border-radius: 16px 16px 0 0 !important;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .right {
+                border-radius: 0 0 16px 16px !important;
+            }
+
+            .hero-section {
+                min-height: 0;
+                padding: 70px 16px 40px;
+                background-attachment: scroll;
+            }
+
+            .login-card {
+                max-width: 560px;
+                padding: 32px 28px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .layout {
+                padding: 0;
+            }
+
+            .left {
+                display: none;
+            }
+
+            .right {
+                min-height: 100vh;
+                border-radius: 0 !important;
+            }
+
+            .login-card {
+                padding: 28px 18px;
+            }
+
+            .options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .btn-login {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    

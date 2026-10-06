@@ -1,0 +1,98 @@
+        :root {   
+            --vinho-escuro:       #5e1220;   
+            --cinza-texto:        #555;
+}
+
+        * {
+            margin: 0;        
+            padding: 0;       
+            box-sizing: border-box; 
+        }
+
+        html {
+            height: 100%; 
+        }
+
+        body {
+            
+            font-family: 'Inter', sans-serif; 
+            
+            background-color: var(--bege-fundo); 
+            color: var(--preto-contraste);       
+            min-height: 100vh;                   
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secao-pergunta {
+            
+            padding: 90px 20px;   
+            
+            text-align: center;   
+            background-color: var(--branco-fundo); 
+
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;     
+        }
+
+        .secao-pergunta h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;     
+            font-weight: 700;      
+            color: var(--preto-contraste);
+            margin-bottom: 30px;   
+        }
+
+        .pergunta-botoes {
+            display: flex;
+            justify-content: center; 
+            gap: 16px;                
+            flex-wrap: wrap;
+        }
+
+        .btn-sim {
+            background-color: var(--dourado-alexandria); 
+            color: var(--preto-contraste);                
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            
+            padding: 11px 42px;    
+            border-radius: 4px;    
+            border: none;
+            text-decoration: none;
+            
+            transition: background-color 0.3s;
+        }
+
+        .btn-sim:hover {
+            background-color: var(--dourado-claro); 
+        }
+
+        .btn-nao {
+            background-color: transparent;
+            color: var(--vinho-alexandria);          
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            
+            padding: 11px 42px;                       
+            border-radius: 4px;                        
+            border: 1.5px solid var(--vinho-alexandria); 
+            text-decoration: none;
+            
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-nao:hover {
+            background-color: var(--vinho-alexandria); 
+            color: var(--branco);                       
+        }
+
+    

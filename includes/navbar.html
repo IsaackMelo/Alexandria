@@ -1,0 +1,180 @@
+<?php
+$paginaAtualNav = basename($_SERVER['PHP_SELF']);
+function navAtivo(string $arquivo, string $paginaAtual): string {
+    return basename($arquivo) === $paginaAtual ? ' class="ativo"' : '';
+}
+?>
+<style>
+
+    :root {
+        --vinho-escuro: #5e1220;
+        --cinza-texto: #555;
+}
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .navbar {
+            display: flex;                
+            justify-content: space-between; 
+            align-items: center;          
+            background-color: var(--vinho-alexandria);
+            height: 65px;                 
+            padding: 0 60px;           
+            position: sticky;             
+            top: 0;                       
+            z-index: 1000;                
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center; 
+        }
+
+        .navbar .logo img {
+            height: 45px;       
+            max-width: 180px;    
+        }
+
+        .nav-links {
+            display: flex;        
+            gap: 32px;         
+            list-style: none;    
+            margin: 0;
+            padding: 0;
+            align-items: center; 
+        }
+
+        .nav-links li a {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;     
+            font-weight: 400;     
+            color: var(--branco); 
+            text-decoration: none;         
+            text-transform: uppercase;      
+            letter-spacing: 0.06em;        
+            padding: 6px 0;                 
+            border-bottom: 2px solid transparent; 
+            transition: color 0.3s;         
+        }
+
+        .nav-links li a:hover {
+            color: var(--dourado-alexandria); 
+            border-bottom-color: var(--dourado-alexandria); 
+        }
+
+        .nav-links li a.ativo {
+            color: var(--dourado-alexandria);
+            border-bottom-color: var(--dourado-alexandria);
+        }
+
+        .nav-cta a{
+            color: var(--preto-contraste) !important;
+            font-size: 12px;
+            font-weight: 700 !important;            
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: all 0.3s;  
+        }
+
+        .nav-cta {
+            background-color: var(--dourado-alexandria) !important;
+            padding: 7px;    
+            border: none;
+            border-radius: 5px;
+            border-bottom: none !important; 
+        }
+
+        .nav-cta a:hover {
+            background-color: var(--dourado-claro) !important;
+            transform: scale(1.04);
+            border-bottom: none !important;
+            color: var(--preto-contraste) !important;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 0 18px;
+            }
+
+            .nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border: 1px solid rgba(255,255,255,.6);
+                border-radius: 6px;
+                background: transparent;
+                color: var(--branco);
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 65px;
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 18px 16px;
+                background: var(--vinho-alexandria);
+                box-shadow: 0 8px 16px rgba(0,0,0,.25);
+            }
+
+            .nav-links.aberto {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 12px 0;
+                font-size: 13px;
+            }
+
+            .nav-cta {
+                margin-top: 8px;
+                text-align: center;
+            }
+        }
+</style>
+
+<nav class="navbar">
+        <div class="logo">
+            <a href="../web/index.php">
+                <img src="../imagens/logo.png" alt="Alexandria">
+            </a>
+        </div>
+
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../web/index.php"<?= navAtivo('index.php', $paginaAtualNav) ?>>Home</a></li>
+            <li><a href="../web/plano.php"<?= navAtivo('plano.php', $paginaAtualNav) ?>>Planos</a></li>
+            <li><a href="../web/catalogo-artigo.php"<?= navAtivo('catalogo-artigo.php', $paginaAtualNav) ?>>Artigos</a></li>     
+            <li><a href="../web/missao.php"<?= navAtivo('missao.php', $paginaAtualNav) ?>>Missão</a></li>      
+            <li><a href="../web/contato.php"<?= navAtivo('contato.php', $paginaAtualNav) ?>>Contato</a></li>      
+            <li class="nav-cta"><a href="../auth/login.php">Acesse a Plataforma</a></li>
+        </ul>
+    </nav>
+
+<script>
+(function () {
+    var botao = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (!botao || !links) return;
+    botao.addEventListener('click', function () {
+        var aberto = links.classList.toggle('aberto');
+        botao.setAttribute('aria-expanded', String(aberto));
+        botao.innerHTML = aberto ? '&times;' : '&#9776;';
+    });
+})();
+</script>

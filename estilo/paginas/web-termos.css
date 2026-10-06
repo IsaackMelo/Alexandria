@@ -1,0 +1,52 @@
+        :root {
+            --vinho: #6d2428;
+            --texto: #303238;
+            --cinza: #747474;
+            --borda: #e6e1dc;
+            --fundo: #faf9f7;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+        }
+
+        .accordion {
+            --bs-accordion-border-width: 0;
+            --bs-accordion-border-radius: 0;
+            --bs-accordion-inner-border-radius: 0;
+            --bs-accordion-btn-focus-box-shadow: none;
+            --bs-accordion-btn-bg: transparent;
+            --bs-accordion-active-bg: transparent;
+            --bs-accordion-active-color: var(--texto);
+        }
+
+        .accordion {
+            --bs-accordion-btn-icon: none;
+            --bs-accordion-btn-active-icon: none;
+        }
+
+        .accordion .accordion-button::after {
+            background-image: none !important;
+            content: "\F282" !important;
+            font-family: "bootstrap-icons" !important;
+            font-size: 22px;
+            line-height: 1;
+            color: var(--vinho);
+            width: auto;
+            height: auto;
+            transform: rotate(0deg) !important;
+            transition: transform .3s ease;
+        }
+
+        .accordion .accordion-button:not(.collapsed)::after {
+            transform: rotate(-180deg) !important;
+        }
+    

@@ -1,0 +1,212 @@
+        :root {
+            --vinho-escuro: #5e1220;
+            --cinza-texto: #555;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco-fundo);
+            color: var(--preto-contraste);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .conteudo-principal {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+            padding: 40px 60px 80px;
+
+            background-color: var(--branco-fundo);
+
+            position: relative;
+
+            min-height: 400px;
+
+            overflow: hidden;
+        }
+
+        .conteudo-principal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .imagem-pagamento {
+            display: block;
+
+            max-width: 100%;
+            width: auto;
+            max-height: 350px;
+
+            height: auto;
+
+            object-fit: contain;
+
+            margin-bottom: 25px;
+        }
+
+        .btn-plataforma {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            background-color: var(--vinho-alexandria);
+            color: var(--branco);
+
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+            padding: 10px 24px;
+
+            border-radius: 6px;
+            border: none;
+
+            text-decoration: none;
+
+            transition:
+                background-color 0.3s,
+                transform 0.2s;
+
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .btn-plataforma:hover {
+            background-color: var(--vinho-escuro);
+            transform: scale(1.03);
+        }
+
+        .btn-plataforma i {
+            font-size: 0.85rem;
+        }
+
+    
+
+
+        .status-pagamento {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            text-align: center;
+        }
+
+        .simbolo-status {
+            position: relative;
+            width: 104px;
+            height: 104px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 8px;
+        }
+
+        .simbolo-status .anel {
+            position: absolute;
+            inset: 0;
+            border: 5px solid var(--cinza-medio);
+            border-top-color: var(--vinho-alexandria);
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        .simbolo-status.carregando .anel {
+            opacity: 1;
+            animation: girar 0.9s linear infinite;
+        }
+
+        @keyframes girar {
+            to { transform: rotate(360deg); }
+        }
+
+        .simbolo-status .icone-status {
+            display: none;
+            font-size: 44px;
+        }
+
+        .simbolo-status.sucesso {
+            background: #eaf6ee;
+        }
+
+        .simbolo-status.sucesso .fa-check {
+            display: block;
+            color: #2e7d4f;
+        }
+
+        .simbolo-status.erro {
+            background: var(--vermelho-bg);
+        }
+
+        .simbolo-status.erro .fa-xmark {
+            display: block;
+            color: var(--vermelho);
+        }
+
+        .acoes-status {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn-tentar-novamente {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 22px;
+            border: 1px solid var(--vinho-alexandria);
+            border-radius: 8px;
+            color: var(--vinho-alexandria);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .btn-tentar-novamente:hover {
+            background: var(--vinho-alexandria);
+            color: var(--branco);
+        }
+
+        .aviso-agendado {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            max-width: 520px;
+            margin: 4px auto 0;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: var(--bege-fundo);
+            color: var(--cinza-texto);
+            font-size: 13px;
+        }
+
+        .aviso-agendado i {
+            color: var(--vinho-alexandria);
+        }

@@ -1,0 +1,20 @@
+        :root {
+            --vinho-escuro:#6f1724;
+            --texto:#2c2927;
+}
+
+        * { box-sizing:border-box; }
+
+        body {
+            margin:0;
+            background:var(--fundo);
+            color:var(--texto);
+            font-family:Inter,sans-serif;
+        }
+
+        @media (max-width: 991px) {
+            .pagina { margin-left:0; }
+            .layout-editor { grid-template-columns:1fr; }
+            .linha { grid-template-columns:1fr; }
+        }
+    

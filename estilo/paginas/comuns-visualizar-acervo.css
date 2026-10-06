@@ -1,0 +1,223 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cinza-claro);
+        }
+
+        .conteudo-acervos {
+            padding: 30px 30px 50px 30px;
+        }
+
+        .cabecalho-acervos {
+            margin-bottom: 20px;
+        }
+
+        .cabecalho-acervos-topo {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .titulo-acervos {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--texto-escuro);
+            font-size: 2.1rem;
+            margin-bottom: 4px;
+        }
+
+        .subtitulo-acervos {
+            color: var(--texto-suave);
+            font-size: 0.92rem;
+            margin: 0;
+        }
+
+        .btn-novo-acervo {
+            background-color: var(--vinho-alexandria);
+            border: none;
+            border-radius: 8px;
+            color: var(--branco);
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 11px 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color .15s ease;
+        }
+
+        .btn-novo-acervo:hover {
+            background-color: var(--vinho-escuro);
+            color: var(--branco);
+        }
+
+        .linha-cabecalho-acervos {
+            border: none;
+            border-top: 1px solid var(--cinza-medio);
+            margin: 0 0 18px;
+        }
+
+        .barra-info-acervos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .contador-acervos {
+            color: var(--texto-suave);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .busca-acervos {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        @media (max-width: 767px) {
+            .barra-info-acervos { flex-direction: column; align-items: stretch; }
+            .busca-acervos { max-width: none; }
+        }
+
+        .busca-acervos input {
+            width: 100%;
+            padding: 10px 16px 10px 38px;
+            border-radius: 8px;
+            border: 1px solid var(--cinza-medio);
+            background: var(--branco);
+            font-size: 14px;
+        }
+
+        .busca-acervos input:focus {
+            outline: none;
+            border-color: var(--vinho-alexandria);
+            box-shadow: 0 0 0 3px rgba(139, 30, 45, 0.1);
+        }
+
+        .busca-acervos i {
+            position: absolute;
+            top: 50%;
+            left: 14px;
+            transform: translateY(-50%);
+            color: var(--texto-suave);
+            font-size: 14px;
+        }
+
+        .card-acervo {
+            background: var(--branco);
+            border: 1px solid var(--cinza-medio);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .card-acervo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-acervo .logo-acervo {
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cinza-claro);
+            border-bottom: 1px solid var(--cinza-medio);
+            padding: 20px;
+        }
+
+        .card-acervo .logo-acervo img {
+            max-height: 70px;
+            max-width: 80%;
+            object-fit: contain;
+        }
+
+        .card-acervo .corpo-acervo {
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-acervo .corpo-acervo h5 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .card-acervo .corpo-acervo p {
+            font-size: 12.5px;
+            color: var(--texto-suave);
+            text-align: center;
+            line-height: 1.5;
+            flex: 1;
+            margin-bottom: 16px;
+        }
+
+        .acoes-acervo {
+            display: flex;
+            gap: 7px;
+            margin-top: 4px;
+        }
+
+        .acao {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-height: 34px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .acao-editar {
+            flex: 1;
+            border: 1px solid var(--vinho-alexandria);
+            color: var(--vinho-alexandria);
+            background: #fff;
+        }
+
+        .acao-editar:hover {
+            color: #fff;
+            background: var(--vinho-alexandria);
+        }
+
+        .acao-visualizar,
+        .acao-excluir {
+            width: 36px;
+            border: 1px solid var(--cinza-medio);
+            color: #777;
+            background: #fff;
+        }
+
+        .acao-visualizar:hover {
+            color: #2878a8;
+            border-color: #b8d7e8;
+            background: #eef8fd;
+        }
+
+    

@@ -1,0 +1,194 @@
+        :root {   
+            --vinho-escuro:       #5e1220;   
+            --cinza-texto:        #555;
+}
+
+        * {
+            margin: 0;        
+            padding: 0;       
+            box-sizing: border-box; 
+        }
+
+        html {
+            height: 100%; 
+        }
+
+        body {
+        
+            font-family: 'Inter', sans-serif;  
+            background-color: var(--bege-fundo); 
+            color: var(--preto-contraste);       
+            min-height: 100vh;                   
+            display: flex;
+            flex-direction: column;
+        }
+
+        .banner-verificacao {
+            position: relative;    
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg'); 
+            background-size: cover;    
+            background-position: center; 
+            min-height: 220px;    
+            display: flex;
+            align-items: center;  
+            border-bottom: 4px solid var(--dourado-alexandria);
+        }
+
+        .secao-planos {
+            
+            padding: 70px 60px;
+            
+            background-color: var(--branco-fundo); 
+
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .planos-grid {
+            max-width: none;
+            width: 100%;
+            display: grid;
+            
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;                 
+            margin: 0 auto;
+            align-items: stretch;      
+        }
+
+        .plano-card {
+            display: flex;
+            flex-direction: column;
+            
+            padding: 34px 26px;    
+            
+            background-color: var(--branco-fundo);
+            border: 1.5px solid var(--cinza-destaque); 
+            border-radius: 4px;
+            
+            text-align: center;
+        }
+
+        .plano-card.plano-destaque {
+            border: 1.5px solid var(--vinho-alexandria); 
+        }
+
+        .plano-titulo {
+            font-family: 'Playfair Display', serif; 
+            color: var(--vinho-alexandria);           
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .plano-preco {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.7rem;      
+            font-weight: 700;
+            color: var(--preto-contraste);
+        }
+
+        .plano-periodo {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--cinza-texto);
+            margin-bottom: 18px;
+        }
+
+        .plano-divisor {
+            border: none;
+            border-top: 1.5px solid var(--preto-contraste); 
+            margin-bottom: 24px;
+        }
+
+        .plano-card.plano-destaque .plano-divisor {
+            border-top-color: var(--vinho-alexandria);
+        }
+
+        .plano-lista {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1; 
+        }
+
+        .plano-lista li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--preto-contraste);
+        }
+
+        .plano-numero {
+            flex-shrink: 0; 
+            
+            width: 22px;
+            height: 22px;
+            
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--branco);
+            
+            border-radius: 3px; 
+        }
+
+        .plano-numero.numero-vinho {
+            background-color: var(--vinho-alexandria);
+        }
+
+        .plano-numero.numero-dourado {
+            background-color: var(--dourado-alexandria);
+        }
+
+        .plano-btn-dourado {
+            background-color: var(--dourado-alexandria); 
+            color: var(--preto-contraste);                
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            
+            padding: 10px 24px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+            align-self: center; 
+            
+            transition: background-color 0.3s;
+        }
+
+        .plano-btn-dourado:hover {
+            background-color: var(--dourado-claro); 
+        }
+
+        .plano-btn-vinho {
+            background-color: var(--vinho-alexandria); 
+            color: var(--branco);                        
+            
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            
+            padding: 10px 24px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+            align-self: center;
+            
+            transition: background-color 0.3s;
+        }
+
+        .plano-btn-vinho:hover {
+            background-color: var(--vinho-escuro); 
+        }
+
+    

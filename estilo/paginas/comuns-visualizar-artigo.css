@@ -1,0 +1,245 @@
+        :root {
+            --vinho-escuro:       #5e1220;
+            --bege-fundo:         #e9e2d5;
+            --cinza-texto:        #333333;
+}
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco);
+            color: var(--preto-contraste);
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner-artigo {
+            background-color: var(--bege-fundo);
+            padding: 50px 80px;
+            border-bottom: 1px solid #d1c8b4;
+            position: relative;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .banner-artigo::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(94, 18, 32, 0.93) 0%,
+                    rgba(94, 18, 32, 0.55) 60%,
+                    rgba(94, 18, 32, 0.20) 100%
+                ),
+                url('https://upload.wikimedia.org/wikipedia/commons/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg');
+
+            background-size: cover;
+            background-position: center 20%;
+
+            z-index: 0;
+        }
+
+        .banner-artigo {
+            isolation: isolate;
+        }
+
+        .banner-conteudo {
+            position: relative;
+            z-index: 1;
+            margin-left: 156px;
+        }
+
+        .banner-artigo h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--branco);
+        }
+
+        .banner-artigo p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .container-blog {
+            max-width: 1160px;
+            margin: 50px auto 50px calc(156px + max(20px, (100% - 156px - 1160px) / 2));
+            padding: 0 40px 0 20px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .conteudo-post {
+            flex: 1;
+        }
+
+        .post-imagem-principal {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .post-categoria {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--vinho-alexandria);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .post-categoria i { font-size: 10px; }
+
+        .post-meta {
+            display: flex;
+            gap: 30px;
+            color: var(--preto-contraste);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .post-meta i{
+            color: var(--dourado-alexandria); 
+        }
+
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .post-titulo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .post-texto {
+            color: var(--cinza-texto);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .post-texto p { margin-bottom: 20px; }
+
+        .post-texto h1, .post-texto h2, .post-texto h3, .post-texto h4 {
+            margin: 32px 0 12px;
+            color: var(--preto-contraste, #1a1a1a);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .post-texto h1 { font-size: 1.6rem; }
+        .post-texto h2 { font-size: 1.4rem; }
+        .post-texto h3 { font-size: 1.2rem; }
+        .post-texto h4 { font-size: 1.05rem; }
+        .post-texto strong, .post-texto b { color: var(--preto-contraste, #1a1a1a); font-weight: 700; }
+        .post-texto ul, .post-texto ol { margin: 0 0 20px; padding-left: 1.5rem; }
+        .post-texto li { margin-bottom: 6px; }
+        .post-texto blockquote {
+            margin: 28px 0;
+            padding: 14px 20px;
+            border-left: 4px solid var(--dourado-alexandria, #d4af37);
+            background: #faf6ee;
+            color: #4a4a4a;
+            font-style: italic;
+        }
+        .post-texto blockquote p { margin-bottom: 0; }
+        .post-texto a { color: var(--vinho-alexandria, #8b1e2d); text-decoration: underline; }
+        .post-texto img { max-width: 100%; height: auto; border-radius: 4px; margin: 20px 0; }
+        .post-texto hr { margin: 32px 0; border: 0; border-top: 1px solid #e0d6cd; }
+        .post-texto > div { margin-bottom: 20px; }
+
+        .input-busca {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            outline: none;
+        }
+
+        .widget {
+            border: 1px solid #eaeaea;
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .widget-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+
+        .item-mais-lido {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: inherit;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .badge-numero {
+            background-color: var(--vinho-alexandria);
+            color: var(--branco);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .widget-destaque {
+            background-color: var(--bege-fundo);
+            border: none;
+            border-left: 4px solid var(--dourado-alexandria);
+        }
+
+        .widget-destaque p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            color: var(--cinza-texto);
+        }
+
+        .btn-widget {
+            background-color: var(--dourado-alexandria);
+            color: var(--preto-contraste);
+            border: none;
+            padding: 10px 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    

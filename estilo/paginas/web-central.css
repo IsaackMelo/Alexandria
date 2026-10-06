@@ -1,0 +1,111 @@
+        :root {
+            --vinho: #6d2428;
+            --texto: #303238;
+            --cinza: #747474;
+            --borda: #e6e1dc;
+            --fundo: #faf9f7;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+        }
+
+        .accordion {
+            margin: 10px;
+            --bs-accordion-border-width: 0;
+            --bs-accordion-border-radius: 0;
+            --bs-accordion-inner-border-radius: 0;
+            --bs-accordion-btn-focus-box-shadow: none;
+            --bs-accordion-btn-bg: transparent;
+            --bs-accordion-active-bg: transparent;
+            --bs-accordion-active-color: var(--texto);
+        }
+
+        .icon-percent {
+            background: #f8f7ee;
+            color: #8f8a2e;
+        }
+
+        .icon-bag {
+            background: #eef8f5;
+            color: #2e8f74;
+        }
+
+        .icon-card {
+            background: #f3f8ee;
+            color: #588f2e;
+        }
+
+        .icon-bug {
+            background: #f6eef8;
+            color: #8f2e8a;
+        }
+
+        .theme-divider-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            white-space: nowrap;
+        }
+
+        .theme-divider-number {
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #e1c9cb;
+            border-radius: 50%;
+
+            background: #fffafa;
+
+            color: var(--vinho);
+
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .theme-divider-title {
+            color: var(--vinho);
+
+            font-size: 0.7rem;
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .accordion {
+            --bs-accordion-btn-icon: none;
+            --bs-accordion-btn-active-icon: none;
+        }
+
+        .accordion .accordion-button::after {
+            background-image: none !important;
+            content: "\F282" !important;
+            font-family: "bootstrap-icons" !important;
+            font-size: 22px;
+            line-height: 1;
+            color: var(--vinho);
+            width: auto;
+            height: auto;
+            transform: rotate(0deg) !important;
+            transition: transform .3s ease;
+        }
+
+        .accordion .accordion-button:not(.collapsed)::after {
+            transform: rotate(-180deg) !important;
+        }
+    

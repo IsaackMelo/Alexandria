@@ -1,0 +1,91 @@
+        :root {
+            --vinho-escuro: #5e1220;
+            --cinza-texto: #555;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco-fundo);
+            color: var(--preto-contraste);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-verificar {
+            background-color: var(--vinho-alexandria);
+            color: var(--branco);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .secao-confirmacao h3 {
+            font-family: 'Inter', sans-serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 30px;
+        }
+
+        .codigo-caixinhas {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 34px;
+        }
+
+        .input-codigo {
+            width: 46px;
+            height: 46px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            background-color: var(--dourado-alexandria);
+            border: none;
+            border-radius: 6px;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        .input-codigo:focus {
+            background-color: var(--dourado-claro);
+        }
+
+    
+
+        .dica-codigo {
+            margin: 0 0 18px;
+            color: var(--cinza-texto);
+            font-size: 13.5px;
+        }
+
+        .aviso-erro {
+            display: block;
+            margin: 12px auto 0;
+            max-width: 420px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: var(--vermelho-bg);
+            color: var(--vermelho);
+            font-size: 13px;
+            font-weight: 600;
+        }

@@ -1,0 +1,366 @@
+  :root {
+  --vinho-escuro: #5e1220;
+  --texto: #282525;
+  --texto-suave: #555252;
+  --borda: #eadfd2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--texto);
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.contact-page {
+  min-height: 60vh;
+  padding: 48px 0;
+  overflow: hidden;
+}
+
+.banner-contato {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 240px;
+  padding: 56px 60px;
+  border-bottom: 1px solid #d1c8b4;
+  background-color: var(--bege-fundo, #f5efe6);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.banner-contato::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(94, 18, 32, 0.93) 0%,
+      rgba(94, 18, 32, 0.55) 60%,
+      rgba(94, 18, 32, 0.20) 100%
+    ),
+    url('../../imagens/criacao.jpg');
+  background-size: cover;
+  background-position: center 25%;
+}
+
+.banner-conteudo {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--dourado-alexandria, #d4af37);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  margin-bottom: 10px;
+}
+
+.banner-contato h1 {
+  margin: 0;
+  color: var(--branco, #fff);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.banner-contato p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.banner-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.banner-botoes a {
+  padding: 11px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.banner-botoes .botao-ouro {
+  background: var(--dourado-alexandria, #d4af37);
+  color: var(--preto-contraste, #1a1a1a);
+}
+
+.banner-botoes .botao-vazado {
+  border: 1px solid var(--branco, #fff);
+  color: var(--branco, #fff);
+}
+
+@media (max-width: 900px) {
+  .banner-contato {
+    padding: 44px 24px;
+    min-height: 200px;
+  }
+}
+
+.gold-line,
+.small-gold-line {
+  width: 50px;
+  height: 3px;
+  background: var(--dourado-alexandria);
+}
+
+.gold-line {
+  margin: 19px 0 20px;
+}
+
+.contact-cards {
+  position: relative;
+  z-index: 3;
+  margin-top: 5px;
+}
+
+.info-card {
+  min-height: 254px;
+  padding: 27px 35px 25px;
+  background: rgba(255, 255, 255, .97);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+}
+
+.icon-circle {
+  width: 61px;
+  height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-radius: 50%;
+  background: var(--vinho-alexandria);
+  color: var(--dourado-claro);
+  font-size: 29px;
+}
+
+.info-card h2 {
+  margin: 0 0 15px;
+  color: var(--vinho-alexandria);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.info-card p {
+  margin: 0 0 8px;
+  color: #4c4949;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.form-section {
+  position: relative;
+  z-index: 3;
+  margin-top: 27px;
+}
+
+.form-card,
+.help-card {
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.form-card {
+  padding: 31px 26px 23px;
+}
+
+.form-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin-bottom: 31px;
+}
+
+.form-heading > i {
+  color: #d99f12;
+  font-size: 34px;
+  transform: rotate(-10deg);
+}
+
+.form-heading h2 {
+  margin: 0 0 10px;
+  color: var(--vinho-alexandria);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.small-gold-line {
+  width: 40px;
+  height: 2px;
+}
+
+.form-label {
+  margin-bottom: 9px;
+  color: #171515;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-label span {
+  color: var(--vinho-alexandria);
+}
+
+.form-control,
+.form-select {
+  min-height: 43px;
+  border: 1px solid #e5dcd2;
+  border-radius: 7px;
+  padding: 10px 15px;
+  color: #333;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  box-shadow: none !important;
+}
+
+.form-control::placeholder {
+  color: #999;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--dourado-alexandria);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, .12) !important;
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 38px;
+  color: #777;
+}
+
+.textarea-wrap {
+  position: relative;
+}
+
+.textarea-wrap textarea {
+  min-height: 127px;
+  resize: vertical;
+  padding-bottom: 30px;
+}
+
+#counter {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  color: #686565;
+  font-size: 12px;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 2px;
+}
+
+.btn-send {
+  min-width: 176px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--vinho-alexandria);
+  color: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.btn-send:hover {
+  background: var(--vinho-escuro);
+  transform: translateY(-1px);
+}
+
+.btn-send i {
+  margin-right: 8px;
+}
+
+.privacy {
+  border-radius: 20px;
+  padding: 10px;
+  background-color: var(--branco);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #575454;
+  font-size: 12px;
+  line-height: 1.65;
+  border: 2px solid var(--dourado-alexandria);
+}
+
+.privacy i {
+  color: #d9a514;
+  font-size: 27px;
+}
+
+.help-card {
+  min-height: 552px;
+  padding: 41px 28px;
+  background: var(--bege-card);
+}
+
+.help-icon {
+  position: relative;
+  width: 65px;
+  height: 44px;
+  margin-bottom: 22px;
+  color: #d9a514;
+  font-size: 31px;
+}
+
+.help-icon .second-chat {
+  position: absolute;
+  left: 18px;
+  top: 8px;
+  font-size: 24px;
+}
+
+.help-card h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: var(--vinho-alexandria);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.help-card .small-gold-line {
+  position: relative;
+  z-index: 2;
+  margin: 18px 0 20px;
+}
+
+.help-card p {
+  position: relative;
+  z-index: 2;
+  max-width: 255px;
+  margin: 0;
+  color: #514d4d;
+  font-size: 14px;
+  line-height: 1.75;
+}

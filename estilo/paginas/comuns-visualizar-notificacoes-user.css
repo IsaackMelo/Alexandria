@@ -1,0 +1,373 @@
+        :root {
+            --cinza-medio:       #e0e0e0;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            background: var(--bege-fundo);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 156px;
+            z-index: 1000;
+            background: var(--vinho-alexandria);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            padding: 5px 0 10px 0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar-header {
+            padding: 15px 10px 20px 10px;
+            text-align: center;
+        }
+
+        .sidebar-header img {
+            width: 90%;
+            max-width: 130px;
+            height: auto;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-menu li {
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-menu li a, .sidebar-footer li a {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: var(--dourado-alexandria);
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-menu li a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--dourado-claro);
+        }
+
+        .sidebar-menu li a .icon-img {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        .sidebar-menu li a .icon-fa, .sidebar-footer li a .icon-fa {
+            width: 18px;
+            font-size: 14px;
+            margin-right: 10px;
+            text-align: center;
+            color: var(--dourado-alexandria);
+        }
+
+        .sidebar-menu li a .text, .sidebar-footer li a .text {
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .sidebar-footer {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .sidebar-footer li a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--dourado-claro);
+        }
+
+        .conteudo-principal {
+            background: var(--branco);
+            flex: 1;
+            padding: 35px 30px 80px;
+        }
+
+        .area-notificacoes {
+            max-width: 842px;
+            margin: 0 auto;
+        }
+
+        .filtros-notificacoes {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 7px;
+            border: 1px solid var(--cinza-medio);
+            border-radius: 17px;
+            background: var(--branco);
+        }
+
+        .botao-filtro, .botao-ordenar {
+            height: 39px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 12px;
+            border: 1px solid var(--cinza-medio);
+            border-radius: 5px;
+            background: var(--branco);
+            color: var(--preto-contraste);
+            font: 600 12px 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+
+        .botao-filtro i {
+            color: var(--vinho-alexandria);
+            font-size: 18px;
+        }
+
+        .botao-filtro.ativo {
+            background: var(--vinho-alexandria);
+            color: var(--branco);
+            border-color: var(--vinho-alexandria);
+        }
+
+        .botao-filtro.ativo i {
+            color: var(--dourado-alexandria);
+        }
+
+        .botao-marcar {
+            color: var(--vinho-alexandria);
+            margin-left: 15px;
+        }
+
+        .botao-ordenar {
+            margin-left: auto;
+        }
+
+        .lista-notificacoes {
+            margin-top: 1px;
+            border-radius: 17px;
+            overflow: hidden;
+        }
+
+        .item-notificacao {
+            position: relative;
+            min-height: 110px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 11px;
+            border: 1px solid var(--cinza-medio);
+            border-top: 0;
+            background: var(--branco);
+        }
+
+        .item-notificacao.primeiro-visivel {
+            border-top: 1px solid var(--cinza-medio);
+            border-radius: 17px 17px 0 0;
+        }
+
+        .item-notificacao.ultimo-visivel {
+            border-radius: 0 0 17px 17px;
+        }
+
+        .ponto-status {
+            position: absolute;
+            top: 10px;
+            right: 11px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--vinho-alexandria);
+        }
+
+        .ponto-status.amarelo {
+            background: #d7b52f;
+        }
+
+        .ponto-status.verde {
+            background: #7edc86;
+        }
+
+        .ponto-status.cinza {
+            background: #858585;
+        }
+
+        .icone-notificacao {
+            width: 62px;
+            height: 62px;
+            min-width: 62px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            color: #a71f35;
+            background: #ffc6c9;
+            font-size: 27px;
+        }
+
+        .icone-notificacao.tipo-simulado    { background: #f3ff82; color: #c8ae35; }
+        .icone-notificacao.tipo-atualizacao { background: #ffaaa9; color: #a42c3d; }
+        .icone-notificacao.tipo-conquista   { background: #a6e8ac; color: #248d4a; }
+        .icone-notificacao.tipo-chat        { background: #cec6ff; color: #4384e8; }
+
+        .texto-notificacao {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .texto-notificacao h2 {
+            margin: 0 0 4px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .texto-notificacao p {
+            max-width: 560px;
+            margin: 0 0 3px;
+            color: var(--cinza-texto);
+            font-size: 12px;
+            line-height: 1.35;
+        }
+
+        .texto-notificacao time {
+            color: #676767;
+            font-size: 12px;
+        }
+
+        .acao-notificacao {
+            width: 135px;
+            min-width: 135px;
+            height: 39px;
+            border: 2px solid var(--vinho-alexandria);
+            border-radius: 12px;
+            background: var(--branco);
+            color: var(--vinho-alexandria);
+            font-size: 14px;
+        }
+
+        .acao-notificacao.sucesso {
+            border-color: #6dd46f;
+            background: #d1ffca;
+            color: #3e7445;
+        }
+
+        .icone-notificacao img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .acao-notificacao {
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .acao-notificacao:hover {
+            background: var(--vinho-alexandria);
+            color: var(--branco);
+        }
+
+        .acao-notificacao.sucesso:hover {
+            background: #6dd46f;
+            color: var(--branco);
+        }
+
+        .item-notificacao.lida .texto-notificacao h2 {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .botao-filtro, .botao-ordenar {
+            cursor: pointer;
+        }
+
+        .botao-marcar:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .grupo-menu {
+            position: relative;
+        }
+
+        .grupo-menu.ordenar {
+            margin-left: auto;
+        }
+
+        .grupo-menu .botao-ordenar {
+            margin-left: 0;
+        }
+
+        .menu-suspenso {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            z-index: 50;
+            min-width: 190px;
+            margin: 0;
+            padding: 6px;
+            list-style: none;
+            background: var(--branco);
+            border: 1px solid var(--cinza-medio);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .grupo-menu.ordenar .menu-suspenso {
+            left: auto;
+            right: 0;
+        }
+
+        .menu-suspenso button {
+            width: 100%;
+            padding: 8px 10px;
+            border: 0;
+            border-radius: 5px;
+            background: transparent;
+            color: var(--preto-contraste);
+            font: 500 12px 'Inter', sans-serif;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .menu-suspenso button:hover {
+            background: var(--bege-fundo);
+        }
+
+        .menu-suspenso button.selecionado {
+            color: var(--vinho-alexandria);
+            font-weight: 700;
+        }
+
+        .resumo-filtro {
+            margin: 12px 4px 10px;
+            color: var(--cinza-texto);
+            font-size: 12px;
+        }
+
+        .estado-vazio {
+            padding: 40px 20px;
+            border: 1px dashed var(--cinza-medio);
+            border-radius: 17px;
+            text-align: center;
+            color: var(--cinza-texto);
+            font-size: 13px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+    

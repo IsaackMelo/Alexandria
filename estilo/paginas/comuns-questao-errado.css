@@ -1,0 +1,51 @@
+        :root {
+            --cinza-medio:       #e0e0e0;
+}
+
+        .alternativa.correta {
+            border: 1.5px solid #2e9e5b;
+            background: #f6fcf7;
+        }
+
+        .alternativa.correta .letra {
+            background: #2e9e5b;
+            color: #fff;
+        }
+
+        .titulo-sequencia {
+            margin: 0 0 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--cinza-texto);
+        }
+
+        .pill-questao {
+            text-decoration: none;
+        }
+
+        .pill-questao.atual {
+            outline: 2px solid var(--dourado-alexandria);
+            outline-offset: 2px;
+        }
+
+        .bloco-dissertativa {
+            margin: 12px 0;
+            padding: 12px 14px;
+            border-left: 3px solid var(--dourado-alexandria);
+            background: var(--bege-section);
+            border-radius: 6px;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        .bloco-dissertativa strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .btn-nav-outline.desabilitado,
+        .btn-nav-vinho.desabilitado {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+    

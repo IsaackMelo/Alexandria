@@ -1,0 +1,88 @@
+        :root {
+            --vinho-escuro: #5e1220;
+            --cinza-texto: #555;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco-fundo);
+            color: var(--preto-contraste);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-confirmar {
+            background-color: var(--dourado-alexandria);
+            color: var(--preto-contraste);
+            cursor:pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 14px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.25s, transform 0.2s;
+            border: none;
+        }
+
+        .secao-confirmacao h3 {
+            font-family: 'Inter', sans-serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 24px;
+        }
+
+        .input-email {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--vinho-alexandria);
+            border: 1.5px solid var(--vinho-alexandria);
+            border-radius: 4px;
+            outline: none;
+            margin-bottom: 30px;
+            transition: border-color 0.3s;
+        }
+
+        .input-email::placeholder {
+            color: var(--vinho-alexandria);
+            opacity: 0.6;
+        }
+
+        .input-email:focus {
+            border-color: var(--dourado-alexandria);
+        }
+
+    
+
+        .dica-codigo {
+            margin: 0 0 18px;
+            color: var(--cinza-texto);
+            font-size: 13.5px;
+        }
+
+        .aviso-erro {
+            display: block;
+            margin: 12px auto 0;
+            max-width: 420px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: var(--vermelho-bg);
+            color: var(--vermelho);
+            font-size: 13px;
+            font-weight: 600;
+        }

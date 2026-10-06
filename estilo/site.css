@@ -1,0 +1,77 @@
+body.pagina-site .container,
+body.pagina-site .container-lg,
+body.pagina-site .container-xl,
+body.pagina-site .container-xxl,
+body.pagina-site .container-fluid {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+body.pagina-site > section,
+body.pagina-site > header,
+body.pagina-site > main,
+body.pagina-site > nav {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+body.pagina-site > section:has(> .container),
+body.pagina-site > header:has(> .container),
+body.pagina-site > main:has(> .container),
+body.pagina-site > nav:has(> .container) {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.pagina-site .container-blog,
+body.pagina-site .container-blog-index,
+body.pagina-site .terms-page,
+body.pagina-site .contact-page {
+    width: 100%;
+    max-width: none;
+    margin-left: 60;
+    margin-right: 60;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.pagina-site > footer.rodape-alexandria {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+@media (max-width: 900px) {
+    body.pagina-site .container,
+    body.pagina-site .container-lg,
+    body.pagina-site .container-xl,
+    body.pagina-site .container-xxl,
+    body.pagina-site .container-fluid,
+    body.pagina-site > section,
+    body.pagina-site > header,
+    body.pagina-site > main,
+    body.pagina-site > nav,
+    body.pagina-site > footer.rodape-alexandria {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 560px) {
+    body.pagina-site .container,
+    body.pagina-site .container-lg,
+    body.pagina-site .container-xl,
+    body.pagina-site .container-xxl,
+    body.pagina-site .container-fluid,
+    body.pagina-site > section,
+    body.pagina-site > header,
+    body.pagina-site > main,
+    body.pagina-site > nav,
+    body.pagina-site > footer.rodape-alexandria {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

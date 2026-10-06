@@ -1,0 +1,375 @@
+        :root {
+            --vinho-escuro: #5e1220;
+            --cinza-texto: #555;
+            --verde-pix: #2BA894;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco-fundo);
+            color: var(--preto-contraste);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secao-checkout {
+            padding: 50px 60px 70px 60px;
+            background-color: var(--branco-fundo);
+            flex: 1;
+        }
+
+        .checkout-grid {
+            max-width: none;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .titulo-secao-simples {
+            font-family: 'Inter', sans-serif;
+            color: var(--preto-contraste);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .pagamento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .pagamento-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 22px 12px;
+            background-color: var(--branco-fundo);
+            border: 1.5px solid var(--cinza-destaque);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .pagamento-card.selecionado {
+            border: 1.5px solid var(--vinho-alexandria);
+        }
+
+        .pagamento-card i {
+            font-size: 1.5rem;
+            color: var(--preto-contraste);
+        }
+
+        .pagamento-card .icone-pix {
+            color: var(--verde-pix);
+        }
+
+        .pagamento-card span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .cartao-form {
+            margin-top: 24px;
+        }
+
+        .form-grupo {
+            margin-bottom: 18px;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--preto-contraste);
+            margin-bottom: 8px;
+        }
+
+        .input-cartao {
+            width: 100%;
+            padding: 10px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--preto-contraste);
+            border: 1.5px solid var(--cinza-destaque);
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-cartao::placeholder {
+            color: var(--cinza-texto);
+            opacity: 0.8;
+        }
+
+        .input-cartao:focus {
+            border-color: var(--vinho-alexandria);
+        }
+
+        .form-grupo-dupla {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .privacidade-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            width: fit-content;
+            max-width: 100%;
+            margin: 24px auto 0 auto;
+            padding: 16px 26px;
+            background-color: #fbe4e8;
+            border-radius: 6px;
+        }
+
+        .privacidade-box i {
+            font-size: 1.05rem;
+            color: var(--vinho-alexandria);
+            margin-top: 4px;
+        }
+
+        .privacidade-box h3 {
+            font-family: 'Inter', sans-serif;
+            color: var(--preto-contraste);
+            font-size: 0.98rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .privacidade-box p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.86rem;
+            color: var(--cinza-texto);
+            line-height: 1.4;
+        }
+
+        .resumo-wrapper {
+            position: sticky;
+            top: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .resumo-compra {
+            background-color: var(--branco-fundo);
+            border: 1px solid var(--cinza-destaque);
+            border-radius: 6px;
+            padding: 22px 24px;
+        }
+
+        .resumo-compra h2 {
+            font-family: 'Inter', sans-serif;
+            color: var(--preto-contraste);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .resumo-plano {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--preto-contraste);
+            margin-bottom: 10px;
+        }
+
+        .resumo-itens {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .resumo-itens li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--preto-contraste);
+            padding: 4px 0;
+        }
+
+        .resumo-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-top: 12px;
+            border-top: 1px solid var(--cinza-destaque);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+        }
+
+        .btn-confirmar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--vinho-alexandria);
+            color: var(--branco);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-confirmar:hover {
+            background-color: var(--vinho-escuro);
+        }
+
+        .btn-confirmar i {
+            font-size: 0.85rem;
+        }
+
+        .btn-descri {
+            text-decoration: none;
+            color: var(--branco);
+        }
+
+    
+
+        .metodo-escolhido {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 26px;
+            padding: 14px 18px;
+            border: 1px solid var(--borda);
+            border-radius: 12px;
+            background: var(--bege-card);
+        }
+
+        .metodo-escolhido > i {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            color: var(--vinho-alexandria);
+            font-size: 17px;
+        }
+
+        .metodo-escolhido div {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+            font-size: 12.5px;
+            color: var(--cinza-escuro);
+        }
+
+        .metodo-escolhido strong {
+            color: var(--texto-escuro);
+            font-size: 14.5px;
+        }
+
+        .link-voltar-metodo {
+            color: var(--vinho-alexandria);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .link-voltar-metodo:hover {
+            text-decoration: underline;
+        }
+
+        .instrucao-pagamento {
+            padding: 18px;
+            border: 1px solid var(--borda);
+            border-radius: 12px;
+            background: var(--branco);
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        .codigo-pix {
+            margin: 14px 0;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--bege-fundo);
+            color: var(--texto-escuro);
+            font-family: 'Courier New', monospace;
+            font-size: 12.5px;
+            word-break: break-all;
+        }
+
+        .btn-copiar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border: 1px solid var(--vinho-alexandria);
+            border-radius: 8px;
+            background: transparent;
+            color: var(--vinho-alexandria);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-copiar:hover {
+            background: var(--vinho-alexandria);
+            color: var(--branco);
+        }
+
+        .resumo-pagamento-metodo {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--borda);
+            font-size: 13px;
+            color: var(--cinza-escuro);
+        }
+
+        .resumo-regra {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--bege-fundo);
+            color: var(--cinza-texto);
+            font-size: 12.5px;
+            line-height: 1.6;
+        }
+
+        .resumo-regra p { margin: 0; }
+
+        .resumo-regra i {
+            color: var(--vinho-alexandria);
+            margin-right: 6px;
+        }

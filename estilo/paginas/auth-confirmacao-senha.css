@@ -1,0 +1,114 @@
+        :root {
+            --vinho-escuro: #5e1220;
+            --cinza-texto: #555;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco-fundo);
+            color: var(--preto-contraste);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secao-confirmacao h3 {
+            font-family: 'Inter', sans-serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--preto-contraste);
+            margin-bottom: 16px;
+        }
+
+        .input-email {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--vinho-alexandria);
+            border: 1.5px solid var(--vinho-alexandria);
+            border-radius: 4px;
+            outline: none;
+            margin-bottom: 34px;
+            transition: border-color 0.3s;
+        }
+
+        .input-email::placeholder {
+            color: var(--vinho-alexandria);
+            opacity: 0.6;
+        }
+
+        .input-email:focus {
+            border-color: var(--dourado-alexandria);
+        }
+
+    
+
+        .dica-codigo {
+            margin: 0 0 18px;
+            color: var(--cinza-texto);
+            font-size: 13.5px;
+        }
+
+        .requisitos-senha {
+            list-style: none;
+            margin: 12px 0 18px;
+            padding: 0;
+            text-align: left;
+            font-size: 13px;
+            color: var(--cinza-escuro);
+        }
+
+        .requisitos-senha li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .requisitos-senha li i {
+            color: #bbb;
+        }
+
+        .requisitos-senha li.ok {
+            color: #2e7d4f;
+        }
+
+        .requisitos-senha li.ok i {
+            color: #2e7d4f;
+        }
+
+        .aviso-erro {
+            display: block;
+            margin: 12px 0 0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: var(--vermelho-bg);
+            color: var(--vermelho);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .lista-erros {
+            list-style: none;
+        }
+
+        .lista-erros li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }

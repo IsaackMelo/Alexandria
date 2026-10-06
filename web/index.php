@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../imagens/alex.png">
+    <title>Alexandria – Domine a História. Conquiste sua vaga.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../estilo/alexandria.css">
+    <link rel="stylesheet" href="../estilo/paginas/web-index.css">
+<link rel="stylesheet" href="../estilo/responsivo.css">
+<link rel="stylesheet" href="../estilo/site.css">
+</head>
+<body class="pagina-site">
+
+    <?php
+        include("../includes/navbar.html");
+    ?>
+
+     <div class="fundo-site">
+    <section class="hero-section">
+        <div class="text-center">
+            <span class="hero-eyebrow">Preparação para concursos de elite</span>
+            <h1 class="hero-title">
+                Não é só estudar história.<br>
+                É <span>dominar</span> o que as bancas cobram.
+            </h1>
+            <p class="hero-subtitle">
+                A Alexandria reúne o conteúdo mais estratégico de História do Brasil e Geral
+                para quem mira as vagas mais disputadas do país — CACD, Carreiras Jurídicas,
+                Tribunais e muito mais.
+            </p>
+            <div class="hero-btns">
+                <a href="#" class="btn-hero-primary">Garantir minha vaga</a>
+                <a href="#curso" class="btn-hero-secondary">Conhecer o curso</a>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <section class="curso-section" id="curso">
+        <div class="container">
+            <div class="row align-items-center justify-content-center g-5 ">
+                <div class="col-lg-5">
+                    <p class="section-eyebrow">Nossa proposta</p>
+                    <h2 class="section-title">Uma biblioteca viva de História a serviço da sua aprovação</h2>
+                    <p class="section-desc">
+                        A Alexandria nasceu da convicção de que História não é decoreba — é argumento, contexto e poder de análise.
+                        Nosso método conecta os grandes marcos históricos às exigências reais das bancas FGV, Cebraspe e Vunesp,
+                        transformando conteúdo denso em vantagem competitiva na prova.
+                    </p>
+                    <p class="section-desc mt-3">
+                        Cada módulo foi construído com base em análise de editais dos últimos dez anos, garantindo que você
+                        estude o que realmente cai — sem desperdício de tempo, sem lacunas estratégicas.
+                    </p>
+                    <a href="#" class="btn-hero-primary mt-4 d-inline-block">Conheça a metodologia</a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="pilar-card">
+                                <div class="pilar-icon">
+                                    <i class="fa-solid fa-scroll"></i>
+                                </div>
+                                <h4>Áreas de foco</h4>
+                                <p>Brasil Colônia, Império, República, História Geral e Contemporânea — tudo o que mais aparece nos editais dos concursos mais concorridos.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pilar-card">
+                                <div class="pilar-icon">
+                                    <i class="fa-solid fa-laptop"></i>
+                                </div>
+                                <h4>Modalidade on-line</h4>
+                                <p>Estude de onde estiver, no seu ritmo, com aulas ao vivo e gravadas disponíveis 24 horas por dia na plataforma Alexandria.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pilar-card">
+                                <div class="pilar-icon">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <h4>Análise de bancas</h4>
+                                <p>Mapeamento contínuo das questões de FGV, Cebraspe e Vunesp para que você entenda o padrão de cobrança e antecipe as tendências.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pilar-card">
+                                <div class="pilar-icon">
+                                    <i class="fa-solid fa-bolt"></i>
+                                </div>
+                                <h4>Início imediato</h4>
+                                <p>Acesse o conteúdo assim que se inscrever. Sem esperar nova turma, sem burocracia — comece hoje mesmo a construir sua vantagem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="metodologia-section">
+        <div class="container">
+            <div class="row align-items-center justify-content-center g-5">
+                <div class="col-lg-6">
+                    <p class="section-eyebrow">Como funciona</p>
+                    <h2 class="section-title">Um método construído sobre décadas de provas reais</h2>
+                    <p class="section-desc mb-5">
+                        Nossa metodologia não foi criada na teoria. Ela foi forjada na análise de centenas de
+                        questões das principais bancas do país, identificando padrões, recorrências e armadilhas
+                        que separam os aprovados dos eliminados.
+                    </p>
+
+                    <div class="metodo-item">
+                        <div class="metodo-num">01</div>
+                        <div class="metodo-texto">
+                            <h5>Mapeamento do edital</h5>
+                            <p>Antes de qualquer aula, fazemos uma leitura cirúrgica do edital do seu concurso para priorizar os temas com maior peso histórico de cobrança.</p>
+                        </div>
+                    </div>
+
+                    <div class="metodo-item">
+                        <div class="metodo-num">02</div>
+                        <div class="metodo-texto">
+                            <h5>Construção de contexto</h5>
+                            <p>Ensinamos os fatos dentro de suas causas e consequências, porque as bancas cobram raciocínio histórico — não apenas datas e nomes.</p>
+                        </div>
+                    </div>
+
+                    <div class="metodo-item">
+                        <div class="metodo-num">03</div>
+                        <div class="metodo-texto">
+                            <h5>Treino com questões reais</h5>
+                            <p>Cada módulo termina com resolução comentada de questões de provas anteriores, para que você aprenda a linguagem e o raciocínio de cada banca.</p>
+                        </div>
+                    </div>
+
+                    <div class="metodo-item">
+                        <div class="metodo-num">04</div>
+                        <div class="metodo-texto">
+                            <h5>Revisão estratégica</h5>
+                            <p>Ciclos de revisão programados com mapas mentais e fichas de alto rendimento para fixar o conteúdo e chegar à prova com memória ativa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 d-flex justify-content-center w-auto">
+                    <div style="background: var(--vinho-escuro); border-radius: 12px; padding: 48px 40px; max-width: 420px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.18);">
+                        <i class="fa-solid fa-landmark" style="font-size: 3.5rem; color: var(--dourado-alexandria); margin-bottom: 24px;"></i>
+                        <h3 style="color: var(--branco); font-size: 1.6rem; margin-bottom: 16px;">
+                            "A história não se repete, mas rima — e as bancas sabem disso."
+                        </h3>
+                        <p style="color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px;">
+                            Por isso formamos candidatos que enxergam padrões, constroem argumentos e
+                            transformam conhecimento histórico em pontos na prova.
+                        </p>
+                        <a href="#" class="btn-hero-primary">Comece agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diferenciais-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-eyebrow">Por que a Alexandria?</p>
+                <h2 class="section-title">Diferenciais que fazem a diferença na prova</h2>
+                <p class="section-desc mx-auto">
+                    Não basta ter conteúdo. É preciso ter o suporte certo, no momento certo,
+                    para transformar horas de estudo em aprovação real.
+                </p>
+            </div>
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="diferencial-card">
+                        <i class="fa-solid fa-comments"></i>
+                        <h5>Mentorias e Resolução de Questões</h5>
+                        <p>Nossos especialistas analisam questões de provas anteriores com você, ensinando não só o conteúdo, mas como identificar as armadilhas de cada banca — FGV, Cebraspe e Vunesp incluídas.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="diferencial-card">
+                        <i class="fa-solid fa-book-open"></i>
+                        <h5>Material Didático Exclusivo</h5>
+                        <p>Apostilas estruturadas em eixos temáticos e linhas do tempo interativas que conectam a História do Brasil e Geral com os marcos jurídicos e políticos mais cobrados nos editais de elite.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="diferencial-card">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <h5>Foco em Escrita e Análise</h5>
+                        <p>Plataforma com centenas de temas dissertativos e questões corrigidas. Ciclos semanais de simulados que replicam as condições reais da segunda fase dos concursos mais concorridos do país.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="diferencial-card">
+                        <i class="fa-solid fa-rotate"></i>
+                        <h5>Revisões Programadas</h5>
+                        <p>Sistema de revisão espaçada baseado em evidências científicas de aprendizagem, garantindo que o conteúdo estudado permaneça ativo na memória no dia da prova.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="diferencial-card">
+                        <i class="fa-solid fa-headset"></i>
+                        <h5>Suporte Pedagógico Contínuo</h5>
+                        <p>Equipe de tutores disponível para tirar dúvidas, orientar o planejamento de estudos e acompanhar sua evolução ao longo de toda a preparação.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="diferencial-card">
+                        <i class="fa-solid fa-trophy"></i>
+                        <h5>Simulados com Gabarito Comentado</h5>
+                        <p>Provas no padrão das principais bancas, com resolução detalhada de cada questão para que você entenda seus erros e evolua de forma consistente a cada ciclo.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-eyebrow" style="color: var(--dourado-alexandria);">Dúvidas frequentes</p>
+                <h2 class="section-title">Perguntas que todo candidato faz</h2>
+                <p class="section-desc mx-auto" style="color: rgba(255,255,255,0.65);">
+                    Reunimos as dúvidas mais comuns para facilitar sua decisão.
+                    Se não encontrar o que procura, nossa equipe está pronta para te atender.
+                </p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    O curso é voltado para qual tipo de concurso?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    A Alexandria foi desenvolvida para candidatos que disputam os concursos mais exigentes do Brasil — especialmente aqueles em que História tem peso significativo, como CACD (carreira diplomática), Carreiras Jurídicas (AGU, PGF, DPU), Carreiras Fiscais (Receita Federal, PGFN) e concursos de Tribunais (STJ, TRF, TRT). O conteúdo também cobre os principais vestibulares de Humanas.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Preciso ter base em História para me inscrever?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Não. Nosso material foi estruturado para atender desde quem está retomando os estudos após anos afastado até candidatos que já têm base e querem aprofundar o conhecimento. O curso parte dos fundamentos e avança progressivamente até os temas mais complexos cobrados pelas bancas.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Como funciona o acesso ao conteúdo?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Após a inscrição, você recebe acesso imediato à plataforma Alexandria, onde estão disponíveis aulas ao vivo, gravações, apostilas em PDF, simulados e o canal de mentoria. O acesso é 100% on-line e pode ser feito de qualquer dispositivo, a qualquer hora.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Existe suporte para dúvidas fora das aulas?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sim. Além das sessões de mentoria semanais, você tem acesso a um canal exclusivo de suporte pedagógico onde pode enviar dúvidas a qualquer momento. Nossa equipe de tutores responde em até 24 horas úteis, garantindo que nenhuma questão fique sem resposta durante sua preparação.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <?php
+        include("../includes/red.html");
+        include("../includes/footer.html");
+    ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+
+</body>
+</html>

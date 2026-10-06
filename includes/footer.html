@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    footer.rodape-alexandria {
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: auto;
+        padding: 50px 60px 20px;
+        background-color: var(--preto-contraste, #1a1a1a);
+        color: var(--cinza-destaque, #dee0e3);
+        border-top: 4px solid var(--dourado-alexandria, #d4af37);
+        font-family: 'Inter', Arial, sans-serif;
+    }
+
+    footer.rodape-alexandria * {
+        box-sizing: border-box;
+    }
+
+    footer.rodape-alexandria .footer-colunas {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 30px;
+        width: 100%;
+    }
+
+    footer.rodape-alexandria .footer-coluna {
+        min-width: 0;
+    }
+
+    footer.rodape-alexandria .footer-coluna img {
+        height: 70px;
+        width: auto;
+    }
+
+    footer.rodape-alexandria h3 {
+        margin: 0 0 16px;
+        font-family: 'Inter', sans-serif;
+        color: var(--dourado-alexandria, #d4af37);
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+
+    footer.rodape-alexandria p {
+        margin: 0;
+        color: var(--cinza-destaque, #dee0e3);
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    footer.rodape-alexandria ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    footer.rodape-alexandria li {
+        margin-bottom: 10px;
+        color: var(--cinza-destaque, #dee0e3);
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    footer.rodape-alexandria li:last-child {
+        margin-bottom: 0;
+    }
+
+    footer.rodape-alexandria a {
+        color: var(--cinza-destaque, #dee0e3);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    footer.rodape-alexandria a:hover {
+        color: var(--dourado-alexandria, #d4af37);
+    }
+
+    footer.rodape-alexandria .footer-redes {
+        display: flex;
+        gap: 12px;
+    }
+
+    footer.rodape-alexandria .footer-redes a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background-color: var(--vinho-alexandria, #8b1e2d);
+        transition: transform 0.3s;
+    }
+
+    footer.rodape-alexandria .footer-redes a:hover {
+        transform: scale(1.15);
+    }
+
+    footer.rodape-alexandria .footer-redes i {
+        color: var(--dourado-alexandria, #d4af37);
+        font-size: 15px;
+    }
+
+    footer.rodape-alexandria .footer-linha {
+        width: 100%;
+        margin: 40px 0 0;
+        padding-top: 18px;
+        border-top: 1px solid #333;
+        text-align: center;
+    }
+
+    footer.rodape-alexandria .footer-linha p {
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 900px) {
+        footer.rodape-alexandria {
+            padding: 40px 24px 18px;
+        }
+
+        footer.rodape-alexandria .footer-colunas {
+            gap: 26px;
+        }
+
+        footer.rodape-alexandria .footer-coluna {
+            flex: 1 1 40%;
+        }
+    }
+
+    @media (max-width: 560px) {
+        footer.rodape-alexandria .footer-coluna {
+            flex: 1 1 100%;
+        }
+    }
+</style>
+
+<footer class="rodape-alexandria">
+    <div class="footer-colunas">
+
+        <div class="footer-coluna">
+            <img src="../imagens/logo.png" alt="Alexandria">
+        </div>
+
+        <div class="footer-coluna">
+            <h3>Suporte de Aluno</h3>
+            <ul>
+                <li><a href="../web/termos.php">Termos de uso</a></li>
+                <li><a href="../web/central.php">Central de Ajuda</a></li>
+                <li><a href="../web/politicas.php">Políticas de Privacidade</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-coluna">
+            <h3>Fale Conosco</h3>
+            <ul>
+                <li>+55 11 4002-8922</li>
+                <li>alexandriaofc@gmail.com</li>
+                <li>Av. Avenida, 1000 - SP</li>
+            </ul>
+        </div>
+
+        <div class="footer-coluna footer-coluna-redes">
+            <h3>Redes Sociais</h3>
+            <div class="footer-redes">
+                <a href="#" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="X (Twitter)" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" title="YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-linha">
+        <p>&copy; 2026 Alexandria. Todos os direitos reservados.</p>
+    </div>
+</footer>
