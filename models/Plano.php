@@ -21,3 +21,5 @@ class Plano {
         return $stmt->fetch();
     }
 }
+
+//perguntar se ja fez

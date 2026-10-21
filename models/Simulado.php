@@ -12,14 +12,14 @@ class Simulado {
     public function listarTodos() {
         $stmt = $this->pdo->query("SELECT * FROM simulado ORDER BY dt_cria DESC");
         return $stmt->fetchAll();
-    }
+    }//verificado
 
     // Buscar um simulado pelo ID
     public function buscarPorId($id) {
         $stmt = $this->pdo->prepare("SELECT * FROM simulado WHERE id_simulado = ?");
         $stmt->execute([$id]);
         return $stmt->fetch();
-    }
+    }//verificado
 
     // Buscar questões do simulado sem o gabarito (para exibir ao usuário)
     public function buscarQuestoes($id_simulado) {

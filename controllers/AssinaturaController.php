@@ -1,9 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Assinatura.php';
-require_once '../middlewares/AuthMiddleware.php';
-
 class AssinaturaController {
 
     private $assinatura;
@@ -28,7 +24,7 @@ class AssinaturaController {
         }
 
         echo json_encode($assinatura);
-    }
+    }//verificado
 
     public function cancelar() {
         header('Content-Type: application/json; charset=utf-8');
@@ -41,15 +37,14 @@ class AssinaturaController {
             http_response_code(404);
             echo json_encode(["erro" => "Nenhuma assinatura ativa encontrada"]);
             return;
-        }
+        }//verificado
 
-        // Verifique se a chave correta é 'id_assinatura' ou apenas 'id'
         $idAssinatura = $assinatura['id_assinatura'] ?? $assinatura['id'];
 
         $this->assinatura->cancelar($idAssinatura);
 
         echo json_encode(["mensagem" => "Assinatura cancelada com sucesso!"]);
-    }
+    }//verificado
 }
 
-//verificação
+//tudo verificado

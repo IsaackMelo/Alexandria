@@ -1,13 +1,21 @@
 <?php
 
+define('BASE_PATH', __DIR__);
+chdir(__DIR__);
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
-// Pega a URL e o método da requisição
-$uri = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+$uri    = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 $method = $_SERVER['REQUEST_METHOD'];
+
+$uri = str_replace('/Alexandria-main/index.php', '', $uri);
+$uri = str_replace('/Alexandria-main', '', $uri);
+
+
+require_once 'bootstrap.php';
 
 if (str_starts_with($uri, '/auth/') && $method === 'POST') {
     require_once 'routes/auth.php';
@@ -15,13 +23,13 @@ if (str_starts_with($uri, '/auth/') && $method === 'POST') {
 } elseif (str_starts_with($uri, '/me') && in_array($method, ['GET', 'PUT', 'DELETE'])) {
     require_once 'routes/usuario.php';
 
-} elseif (str_starts_with($uri, '/conteudos') && in_array($method, ['GET', 'POST', 'PUT'])) {
+} elseif (str_starts_with($uri, '/conteudos') && in_array($method, ['GET', 'POST', 'PUT', 'DELETE'])) {
     require_once 'routes/conteudo.php';
 
 } elseif (str_starts_with($uri, '/simulados') && in_array($method, ['GET', 'POST'])) {
     require_once 'routes/simulado.php';
 
-} elseif (str_starts_with($uri, '/questoes') && in_array($method, ['POST', 'PUT', 'DELETE'])) {
+} elseif (str_starts_with($uri, '/questoes') && in_array($method, ['GET', 'POST', 'PUT', 'DELETE'])) {
     require_once 'routes/questao.php';
 
 } elseif ($uri === '/contato' && $method === 'POST') {
@@ -30,7 +38,7 @@ if (str_starts_with($uri, '/auth/') && $method === 'POST') {
 } elseif ($uri === '/ia/feedback' && $method === 'POST') {
     require_once 'routes/ia.php';
 
-} elseif (str_starts_with($uri, '/planos') && in_array($method, ['GET'])) {
+} elseif (str_starts_with($uri, '/planos') && $method === 'GET') {
     require_once 'routes/plano.php';
 
 } elseif (str_starts_with($uri, '/assinaturas') && in_array($method, ['GET', 'DELETE'])) {
@@ -43,5 +51,3 @@ if (str_starts_with($uri, '/auth/') && $method === 'POST') {
     http_response_code(404);
     echo json_encode(["erro" => "Rota não encontrada"]);
 }
-
-//verificar

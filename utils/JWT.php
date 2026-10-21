@@ -65,7 +65,23 @@ class JWT {
 
     public static function pegarToken() {
 
+        // Tenta pelo $_SERVER
         $header = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+
+        if (empty($header)) {
+            $header = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? '';
+        }
+
+        // Tenta pelo getallheaders()
+        if (empty($header)) {
+            $headers = getallheaders();
+            $header  = $headers['Authorization'] ?? '';
+        }
+
+        // Tenta pelo token na URL (?token=...)
+        if (empty($header) && isset($_GET['token'])) {
+            return $_GET['token'];
+        }
 
         if (str_starts_with($header, 'Bearer ')) {
             return substr($header, 7);

@@ -1,7 +1,5 @@
 <?php
 
-require_once '../controllers/SimuladoController.php';
-
 $controller = new SimuladoController($pdo);
 
 // Pega o ID da URL ex: /simulados/1
@@ -10,7 +8,7 @@ $id = isset($partes[2]) ? $partes[2] : null;
 
 // lista todos os simulados
 if ($method === 'GET' && $id === null) {
-    $controller->listar();
+    $controller->listar();//verificado
 
 // abre um simulado
 } elseif ($method === 'GET' && $id !== null) {
