@@ -1,10 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Simulado.php';
-require_once '../models/Resultado.php';
-require_once '../middlewares/PlanoMiddleware.php';
-
 class SimuladoController {
 
     private $simulado;
@@ -23,7 +18,7 @@ class SimuladoController {
         $simulados = $this->simulado->listarTodos();
 
         echo json_encode($simulados);
-    }
+    }//verificado
 
     public function buscar($id) {
         PlanoMiddleware::verificar($this->pdo, ['avancado', 'premium']);
@@ -39,7 +34,7 @@ class SimuladoController {
         $simulado['questoes'] = $this->simulado->buscarQuestoes($id);
 
         echo json_encode($simulado);
-    }
+    }//verificado
 
     public function entregar($id) {
         $usuario = PlanoMiddleware::verificar($this->pdo, ['avancado', 'premium']);

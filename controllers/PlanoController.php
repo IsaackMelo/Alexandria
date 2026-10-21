@@ -1,8 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Plano.php';
-
 class PlanoController {
 
     private $plano;
@@ -25,7 +22,6 @@ class PlanoController {
     public function buscar($id) {
         header('Content-Type: application/json; charset=utf-8');
 
-        // Validação básica para garantir que o ID é um número
         if (!$id || !is_numeric($id)) {
             http_response_code(400);
             echo json_encode(["erro" => "ID inválido informado"]);
@@ -44,4 +40,4 @@ class PlanoController {
     }
 }
 
-//Verificação
+//perguntar se fez a verificação

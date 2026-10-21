@@ -1,10 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Resultado.php';
-require_once '../models/Simulado.php';
-require_once '../middlewares/PlanoMiddleware.php';
-
 class IAController {
 
     private $resultado;

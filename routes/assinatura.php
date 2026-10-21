@@ -1,23 +1,23 @@
 <?php
 
-require_once '../controllers/AssinaturaController.php';
-
 $controller = new AssinaturaController($pdo);
 
-$partes = explode('/', $uri);
-$acao = isset($partes[2]) ? $partes[2] : null;
+$method = $_SERVER['REQUEST_METHOD'];
 
-// GET /assinaturas/me → busca assinatura ativa do usuário
+$pathInfo = isset($_SERVER['PATH_INFO']) ? trim($_SERVER['PATH_INFO'], '/') : '';
+$partes = explode('/', ltrim($uri, '/'));
+$acao = isset($partes[1]) ? $partes[1] : null;
+
 if ($method === 'GET' && $acao === 'me') {
-    $controller->buscarAtiva();
+    $controller->buscarAtiva();//verificado
 
-// DELETE /assinaturas/me → cancela assinatura do usuário
 } elseif ($method === 'DELETE' && $acao === 'me') {
-    $controller->cancelar();
+    $controller->cancelar();//verificado
 
-// Método não permitido
 } else {
+    header('Content-Type: application/json; charset=utf-8');
     http_response_code(405);
-    echo json_encode(["erro" => "Método não permitido"]);
+    echo json_encode(["erro" => "Método não permitido ou rota inválida"]);
 }
-//verificar
+
+//tudo verificado

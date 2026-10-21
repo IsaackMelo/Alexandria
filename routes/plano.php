@@ -1,9 +1,5 @@
 <?php
 
-// IMPORTANTE: Certifique-se de que o database.php é incluído para que a variável $pdo exista!
-require_once '../config/database.php'; 
-require_once '../controllers/PlanoController.php';
-
 $controller = new PlanoController($pdo);
 
 // Filtra a URI para remover barras vazias nas pontas
@@ -27,4 +23,4 @@ if ($method === 'GET' && $id === null) {
     http_response_code(405);
     echo json_encode(["erro" => "Método não permitido"]);
 }
-//verficar
+

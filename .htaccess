@@ -8,4 +8,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Redireciona tudo pro index.php
-RewriteRule ^ index.php [QSA,L]
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Permite o header Authorization
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

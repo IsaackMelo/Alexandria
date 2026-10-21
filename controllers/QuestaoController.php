@@ -1,9 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Questao.php';
-require_once '../middlewares/AdminMiddleware.php';
-
 class QuestaoController {
 
     private $questao;
@@ -14,7 +10,6 @@ class QuestaoController {
         $this->questao = new Questao($pdo);
     }
 
-    // Admin lista todas as questões
     public function listar() {
         AdminMiddleware::verificar($this->pdo);
 
@@ -23,7 +18,6 @@ class QuestaoController {
         echo json_encode($questoes);
     }
 
-    // Admin cria uma nova questão
     public function criar($body) {
         AdminMiddleware::verificar($this->pdo);
 
@@ -46,9 +40,8 @@ class QuestaoController {
             "mensagem" => "Questão criada com sucesso!",
             "id_quest" => $id
         ]);
-    }
+    }//testado
 
-    // Admin atualiza uma questão
     public function atualizar($id, $body) {
         AdminMiddleware::verificar($this->pdo);
 
@@ -72,7 +65,6 @@ class QuestaoController {
         echo json_encode(["mensagem" => "Questão atualizada com sucesso!"]);
     }
 
-    // Admin deleta uma questão
     public function deletar($id) {
         AdminMiddleware::verificar($this->pdo);
 

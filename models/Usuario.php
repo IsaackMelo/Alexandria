@@ -15,7 +15,7 @@ class Usuario {
             VALUES (?, ?, ?, ?)
         ");
         return $stmt->execute([$nome, $email, $dt_nasc, password_hash($senha, PASSWORD_BCRYPT)]);
-    }
+    }//verificado
 
     // Buscar usuário por email para login
     public function buscarPorEmail($email) {
@@ -33,7 +33,7 @@ class Usuario {
         ");
         $stmt->execute([$id]);
         return $stmt->fetch();
-    }
+    }//verificado
 
     // Atualizar perfil
     public function atualizar($id, $nome, $email, $dt_nasc) {
@@ -42,7 +42,7 @@ class Usuario {
             WHERE id = ?
         ");
         return $stmt->execute([$nome, $email, $dt_nasc, $id]);
-    }
+    }//verificado
 
     // Trocar senha
     public function trocarSenha($id, $nova_senha) {
@@ -50,7 +50,7 @@ class Usuario {
             UPDATE usuario SET senha = ? WHERE id = ?
         ");
         return $stmt->execute([password_hash($nova_senha, PASSWORD_BCRYPT), $id]);
-    }
+    }//verificado
 
     // Salvar token de reset de senha
     public function salvarResetToken($id, $token, $expira) {
@@ -76,5 +76,7 @@ class Usuario {
             DELETE FROM usuario WHERE id = ?
         ");
         return $stmt->execute([$id]);
-    }
+    }//testado
 }
+
+//ver umas funções do usuario

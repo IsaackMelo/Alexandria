@@ -1,9 +1,5 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/Usuario.php';
-require_once '../middlewares/AuthMiddleware.php';
-
 class UsuarioController {
 
     private $usuario;
@@ -14,25 +10,24 @@ class UsuarioController {
         $this->usuario = new Usuario($pdo);
     }
 
-    // Retorna os dados do usuário logado
     public function perfil() {
-        $usuario = AuthMiddleware::verificar($this->pdo);
+    $usuario = AuthMiddleware::verificar($this->pdo);
 
-        $dados = $this->usuario->buscarPorId($usuario['id']);
+    $dados = $this->usuario->buscarPorId($usuario['id']);
 
-        if (!$dados) {
-            http_response_code(404);
-            echo json_encode(["erro" => "Usuário não encontrado"]);
-            return;
-        }
-
-        // Remove a senha antes de retornar
-        unset($dados['senha']);
-
-        echo json_encode($dados);
+    if (!$dados) {
+        http_response_code(404);
+        echo json_encode(["erro" => "Usuário não encontrado"]);
+        return;
     }
 
-    // Atualiza o perfil do usuário logado
+    unset($dados['senha']);
+    unset($dados['reset_token']);
+    unset($dados['reset_expira']);
+
+    echo json_encode($dados);
+    }//verificado
+
     public function atualizar($body) {
         $usuario = AuthMiddleware::verificar($this->pdo);
 
@@ -42,7 +37,6 @@ class UsuarioController {
             return;
         }
 
-        // Verifica se o usuário existe
         $dados = $this->usuario->buscarPorId($usuario['id']);
 
         if (!$dados) {
@@ -59,9 +53,8 @@ class UsuarioController {
         );
 
         echo json_encode(["mensagem" => "Perfil atualizado com sucesso!"]);
-    }
+    }//verificado
 
-    // Troca a senha do usuário logado
     public function trocarSenha($body) {
         $usuario = AuthMiddleware::verificar($this->pdo);
 
@@ -88,22 +81,26 @@ class UsuarioController {
         $this->usuario->trocarSenha($usuario['id'], $body['nova_senha']);
 
         echo json_encode(["mensagem" => "Senha alterada com sucesso!"]);
-    }
+    }//verificado
 
-    // Deleta a conta do usuário logado
     public function deletarConta() {
-        $usuario = AuthMiddleware::verificar($this->pdo);
+    $usuario = AuthMiddleware::verificar($this->pdo);
 
-        $dados = $this->usuario->buscarPorId($usuario['id']);
+    $dados = $this->usuario->buscarPorId($usuario['id']);
 
-        if (!$dados) {
-            http_response_code(404);
-            echo json_encode(["erro" => "Usuário não encontrado"]);
-            return;
-        }
-
-        $this->usuario->deletar($usuario['id']);
-
-        echo json_encode(["mensagem" => "Conta deletada com sucesso!"]);
+    if (!$dados) {
+        http_response_code(404);
+        echo json_encode(["erro" => "Usuário não encontrado"]);
+        return;
     }
+
+    $assinatura = new Assinatura($this->pdo);
+    $assinatura->deletarPorUsuario($usuario['id']);
+
+    $this->usuario->deletar($usuario['id']);
+
+    echo json_encode(["mensagem" => "Conta deletada com sucesso!"]);
+    }//verificado
 }
+
+//tudo certo

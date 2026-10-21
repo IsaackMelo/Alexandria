@@ -1,8 +1,5 @@
 <?php
 
-require_once '../middlewares/AuthMiddleware.php';
-require_once '../models/Assinatura.php';
-
 class PlanoMiddleware {
 
     public static function verificar($pdo, $planos_permitidos) {

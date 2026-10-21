@@ -1,7 +1,5 @@
 <?php
 
-require_once '../controllers/ContatoController.php';
-
 $controller = new ContatoController($pdo);
 
 // Pega os dados enviados em JSON

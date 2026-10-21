@@ -1,7 +1,5 @@
 <?php
 
-require_once '../controllers/QuestaoController.php';
-
 $controller = new QuestaoController($pdo);
 
 // Pega o ID da URL ex: /questoes/1
@@ -17,7 +15,7 @@ if ($method === 'GET' && $id === null) {
 
 // admin cria nova questão
 } elseif ($method === 'POST' && $id === null) {
-    $controller->criar($body);
+    $controller->criar($body);//testado
 
 // admin edita uma questão
 } elseif ($method === 'PUT' && $id !== null) {

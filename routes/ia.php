@@ -1,7 +1,5 @@
 <?php
 
-require_once '../controllers/IAController.php';
-
 $controller = new IAController($pdo);
 
 // Pega os dados enviados em JSON

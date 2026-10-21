@@ -31,7 +31,7 @@ class Questao {
         ");
         $stmt->execute([$enunciado, $origem_quest, $nivel_dificuldade, $alt_correta, $id_materia]);
         return $this->pdo->lastInsertId();
-    }
+    }//testado
 
     // Atualizar questão
     public function atualizar($id, $enunciado, $origem_quest, $nivel_dificuldade, $alt_correta, $id_materia) {
