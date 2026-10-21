@@ -1,0 +1,5 @@
+flask==3.0.2
+chromadb==0.4.22
+sentence-transformers==2.5.1
+anthropic==0.18.1
+requests==2.31.0
